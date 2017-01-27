@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Session</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="newSessionForm" (submit)="addSession()" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Session Title</ion-label>
+      <ion-input formControlName="title" type="title" placeholder="Enter session title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Session Description </ion-label>
+      <ion-input formControlName="description" type="pr" placeholder="Enter session description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Session Hour</ion-label>
+      <ion-datetime displayFormat="HH:mm" formControlName="hour"></ion-datetime>
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Create Session
+    </button>
+
+  </form>
+</ion-content>

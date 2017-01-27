@@ -1,0 +1,105 @@
+
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>exercises</ion-title>
+
+    <ion-buttons end>
+     <button ion-button (click)="goToAddExercise()" class="addexercise">
+       <ion-icon ios="ios-add" md="md-add"></ion-icon>
+     </button>
+   </ion-buttons>
+
+  </ion-navbar>
+
+  <div>
+
+    <ion-segment [(ngModel)]="type">
+
+      <ion-segment-button value="Weight"> Weight </ion-segment-button>
+      <ion-segment-button value="Aerobic"> Aerobics </ion-segment-button>
+      <ion-segment-button value="Gymnastic"> Gymnastic </ion-segment-button>
+
+    </ion-segment>
+
+  </div>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div [ngSwitch]="type">
+
+    <ion-list *ngSwitchCase="'Weight'">
+
+      <ion-item-sliding *ngFor="let exercise of exercises_weight">
+
+        <ion-item (click)="exerciseTapped($event, exercise)">
+          {{exercise.Name}} <br/> <span class='exerciseDate'>{{exercise.Date}}</span>
+          <div class="item-note" item-right>
+            {{exercise.Pr}}
+            <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
+            <span *ngIf="exercise.Unit === 'Time'">Min</span>
+            <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
+          </div>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="removeExercise(exercise)"><ion-icon name="md-trash"></ion-icon></button>
+          <button ion-button color="primary"><ion-icon name="md-ribbon"></ion-icon></button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Aerobic'">
+
+      <ion-item-sliding *ngFor="let exercise of exercises_aerobic">
+
+        <ion-item (click)="exerciseTapped($event, exercise)">
+          {{exercise.Name}} <br/> <span class='exerciseDate'>{{exercise.Date}}</span>
+          <div class="item-note" item-right>
+            {{exercise.Pr}}
+            <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
+            <span *ngIf="exercise.Unit === 'Time'">Min</span>
+            <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
+          </div>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="removeExercise(exercise)"><ion-icon name="md-trash"></ion-icon></button>
+          <button ion-button color="primary"><ion-icon name="md-ribbon"></ion-icon></button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Gymnastic'">
+
+      <ion-item-sliding *ngFor="let exercise of exercises_gymnastic">
+
+        <ion-item (click)="exerciseTapped($event, exercise)">
+          {{exercise.Name}} <br/> <span class='exerciseDate'>{{exercise.Date}}</span>
+          <div class="item-note" item-right>
+            {{exercise.Pr}}
+            <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
+            <span *ngIf="exercise.Unit === 'Time'">Min</span>
+            <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
+          </div>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="removeExercise(exercise)"><ion-icon name="md-trash"></ion-icon></button>
+          <button ion-button color="primary"><ion-icon name="md-ribbon"></ion-icon></button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+
+  </div>
+
+</ion-content>

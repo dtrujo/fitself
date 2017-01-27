@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>Training Details</ion-title>
+
+    <ion-buttons end>
+     <button ion-button (click)="goToAddSession()">
+       <ion-icon ios="ios-add" md="md-add"></ion-icon>
+     </button>
+   </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <h6>{{training.Title}} <br/> {{training.Date}}</h6>
+
+  <ion-card *ngFor="let session of sessions">
+
+    <ion-card-header>
+      {{session.Title}}
+    </ion-card-header>
+
+    <ion-card-content>
+      {{session.Description}}
+      <button right ion-button clear small (click)="deleteSession( session )"> Delete </button>
+      <button right ion-button clear small (click)="sessionDetails( session )"> View </button>
+    </ion-card-content>
+
+  </ion-card>
+
+  <!--<template [ngIf]="!training?.Sessions || training.Sessions.length == 0">
+    No hay sesiones de entrenamiento
+  </template>-->
+
+</ion-content>

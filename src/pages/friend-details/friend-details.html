@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Friend Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div padding end>
+    <ion-segment>
+      <ion-segment-button value="perfil">
+        Perfil
+      </ion-segment-button>
+      <ion-segment-button value="pr">
+        pr
+      </ion-segment-button>
+      <ion-segment-button value="program">
+        programs
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ion-card>
+
+    <ion-card-header>
+      {{ friend.username }}
+    </ion-card-header>
+
+    <ion-card-content>
+      <img src="{{ friend.image }}">
+      <p> {{ friend.name }} {{ friend.surname }} </p>
+      <ion-item>
+        <ion-icon name="people" item-left></ion-icon> Friends
+        <ion-badge item-right>{{ friendCount }}</ion-badge>
+      </ion-item>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar >
+    <button ion-button class='backButton' dark clear (click)="dismiss()">
+      <ion-icon name="md-arrow-back" ></ion-icon>
+    </button>
+    <ion-title class='title'>PR - {{exercise.Name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+
+    <ion-card-header>
+      Actual PR
+    </ion-card-header>
+
+    <ion-card-content>
+      You have
+      <strong>{{exercise.Pr}}
+        <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
+        <span *ngIf="exercise.Unit === 'Time'">Min</span>
+        <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
+      </strong>
+      in
+      <strong>{{exercise.name}}</strong>
+      and you did this score at
+      <i>{{exercise.Date}}</i>
+    </ion-card-content>
+
+  </ion-card>
+
+  <form [formGroup]="newPrForm" (submit)="updatePr(exercise.id)" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Nuevo Pr - {{exercise.name}}</ion-label>
+      <ion-input formControlName="pr" type="pr" placeholder="Enter new value"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Type of execerise</ion-label>
+       <ion-select [(ngModel)]="selected.type" formControlName="type" placeholder="Select exercise type">
+         <ion-option *ngFor="let type of types">{{type}}</ion-option>
+       </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Unit of execerise</ion-label>
+       <ion-select [(ngModel)]="selected.unit" formControlName="unit" placeholder="Select exercise unit">
+         <ion-option *ngFor="let unit of units">{{unit}}</ion-option>
+       </ion-select>
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Update Pr value
+    </button>
+
+  </form>
+  
+</ion-content>

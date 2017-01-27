@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Part</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="newPartForm" (submit)="addPart()" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Part Description </ion-label>
+      <!--<ion-input formControlName="description" type="description" placeholder="Enter part description"></ion-input>-->
+
+      <ion-textarea formControlName="description" type="description" rows="6" placeholder="enter long description here..."></ion-textarea>
+
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Create Part
+    </button>
+
+  </form>
+</ion-content>

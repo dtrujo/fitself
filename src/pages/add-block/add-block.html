@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Block</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="newBlockForm" (submit)="addBlock()" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Block Title</ion-label>
+      <ion-input formControlName="title" type="title" placeholder="Enter block title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Block Description </ion-label>
+      <ion-input formControlName="description" type="description" placeholder="Enter block description"></ion-input>
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Create Block
+    </button>
+
+  </form>
+</ion-content>

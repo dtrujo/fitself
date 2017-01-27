@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>Session Details</ion-title>
+
+    <ion-buttons end>
+     <button ion-button (click)="goToAddBlock()">
+       <ion-icon ios="ios-add" md="md-add"></ion-icon>
+     </button>
+   </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <h6>{{session.Title}} <br/> {{session.Date}}</h6>
+
+  <ion-card *ngFor="let block of blocks">
+
+    <ion-card-header>
+      {{block.Title}}
+    </ion-card-header>
+
+    <ion-card-content>
+      {{block.Description}}
+      <br/>
+
+      <ion-list *ngFor="let part of block.Parts">
+        <ion-item>
+          <div><pre>{{part.Description}}</pre></div>
+          <button right ion-button clear small> Edit </button>
+          <button right ion-button clear small> Value </button>
+          <button right ion-button clear small (click)="deletePart(block.Id, part.Id)"> Delete </button>
+        </ion-item>
+      </ion-list>
+
+      <button right ion-button clear small> View </button>
+      <button right ion-button clear small (click)="goToAddPart(block.Id)"> Add </button>
+      <button right ion-button clear small (click)="deleteBlock(session.Id, block.Id)"> Delete </button>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <!--<template [ngIf]="!session?.Blocks || session.Blocks.length == 0">
+    No hay bloques en la sesión
+  </template>-->
+
+</ion-content>

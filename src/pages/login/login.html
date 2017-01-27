@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LoginPage page.
+-->
+
+<ion-content padding class="login">
+
+  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email"
+        placeholder="Your email address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password"
+        placeholder="Your password"></ion-input>
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Login
+    </button>
+
+  </form>
+
+  <button ion-button block clear (click)="goToSignup()">
+    Create a new account
+  </button>
+
+  <button ion-button block clear (click)="goToResetPassword()">
+    I forgot my password
+  </button>
+
+</ion-content>

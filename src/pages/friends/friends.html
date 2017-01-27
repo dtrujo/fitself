@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Friends</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item *ngFor="let friend of friends" (click)="friendDetails(friend)">
+      <ion-avatar item-left>
+        <img src="{{ friend.image }}">
+      </ion-avatar>
+      <h2>{{ friend.username }}</h2>
+      <p>{{ friend.name }} {{ friend.surname }}</p>
+    </ion-item>
+
+  </ion-list>
+  
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>addTraining</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="newTrainingForm" (submit)="addTraining()" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Traning Title</ion-label>
+      <ion-input formControlName="title" type="title" placeholder="Enter training title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Training Description </ion-label>
+      <ion-input formControlName="description" type="pr" placeholder="Enter training description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Training Date</ion-label>
+      <ion-datetime displayFormat="DD MMM YYYY" formControlName="date"></ion-datetime>
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Create training
+    </button>
+
+  </form>
+</ion-content>

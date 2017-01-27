@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add new exercise</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="newExerciseForm" (submit)="addExercise()" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Exercise name</ion-label>
+      <ion-input formControlName="name" type="name" placeholder="Enter exercise name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Exercise Pr</ion-label>
+      <ion-input formControlName="pr" type="pr" placeholder="Enter exercise pr"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Type of execerise</ion-label>
+
+       <ion-select formControlName="type" placeholder="Select exercise type">
+         <ion-option *ngFor="let type of types">{{type}}</ion-option>
+       </ion-select>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Unit</ion-label>
+
+       <ion-select formControlName="unit" placeholder="Select unit for exercise">
+         <ion-option *ngFor="let unit of units">{{unit}}</ion-option>
+       </ion-select>
+
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Create exercise
+    </button>
+
+  </form>
+
+</ion-content>
