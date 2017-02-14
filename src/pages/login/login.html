@@ -2,34 +2,44 @@
   Generated template for the LoginPage page.
 -->
 
-<ion-content padding class="login">
+<ion-content class="login">
 
-  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+  <div class="login-container">
 
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input formControlName="email" type="email"
-        placeholder="Your email address"></ion-input>
-    </ion-item>
+    <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
 
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input formControlName="password" type="password"
-        placeholder="Your password"></ion-input>
-    </ion-item>
+      <div class="item">
+        <ion-icon class="left user"></ion-icon>
+        <ion-input class="left" formControlName="email" type="email" placeholder="Email address"></ion-input>
+      </div>
 
-    <button ion-button block type="submit">
-      Login
+      <div class="item">
+        <ion-icon class="left lock"></ion-icon>
+        <ion-input class="left" formControlName="password" type="password" placeholder="Password"></ion-input>
+      </div>
+
+      <button color="white" ion-button block type="submit">
+        Login
+      </button>
+
+    </form>
+
+    <button ion-button clear (click)="goToSignup()" class="left">
+      Create account
     </button>
 
-  </form>
+    <button ion-button clear (click)="goToResetPassword()" class="right">
+      Forgot password?
+    </button>
 
-  <button ion-button block clear (click)="goToSignup()">
-    Create a new account
-  </button>
-
-  <button ion-button block clear (click)="goToResetPassword()">
-    I forgot my password
-  </button>
+  </div>
 
 </ion-content>
+
+<ion-footer no-border>
+
+  <ion-toolbar>
+    <ion-title>Design by <img class="logo-footer" src="assets/images/codexulogo.png"></ion-title>
+  </ion-toolbar>
+
+</ion-footer>
