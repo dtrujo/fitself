@@ -1,0 +1,27 @@
+// Neo Font
+// Google
+// Apache License, version 2.0
+// http://www.apache.org/licenses/LICENSE-2.0.html
+
+$neo-font-path: $font-path !default;
+
+@font-face {
+  font-family: "Neo";
+  font-style: normal;
+  font-weight: lighter;
+  src: local("Neo Light"), url("#{$neo-font-path}/neo-sans-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Neo";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Neo Medium"), url("#{$neo-font-path}/neo-sans-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Neo";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Neo Black"), url("#{$neo-font-path}/neo-sans-black.woff") format("woff");
+}
