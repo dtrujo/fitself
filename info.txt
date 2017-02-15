@@ -1,3 +1,9 @@
+Node version: v7.5.0
+
+Cordova version: 6.5.0
+
+Config.xml file: 
+
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.fitself514182" version="0.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>fitself</name>
@@ -33,11 +39,10 @@
   </platform>
   <preference name="ShowSplashScreen" value="true"/>
   <preference name="SplashScreen" value="screen"/>
-  <!--<preference name="SplashScreenDelay" value="30000"/>-->
+  <preference name="SplashScreenDelay" value="30000"/>
   <preference name="AutoHideSplashScreen" value="false"/>
   <preference name="SplashShowOnlyFirstTime" value="false"/>
-  <preference name="FadeSplashScreen" value="true"/>
-  <preference name="FadeSplashScreenDuration" value="2000"/>
+  <preference name="FadeSplashScreen" value="false"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -71,3 +76,15 @@
   <engine name="android" spec="6.1.0"/>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
 </widget>
+
+Plugins: 
+
+cordova-plugin-console,cordova-plugin-crosswalk-webview,cordova-plugin-device,cordova-plugin-inappbrowser,cordova-plugin-splashscreen,cordova-plugin-statusbar,cordova-plugin-whitelist,ionic-plugin-keyboard
+
+Error retrieving Android platform information: 
+Android SDK is not set up properly. Make sure that the Android SDK 'tools' and 'platform-tools' directories are in the PATH variable. 
+
+Error: cmd: Command failed with exit code 1 Error output:
+"android" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
