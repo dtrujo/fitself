@@ -14,3 +14,80 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+$neo-font-path: $font-path !default;
+
+
+/*
+  Neo Font
+*/
+
+
+@font-face {
+  font-family: "Neo";
+  font-style: normal;
+  font-weight: 100;
+  src: local("Neo Light"), url("#{$neo-font-path}/neo-sans-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Neo";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Neo Medium"), url("#{$neo-font-path}/neo-sans-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Neo";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Neo Black"), url("#{$neo-font-path}/neo-sans-black.woff") format("woff");
+}
+
+
+/*
+  Avenir
+*/
+
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Avenir LT Std 35 Light'), url('#{$neo-font-path}/AvenirLTStd-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Avenir LT Std 45 Book'), url('#{$neo-font-path}/AvenirLTStd-Book.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Avenir LT Std 55 Roman'), url('#{$neo-font-path}/AvenirLTStd-Roman.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Avenir LT Std 65 Medium'), url('#{$neo-font-path}/AvenirLTStd-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Avenir LT Std 85 Heavy'), url('#{$neo-font-path}/AvenirLTStd-Heavy.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Avenir LT Std 95 Black'), url('#{$neo-font-path}/AvenirLTStd-Black.woff') format('woff');
+}

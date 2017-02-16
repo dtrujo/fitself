@@ -11,6 +11,7 @@ import { AuthData } from '../../providers/auth-data';
    Class for the LoginPage page.
 */
 @Component({
+  selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
