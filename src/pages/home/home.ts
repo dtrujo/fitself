@@ -9,6 +9,7 @@ import firebase from 'firebase';
   Class for the HomePage page.
 */
 @Component({
+  selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit, OnDestroy {

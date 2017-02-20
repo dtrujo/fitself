@@ -10,20 +10,54 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="home">
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>app/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-  <h2>User data</h2>
-  <p>
-      {{currentUser.name}}
-  </p>
-  <img src="{{currentUser.image}}">
+<ion-content padding class="home no-header">
+
+  <div class="top-container">
+
+  </div>
+
+ 
+  <div class="home-container">
+    <div class="user-info-container">
+        <img class="rounded-img user-img" src="{{currentUser.image}}"/>
+        <p>{{currentUser.name}}</p>
+        <h2>Diego Trujillo García</h2>
+        <div class="item">
+            <ion-icon class="fa fa-map-marker"><span>Las Palmas</span></ion-icon>
+        </div>
+    </div>
+
+
+    <div class="social-container">
+     <ion-grid>
+      <ion-row>
+        <ion-col class="center">
+          <h2>201</h2>
+          <p>Friends</p>
+        </ion-col>
+        <ion-col class="center">
+          <h2>201</h2>
+          <p>Friends</p>
+        </ion-col>
+        <ion-col class="center">
+          <h2>201</h2>
+          <p>Friends</p>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="affiliated-container">
+        <p>Affiliated in</p>
+        <img src="./assets/images/logo-affiliated.png"/>
+    </div>
+
+
+  </div>
+
+  
+
+
+ 
 
 </ion-content>
