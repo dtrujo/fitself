@@ -32,11 +32,16 @@ $colors: (
   dark:       #222,
   white:      #ffffff,
   purple:     #350653,
+  pink:       #FC3768,
+  transparent: rgba(255,255,255,.0)
 );
 
+$white:           #ffffff;
+$aqua-button:     #0ACCD8;
 $blue-gradient:   #198091;
 $purple-gradient: #350653;
-$dark-gray: #353535;
+$dark-gray:       #353535;
+$semi-transparent:     rgba(255,255,255,.3);
 
 
 // App iOS Variables

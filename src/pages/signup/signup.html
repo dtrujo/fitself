@@ -3,49 +3,58 @@
 -->
 <ion-header>
 
-  <ion-navbar color="purple">
-    <ion-title>signup</ion-title>
+  <ion-navbar color="transparent">
+
+    <ion-title>Sign up</ion-title>
+
+    <ion-buttons end>
+
+      <button (click)="goToNextStep()" class="header-button">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding class="signup">
 
-  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+  <button ion-button round='true' class="image-button">
+    <ion-icon name="camera"></ion-icon>
+  </button>
 
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input formControlName="email" type="email"
-        placeholder="Your email address"></ion-input>
-    </ion-item>
+  <div class="signup-container">
 
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input formControlName="password" type="password"
-        placeholder="Your password"></ion-input>
-    </ion-item>
+    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
 
-    <ion-item>
-      <ion-label stacked>Username</ion-label>
-      <ion-input formControlName="username" type="text"
-        placeholder="Your username"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label stacked>Name</ion-label>
-      <ion-input formControlName="name" type="text"
-        placeholder="Your name"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-input formControlName="surname" type="text" placeholder="Surname"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label stacked>Surname</ion-label>
-      <ion-input formControlName="surname" type="text"
-        placeholder="Your surname"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
 
-    <button ion-button block type="submit">
-      Create an Account
-    </button>
-  </form>
+      <ion-item>
+        <ion-input formControlName="username" type="text" placeholder="Username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+      </ion-item>
+
+      <!--<button ion-button type="submit" round='true'>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>-->
+
+    </form>
+
+  </div>
 
 </ion-content>
