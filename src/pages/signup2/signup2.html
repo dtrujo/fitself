@@ -1,0 +1,64 @@
+<!--
+  Generated template for the SignupPage page.
+-->
+<ion-header>
+
+  <ion-navbar color="transparent">
+    <ion-title>Sign up</ion-title>
+
+    <ion-buttons end>
+
+      <button class="header-button">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="signup2">
+
+  <div class="signup2-container">
+
+    <form [formGroup]="signup2Form" (submit)="signup2User()" novalidate>
+
+      <ion-item>
+        <ion-label class="light-label">Box</ion-label>
+        <ion-select>
+          <ion-option value="Independient" selected="true">Independient</ion-option>
+          <ion-option value="Crossfit-kz">Crossfit Kz</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="center">
+        <ion-img width="120" src="assets/images/logokz.png"></ion-img>
+      </div>
+
+      <ion-item>
+        <ion-input formControlName="name" type="text" placeholder="City"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="surname" type="text" placeholder="Birthday"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="small-label">International System of Units</ion-label>
+        <ion-toggle checked="true" color='pink'></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="username" type="text" placeholder="Tall"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="password" type="password" placeholder="Weight"></ion-input>
+      </ion-item>
+
+    </form>
+
+  </div>
+
+</ion-content>

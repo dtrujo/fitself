@@ -1,2 +1,187 @@
-.home {
+
+
+page-home{
+
+
+	/*
+		overwrite styles
+	*/
+
+
+	h2 {
+		font-size: 17px;
+	}
+	ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: -9999;
+  }
+	ion-icon span{
+		color: $custom-red;
+		font-size: 12px;
+		margin-left: 10px;
+		font-family: $custom-secondary-font
+	}
+	ion-col h2{
+		margin-bottom: 0px;
+	}
+	ion-col p{
+		margin-top:0px;
+		color: $light-gray;
+		font-weight: 100;
+		font-size: 12px;
+	}
+
+
+	/*
+		Customs Button
+	*/
+
+
+	.image-button {
+		font-size: 35px;
+		color: #ffffff;
+		padding: 45px;
+		height: 0em;
+		background: $semi-transparent;
+		width: 0%;
+		position: fixed;
+		left: 37%;
+		top: 15%;
+	}
+	.header-button {
+		background: none;
+		font-size: 2rem;
+		color: #0ACCD8;
+		margin-right: 15px;
+	}
+	.fa-map-marker {
+		font-size: 18px;
+    margin-top: 5px;
+	}
+
+
+	/*
+		Header and navbar
+	*/
+
+
+	.toolbar-title{
+		color:white !important;
+		font-weight: 500;
+	}
+  .header-ios .toolbar-ios:last-child .toolbar-background-ios{
+    border: none;
+  }
+	.toolbar {
+		.toolbar-background{
+			background: transparent;
+		}
+	}
+
+
+	/*
+		Gradient
+	*/
+
+
+  .top-container {
+    background: url(../assets/images/home-bg.png) top center no-repeat;
+    background-size: cover;
+    height: 35%;
+
+    &:before {
+      content: '';
+  	  position: fixed;
+  	  top: 0;
+  	  right: 0;
+  	  bottom: 0;
+  	  left: 0;
+  	  background-image: linear-gradient(180deg,$blue-gradient,$purple-gradient);
+  	  opacity: .9;
+  	  height:32.5%;
+    }
+  }
+
+
+  /*
+		Content
+	*/
+
+
+	.scroll-content{
+  	padding: 0 !important;
+  	margin-top: 0px !important;
+	}
+	.home-container {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+	 }
+  .rounded-img{
+		border-radius: 100px;
+	  border:3px solid lightgray;
+  }
+	.user-info-container img{
+		width: 30%;
+	}
+	.user-info-container, .affiliated-container{
+		font-family: $custom-principal-font;
+		text-align: center;
+		color: $dark-gray;
+	}
+	.user-info-container p, .affiliated-container p{
+		font-family: $custom-secondary-font;
+		font-weight: 100;
+		font-size: 12px;
+		letter-spacing: 0.07em;
+		color: $light-gray;
+		margin-bottom: 0px;
+	}
+	.user-info-container h2, .affiliated-container h2{
+		margin: 10px 0;
+		margin-bottom: 0px;
+	}
+	.user-info-container ion-icon{
+		color: $custom-red;
+	}
+	.left{
+		float: left;
+	}
+	.center{
+		text-align: center;
+	}
+	.social-container{
+		width: 85%;
+		margin: 35px auto 25px auto;
+	}
+	.affiliated-container img{
+		width: 25%;
+		margin-top: 10px;
+	}
+
+
+	/*
+		Header & Footer
+	*/
+
+
+	ion-header::after {
+		background: transparent;
+		background-image: none !important;
+	}
+  .header-md::after{
+    background: none;
+  }
+  .header-ios .toolbar-ios:last-child .toolbar-background-ios{
+    border: none;
+  }
+
 }

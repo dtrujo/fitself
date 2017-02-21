@@ -16,6 +16,7 @@ import { FriendsPage } from '../pages/friends/friends';
 import { ProfilePage } from '../pages/profile/profile';
 import { ExercisesPage } from '../pages/exercises/exercises';
 import { SignupPage } from '../pages/signup/signup';
+import { Signup2Page } from '../pages/signup2/signup2';
 import { ResetPasswordPage } from '../pages/resetpassword/resetpassword';
 import { PrPage } from '../pages/pr/pr';
 import { AddexercisePage } from '../pages/addexercise/addexercise';
@@ -61,6 +62,7 @@ import { ObjectToArray } from '../pipes/objectToArray';
     TabsPage,
     ExercisesPage,
     SignupPage,
+    Signup2Page,
     ResetPasswordPage,
     PrPage,
     AddexercisePage,
@@ -77,7 +79,9 @@ import { ObjectToArray } from '../pipes/objectToArray';
     ObjectToArray
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      backButtonText: ''
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -92,6 +96,7 @@ import { ObjectToArray } from '../pipes/objectToArray';
     TabsPage,
     ExercisesPage,
     SignupPage,
+    Signup2Page,
     ResetPasswordPage,
     PrPage,
     AddexercisePage,

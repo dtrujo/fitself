@@ -3,19 +3,18 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
-import { Signup2Page } from '../signup2/signup2';
 import { AuthData } from '../../providers/auth-data';
 
 /**
   Generated class for the SignupPage page.
 */
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html'
+  selector: 'page-signup-2',
+  templateUrl: 'signup2.html'
 })
-export class SignupPage {
+export class Signup2Page {
 
-  signupForm: any;
+  signup2Form: any;
 
   /**
     Constructor
@@ -27,8 +26,7 @@ export class SignupPage {
                public alertCtrl: AlertController ) {
 
     // validate form
-    this.signupForm = formBuilder.group({
-      email: ['', Validators.required],
+    this.signup2Form = formBuilder.group({
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
       username: ['', Validators.required],
       name: ['', Validators.required],
@@ -36,37 +34,20 @@ export class SignupPage {
     })
   }
 
-
-  /**
-    [goToNextStep description]
-    Go to the second part of the user details
-  */
-  goToNextStep() {
-    this.navCtrl.push( Signup2Page );
-  }
-
-  
   /**
     [signupUser description]
   */
   signupUser(){
 
-
-    this.navCtrl.push(Signup2Page);
-
-    if (!this.signupForm.valid){
-      console.log("no validdo");
-      console.log(this.signupForm.value);
+    if (!this.signup2Form.valid){
+      console.log(this.signup2Form.value);
     } else {
-
-      this.navCtrl.push(Signup2Page);
-
-      /*this.authData.signupUser(
-        this.signupForm.value.email,
-        this.signupForm.value.password,
-        this.signupForm.value.username,
-        this.signupForm.value.name,
-        this.signupForm.value.surname).then(() => {
+      this.authData.signupUser(
+        '',
+        this.signup2Form.value.password,
+        this.signup2Form.value.username,
+        this.signup2Form.value.name,
+        this.signup2Form.value.surname).then(() => {
           this.navCtrl.setRoot(HomePage);
       }, (error) => {
 
@@ -86,7 +67,7 @@ export class SignupPage {
         dismissOnPageChange: true,
       });
 
-      loading.present();*/
+      loading.present();
     }
   }
 }
