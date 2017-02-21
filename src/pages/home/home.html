@@ -1,47 +1,33 @@
 <ion-header>
-
   <ion-navbar>
-
     <ion-title>Home</ion-title>
-
     <button ion-button menuToggle class="header-button">
       <ion-icon name="menu"></ion-icon>
     </button>
-
     <ion-buttons end>
       <button ion-button (click)="logOut()" class="header-button">
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
-
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding class="home no-header">
-
   <div class="top-container"></div>
-
   <div class="home-container">
 
     <div class="user-info-container">
-
-        <img src="{{currentUser.image}}"/>
-        <p>{{currentUser.name}}</p>
-        <h2>Diego Trujillo</h2>
-
-        <div class="item">
-            <ion-icon class="fa fa-map-marker"><span>Las Palmas</span></ion-icon>
-        </div>
-
+      <img src="{{currentUser.image}}"/>
+      <p>{{currentUser.name}}</p>
+      <h2>Diego Trujillo</h2>
+      <div class="item">
+          <ion-icon class="fa fa-map-marker"><span>Las Palmas</span></ion-icon>
+      </div>
     </div>
 
     <div class="social-container">
-
      <ion-grid>
-
        <ion-row>
-
          <ion-col class="center">
            <h2>201</h2>
            <p>Friends</p>
@@ -58,16 +44,12 @@
          </ion-col>
 
        </ion-row>
-
       </ion-grid>
-
     </div>
 
     <div class="affiliated-container">
-        <p>Affiliated in</p>
-        <img src="assets/images/logo-affiliated.png"/>
+      <p>Affiliated in</p>
+      <img src="assets/images/logo-affiliated.png"/>
     </div>
-
   </div>
-
 </ion-content>
