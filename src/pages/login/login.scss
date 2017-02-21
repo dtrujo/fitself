@@ -42,20 +42,20 @@ page-login {
     transform: translate(-50%, -50%);
     width: 235px;
   }
-  .login form button {
-    text-transform: none;
-    font-family: $custom-principal-font;
-    font-weight: 500;
-    font-size: 16px;
-    color: $dark-gray;
-    margin: 3rem 0.2rem 0.4rem 0.2rem;
-    padding: 27px;
-    height: 2.8em;
-  }
   .login {
     background: url('#{$image-path}/noa.png') top center no-repeat;
     background-size: contain;
 
+    form button {
+      text-transform: none;
+      font-family: $custom-principal-font;
+      font-weight: 500;
+      font-size: 16px;
+      color: $dark-gray;
+      margin: 3rem 0.2rem 0.4rem 0.2rem;
+      padding: 27px;
+      height: 2.8em;
+    }
     &:before {
       content: '';
   	  position: absolute;
@@ -89,24 +89,27 @@ page-login {
   */
 
 
-  .toolbar-background {
-    background: transparent;
-  }
-  .toolbar {
+	.toolbar {
     padding: 55px;
-  }
-  .toolbar-title {
-    font-family: $custom-secondary-font;
-    font-size: 12px;
-    font-weight: 100;
-    text-align: center;
-    color: white;
-    pointer-events: auto;
-    opacity: .8;
-  }
-  .logo-footer{
-    margin-left: 5px;
-    width: 40%;
-  }
+
+		.toolbar-background{
+			@include bar( $transparent );
+		}
+    .toolbar-title{
+      font-family: $custom-secondary-font;
+      font-size: 12px;
+      font-weight: 100;
+      text-align: center;
+      color: white;
+      pointer-events: auto;
+      opacity: .8;
+
+    }
+    img {
+      margin-left: 5px;
+      width: 40%;
+    }
+	}
+
 
 }

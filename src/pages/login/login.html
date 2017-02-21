@@ -1,13 +1,6 @@
-<!--
-  Generated template for the LoginPage page.
--->
-
 <ion-content class="login">
-
   <div class="login-container">
-
     <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
-
       <div class="item">
         <ion-icon class="left user"></ion-icon>
         <ion-input class="left" formControlName="email" type="email" placeholder="Email address"></ion-input>
@@ -21,7 +14,6 @@
       <button color="white" ion-button block type="submit" round='true'>
         Login
       </button>
-
     </form>
 
     <button ion-button clear (click)="goToSignup()" class="left">
@@ -31,15 +23,11 @@
     <button ion-button clear (click)="goToResetPassword()" class="right">
       Forgot password?
     </button>
-
   </div>
-
 </ion-content>
 
 <ion-footer no-border>
-
   <ion-toolbar>
-    <ion-title>Design by <img class="logo-footer" src="assets/images/codexulogo.png"></ion-title>
+    <ion-title>Design by <img src="assets/images/codexulogo.png"></ion-title>
   </ion-toolbar>
-
 </ion-footer>
