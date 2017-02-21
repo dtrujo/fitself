@@ -7,18 +7,18 @@ page-login {
   */
 
 
-  ion-input {
-    color: white;
-    font-family: $custom-principal-font;
-    font-weight: 500;
-    font-size: 15px;
-    width: 80%;
-  }
+  ion-input { @include input( $white ); }
   ion-icon{
-    color: white;
     margin-top: 9px;
     margin-right: 15px;
   }
+
+
+  /*
+    Button
+  */
+
+
   .button-clear {
     text-transform: none;
     padding: 15px 0px 15px 0px;
@@ -27,26 +27,6 @@ page-login {
     font-size: 12px;
     margin: 0;
     font-weight: 500;
-  }
-  .left {
-    float: left;
-  }
-  .right{
-    float: right;
-  }
-
-
-  /*
-    items
-  */
-
-
-  .item {
-    padding-left: 0px;
-    background: transparent;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    height: 45px;
   }
 
 
@@ -87,14 +67,6 @@ page-login {
   	  opacity: .9;
     }
   }
-
-
-  /*
-    Placeholder
-  */
-
-
-  ::-webkit-input-placeholder { color:white !important; font-weight: 100}
 
 
   /*

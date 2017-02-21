@@ -1,5 +1,4 @@
 
-
 page-home{
 
 
@@ -8,27 +7,11 @@ page-home{
 	*/
 
 
-	h2 {
-		font-size: 17px;
-	}
-	ion-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 90px 1px;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    z-index: -9999;
-  }
 	ion-icon span{
 		color: $custom-red;
 		font-size: 12px;
 		margin-left: 10px;
 		font-family: $custom-secondary-font
-	}
-	ion-col h2{
-		margin-bottom: 0px;
 	}
 	ion-col p{
 		margin-top:0px;
@@ -54,12 +37,6 @@ page-home{
 		left: 37%;
 		top: 15%;
 	}
-	.header-button {
-		background: none;
-		font-size: 2rem;
-		color: #0ACCD8;
-		margin-right: 15px;
-	}
 	.fa-map-marker {
 		font-size: 18px;
     margin-top: 5px;
@@ -71,16 +48,9 @@ page-home{
 	*/
 
 
-	.toolbar-title{
-		color:white !important;
-		font-weight: 500;
-	}
-  .header-ios .toolbar-ios:last-child .toolbar-background-ios{
-    border: none;
-  }
 	.toolbar {
 		.toolbar-background{
-			background: transparent;
+			@include bar( $transparent );
 		}
 	}
 
@@ -145,43 +115,22 @@ page-home{
 		color: $light-gray;
 		margin-bottom: 0px;
 	}
-	.user-info-container h2, .affiliated-container h2{
-		margin: 10px 0;
-		margin-bottom: 0px;
-	}
 	.user-info-container ion-icon{
 		color: $custom-red;
 	}
-	.left{
-		float: left;
+	.user-info-container h2{
+		@include h2( 17px, 400, $custom-principal-font, 10px 0 0 0 );
 	}
-	.center{
-		text-align: center;
+	.social-container h2{
+		@include h2( 22px, 400, $custom-secondary-font, 10px 0 0 0 );
 	}
 	.social-container{
 		width: 85%;
-		margin: 35px auto 25px auto;
+		margin: 25px auto;
 	}
 	.affiliated-container img{
 		width: 25%;
 		margin-top: 10px;
 	}
-
-
-	/*
-		Header & Footer
-	*/
-
-
-	ion-header::after {
-		background: transparent;
-		background-image: none !important;
-	}
-  .header-md::after{
-    background: none;
-  }
-  .header-ios .toolbar-ios:last-child .toolbar-background-ios{
-    border: none;
-  }
 
 }

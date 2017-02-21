@@ -1,3 +1,17 @@
 page-friends {
 
+  /*
+    Header and navbar
+  */
+
+
+  .header-ios .toolbar-ios:last-child .toolbar-background-ios{
+    border: none;
+  }
+  .toolbar {
+    .toolbar-background{
+      @include bar( $purple-gradient );
+    }
+  }
+
 }
