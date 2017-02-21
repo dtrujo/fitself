@@ -13,10 +13,6 @@ page-home{
 		margin-left: 10px;
 		font-family: $custom-secondary-font
 	}
-	/*ion-col h2{
-		@include h2( 17px, 400 );
-		margin-bottom: 0px;
-	}*/
 	ion-col p{
 		margin-top:0px;
 		color: $light-gray;
@@ -129,7 +125,7 @@ page-home{
 		@include h2( 22px, 400, $custom-secondary-font, 10px 0 0 0 );
 	}
 	.social-container{
-		width: 85%; 
+		width: 85%;
 		margin: 25px auto;
 	}
 	.affiliated-container img{
