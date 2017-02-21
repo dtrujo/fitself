@@ -41,7 +41,10 @@ page-home{
 		font-size: 18px;
     margin-top: 5px;
 	}
-
+	.fa-map-marker span{
+		position: relative;
+		top: -2px;
+	}
 
 	/*
 		Header and navbar
@@ -119,7 +122,7 @@ page-home{
 		color: $custom-red;
 	}
 	.user-info-container h2{
-		@include h2( 17px, 400, $custom-principal-font, 10px 0 0 0 );
+		@include h2( 17px, 400, $custom-principal-font, 8px 0 0 0 );
 	}
 	.social-container h2{
 		@include h2( 22px, 400, $custom-secondary-font, 10px 0 0 0 );
