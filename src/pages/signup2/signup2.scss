@@ -7,7 +7,21 @@ page-signup-2 {
 
 
   ion-input { @include input( $white ); }
-
+  ion-label {
+    color: $white;
+    font-family: $custom-principal-font;
+  }
+  ion-select {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    font-size: 14px;
+    max-width: none;
+    color: $white;
+    font-family: $custom-principal-font;
+    font-weight: 100;
+  }
   ion-toggle{
     padding: 6px 0px 5px 16px !important;
   }
@@ -95,6 +109,7 @@ page-signup-2 {
   .light-label{
     font-weight: 100;
     font-size: 16px;
+    margin-left: 5px;
     color: white !important;
   }
 
