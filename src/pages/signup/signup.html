@@ -1,34 +1,21 @@
-<!--
-  Generated template for the SignupPage page.
--->
 <ion-header>
-
   <ion-navbar color="transparent">
-
     <ion-title>Sign up</ion-title>
-
     <ion-buttons end>
-
       <button (click)="goToNextStep()" class="header-button">
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
-
     </ion-buttons>
-
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding class="signup">
-
   <button ion-button round='true' class="image-button">
     <ion-icon name="camera"></ion-icon>
   </button>
 
   <div class="signup-container">
-
     <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
-
       <ion-item>
         <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
       </ion-item>
@@ -48,13 +35,6 @@
       <ion-item>
         <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
       </ion-item>
-
-      <!--<button ion-button type="submit" round='true'>
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>-->
-
     </form>
-
   </div>
-
 </ion-content>

@@ -7,39 +7,12 @@ page-home{
 	*/
 
 
-	ion-icon span{
-		color: $custom-red;
-		font-size: 12px;
-		margin-left: 10px;
-		font-family: $custom-secondary-font
-	}
-	ion-col p{
-		margin-top:0px;
-		color: $light-gray;
+	p{
+		font-family: $custom-secondary-font;
 		font-weight: 100;
 		font-size: 12px;
-	}
-
-
-	/*
-		Customs Button
-	*/
-
-
-	.image-button {
-		font-size: 35px;
-		color: #ffffff;
-		padding: 45px;
-		height: 0em;
-		background: $semi-transparent;
-		width: 0%;
-		position: fixed;
-		left: 37%;
-		top: 15%;
-	}
-	.fa-map-marker {
-		font-size: 18px;
-    margin-top: 5px;
+		color: $light-gray;
+		margin:0;
 	}
 
 
@@ -88,49 +61,81 @@ page-home{
   	padding: 0 !important;
   	margin-top: 0px !important;
 	}
+
+
+	/*
+		Home container
+	*/
+
 	.home-container {
-    position: fixed;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+		position: fixed;
+		top: 55%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
 	 }
-  .rounded-img{
-		border-radius: 100px;
-	  border:3px solid lightgray;
-  }
-	.user-info-container img{
-		width: 30%;
-	}
-	.user-info-container, .affiliated-container{
+
+
+	/*
+		User container
+	*/
+
+
+	.user-info-container{
 		font-family: $custom-principal-font;
 		text-align: center;
 		color: $dark-gray;
+
+		h2 { @include h2( 17px, 400, $custom-principal-font, 8px 0 0 0 ); }
+
+		img {
+			width: 30%;
+			margin-bottom: 10px;
+			border-radius: 100px;
+			border:3px solid lightgray;
+		}
+		ion-icon {
+			color: $custom-red;
+			font-size: 18px;
+			margin-top: 5px;
+		}
+		ion-icon span {
+			position: relative;
+			top: -2px;
+			font-size: 12px;
+			margin-left: 10px;
+			font-family: $custom-secondary-font
+		}
 	}
-	.user-info-container p, .affiliated-container p{
-		font-family: $custom-secondary-font;
-		font-weight: 100;
-		font-size: 12px;
-		letter-spacing: 0.07em;
-		color: $light-gray;
-		margin-bottom: 0px;
+
+
+	/*
+		Affiliated container
+	*/
+
+
+	.affiliated-container{
+		font-family: $custom-principal-font;
+		text-align: center;
+		color: $dark-gray;
+
+		img {
+			width: 25%;
+			margin-top: 10px;
+		}
 	}
-	.user-info-container ion-icon{
-		color: $custom-red;
-	}
-	.user-info-container h2{
-		@include h2( 17px, 400, $custom-principal-font, 10px 0 0 0 );
-	}
-	.social-container h2{
-		@include h2( 22px, 400, $custom-secondary-font, 10px 0 0 0 );
-	}
+
+
+	/*
+		Social container
+	*/
+
+
 	.social-container{
 		width: 85%;
-		margin: 25px auto;
-	}
-	.affiliated-container img{
-		width: 25%;
-		margin-top: 10px;
+		margin: 20px auto 25px auto;
+
+		h2 { @include h2( 22px, 400, $custom-secondary-font, 10px 0 0 0 ); }
 	}
 
 }
