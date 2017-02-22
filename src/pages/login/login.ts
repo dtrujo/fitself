@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { StatusBar } from 'ionic-native';
 import { SignupPage } from '../signup/signup';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
@@ -32,6 +33,16 @@ export class LoginPage {
       password: ['', Validators.required]
     })
 
+  }
+
+  /**
+    [ionViewDidEnter description]
+    Change statusbar when enter into view
+  */
+  ionViewDidLoad() {
+    StatusBar.styleDefault();
+    StatusBar.styleLightContent();
+    StatusBar.backgroundColorByHexString('#1B5A68');
   }
 
   /**

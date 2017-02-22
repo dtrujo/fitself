@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { StatusBar } from 'ionic-native';
 import { LoginPage } from '../login/login';
 import { AuthData } from '../../providers/auth-data';
 import { StorageData } from '../../providers/storage-data';
@@ -26,7 +27,17 @@ export class HomePage implements OnInit, OnDestroy {
                public storageData: StorageData,
                public authData: AuthData) {
 
-     this.currentUser = '';
+    this.currentUser = '';
+  }
+
+  /**
+    [ionViewDidEnter description]
+    Change statusbar when enter into view
+  */
+  ionViewDidLoad() {
+    StatusBar.styleDefault();
+    StatusBar.styleLightContent();
+    StatusBar.backgroundColorByHexString('#350653');
   }
 
   /**
