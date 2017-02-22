@@ -1,15 +1,20 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Friends</ion-title>
+    <button ion-button menuToggle class="header-button">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button class="header-button">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
-
+  <ion-searchbar placeholder="Search"></ion-searchbar>
   <ion-list>
-
     <ion-item *ngFor="let friend of friends" (click)="friendDetails(friend)">
       <ion-avatar item-left>
         <img src="{{ friend.image }}">
@@ -17,7 +22,5 @@
       <h2>{{ friend.username }}</h2>
       <p>{{ friend.name }} {{ friend.surname }}</p>
     </ion-item>
-
   </ion-list>
-  
 </ion-content>
