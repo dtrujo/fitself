@@ -12,13 +12,13 @@ page-friends {
     border-bottom: 1px solid $white-smoke;
     padding: 10px 0px 10px 30px;
     margin:0;
-    height: 8.4rem;
+    height: 9rem;
 
     h2 { @include h2( 15px, 400, $custom-principal-font, 0 0 0 0 ); }
 
     ion-avatar img {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       overflow: hidden;
     }
@@ -100,7 +100,7 @@ page-friends {
 
 
   ::-webkit-input-placeholder {
-    color:#f3f3f3;
+    color:$white-smoke;
     font-weight: 100;
     font-family: $custom-principal-font;
   }
