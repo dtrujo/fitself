@@ -1,103 +1,104 @@
 page-exercises {
 
 
-    /*
-      Item
-    */
+  /*
+    Item
+  */
 
 
   .item {
-    background: transparent;
+    background: $white;
     border-bottom: 1px solid $white-smoke;
     padding: 10px;
     margin: 0;
     height: 8.4rem;
-
     h2 {
-      @include h2( 20px, 400, $custom-principal-font, 0 0 6px 0 );
+      @include h2( 18px, 400, $custom-principal-font, 5px 0 0 0 );
+    }
+    ion-icon {
+      display: inline-block;
+      font-size: .85em;
     }
   }
 
 
-    /*
-      overwrite styles
-    */
+  /*
+    overwrite styles
+  */
 
 
-  p {
-    font-family: $custom-secondary-font;
-    font-weight: 100;
-    font-size: 12px;
-    color: $light-gray;
-    margin: 0;
+  hr{
+    width: 1px;
+    float: left;
+    height: 30px !important;
+    margin-right: 22px;
+    border: none;
   }
-
-  [padding] h2:first-child {
-    margin-top: 0;
-  }
-
-
-    /*
-  		Content
-  	*/
-
-
-  ion-label {
-    hr{
-      width: 1px;
-      float: left;
-      height: 35px !important;
-      margin-right: 15%;
-      border: none;
-    }
-  }
-
   ion-avatar{
     width: 20%;
     max-width: 90px;
+    margin:8px 10px 8px 0 !important;
+  }
+  ion-list {
+    margin: 5px 0 16px 0 !important;
+  }
+  ion-note {
+    margin-left: 5px;
+    @include dateFormat(
+      $custom-secondary-font, 17px, 100,
+      $dark-gray !important, 0em, uppercase
+    );
   }
 
-  .exerciseDate {
 
+  /*
+		Content
+	*/
+
+
+  .exerciseDate {
     span{
       width: 100%;
       text-align: center;
     }
-
     .dateMonth{
-      @include dateFormat( $custom-secondary-font, 13px, 200, $aqua-button, 0.4em, uppercase);
-      padding-left: 5px;
-      margin-bottom: 6px;
+      padding-left: 4px;
+      margin-bottom: 5px;
+      @include dateFormat(
+        $custom-secondary-font,
+        12px, 400, $aqua-button, 0.3em, uppercase
+      );
     }
-
     .dateDay{
-      @include dateFormat( $custom-principal-font, 30px, 500, black, 0.05em, uppercase);
       line-height: 25px;
+      @include dateFormat(
+        $custom-principal-font,
+        30px, 500, black, 0em, uppercase
+      );
     }
-
     .dateYear{
-      @include dateFormat( $custom-secondary-font, 12px, 200, $light-gray, 0.4em, uppercase);
       padding: 0px 0 0 3px;
+      @include dateFormat(
+        $custom-secondary-font, 10px, 200,
+        $dark-gray, 0.25em, uppercase
+      );
     }
-
   }
-
-
-  .exerciseTime, ion-note {
-    @include dateFormat( $custom-secondary-font, 15px, 200, $dark-gray !important, 0.06em, uppercase);
+  .exerciseTime {
     margin-left: 5px;
+    @include dateFormat(
+      $custom-secondary-font, 13px, 100,
+      $dark-gray !important, 0em, uppercase
+    );
   }
-
-
-
   .scroll-content {
     padding: 0 !important;
   }
 
 
-    /*
-      Toolbar
-    */
+  /*
+    Toolbar
+  */
 
 
   .toolbar {
@@ -107,22 +108,37 @@ page-exercises {
   }
 
 
-      /*
-        Segments
-      */
+  /*
+    Segments
+  */
 
-    ion-segment {
-      ion-segment-button {
-        @include dateFormat( $custom-principal-font, 13px !important, 200 !important, #a5a5a5 !important, 0.04em, initial !important);
-      }
+
+  ion-segment {
+    height: 52px;
+    background: $white;
+    ion-segment-button {
+      padding: 10px 6px;
+      height: 52px;
+      border-bottom-width: 1px !important;
+      @include dateFormat(
+        $custom-principal-font,
+        13px !important,
+        200 !important,
+        #a5a5a5 !important,
+        0.04em, initial !important
+      );
     }
+  }
+  .segment-button.segment-activated {
+    border-color: #0ACCD8;
+    opacity: 1;
+    border-bottom-width: 2px !important;
+  }
 
 
-
-
-      /*
-        Sliding menu
-      */
+  /*
+    Sliding menu
+  */
 
 
   ion-item-options{
@@ -130,14 +146,10 @@ page-exercises {
       margin: 0px !important;
       height: 100% !important;
       padding: 0 35px !important;
-
       i{
         font-size: 25px !important;
         opacity: 0.7;
       }
     }
   }
-
-
-
 }
