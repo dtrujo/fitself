@@ -215,3 +215,17 @@ ion-title {
 .header-ios .toolbar-ios:last-child .toolbar-background-ios{
   border: none;
 }
+
+
+/*
+  Spinner
+*/
+
+
+.loading-md .loading-wrapper {
+  background: none;
+  box-shadow: none;
+}
+ion-backdrop {
+    opacity: 0.7 !important;
+}

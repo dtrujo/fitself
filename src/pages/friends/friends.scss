@@ -100,7 +100,7 @@ page-friends {
 
 
   ::-webkit-input-placeholder {
-    color:$white-smoke;
+    color:$white-smoke !important;
     font-weight: 100;
     font-family: $custom-principal-font;
   }
