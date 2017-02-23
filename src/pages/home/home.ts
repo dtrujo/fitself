@@ -82,4 +82,12 @@ export class HomePage implements OnInit, OnDestroy {
       this.navCtrl.setRoot(LoginPage);
     });
   }
+
+  /**
+    [goToExercises description]
+  */
+  goToExercises(){
+    this.navCtrl.parent.select(3);
+  }
+
 }

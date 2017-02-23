@@ -1,3 +1,150 @@
 page-friend-details {
 
+
+	/*
+		overwrite styles
+	*/
+
+
+	p{
+		font-family: $custom-secondary-font;
+		font-weight: 100;
+		font-size: 12px;
+		color: $light-gray;
+		margin:0;
+	}
+
+
+	/*
+		Header and navbar
+	*/
+
+
+	.toolbar {
+		.toolbar-background{
+			@include bar( $transparent );
+		}
+	}
+
+
+	/*
+		Gradient
+	*/
+
+
+  .top-container {
+    background: url(../assets/images/home-bg.png) top center no-repeat;
+    background-size: cover;
+    height: 35%;
+    &:before {
+      content: '';
+  	  position: fixed;
+  	  top: 0;
+  	  right: 0;
+  	  bottom: 0;
+  	  left: 0;
+  	  background-image: linear-gradient(180deg,$purple-gradient, $blue-gradient);
+  	  opacity: .95;
+  	  height:32.5%;
+    }
+		button{
+			position: relative;
+			top: 65px;
+			right: 27px;
+			font-size: 14px;
+			padding: 5px 20px;
+			background: none;
+			border: 1px solid #0ACCD8;
+			border-radius: 5px;
+			color: #0ACCD8;
+		}
+  }
+
+
+  /*
+		Content
+	*/
+
+
+	.scroll-content{
+  	padding: 0 !important;
+  	margin-top: 0px !important;
+	}
+
+
+	/*
+		Home container
+	*/
+
+	.home-container {
+		position: fixed;
+		top: 55%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+	 }
+
+
+	/*
+		User container
+	*/
+
+
+	.user-info-container{
+		font-family: $custom-principal-font;
+		text-align: center;
+		color: $dark-gray;
+
+		h2 { @include h2( 17px, 400, $custom-principal-font, 8px 0 0 0 ); }
+
+		img {
+			width: 30%;
+			margin-bottom: 10px;
+			border-radius: 100px;
+			border:3px solid lightgray;
+		}
+		ion-icon {
+			color: $custom-red;
+			font-size: 18px;
+			margin-top: 5px;
+		}
+		ion-icon span {
+			position: relative;
+			top: -2px;
+			font-size: 12px;
+			margin-left: 10px;
+			font-family: $custom-secondary-font
+		}
+	}
+
+
+	/*
+		Affiliated container
+	*/
+
+
+	.affiliated-container{
+		font-family: $custom-principal-font;
+		text-align: center;
+		color: $dark-gray;
+
+		img {
+			width: 25%;
+			margin-top: 10px;
+		}
+	}
+
+
+	/*
+		Social container
+	*/
+
+
+	.social-container{
+		width: 85%;
+		margin: 20px auto 25px auto;
+
+		h2 { @include h2( 22px, 400, $custom-secondary-font, 10px 0 0 0 ); }
+	}
+
 }

@@ -1,42 +1,58 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Friend Details</ion-title>
+    <ion-title>{{ friend.username }}</ion-title>
+    <ion-buttons end>
+      <button ion-button class="header-button">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="home no-header">
+  <div class="top-container">
 
-  <div padding end>
-    <ion-segment>
-      <ion-segment-button value="perfil">
-        Perfil
-      </ion-segment-button>
-      <ion-segment-button value="pr">
-        pr
-      </ion-segment-button>
-      <ion-segment-button value="program">
-        programs
-      </ion-segment-button>
-    </ion-segment>
+    <div class="right">
+      <button type="button" name="button">fitme</button>
+    </div>
+
   </div>
+  <div class="home-container">
 
-  <ion-card>
+    <div class="user-info-container">
+      <img src="{{friend.image}}"/>
+      <p>{{friend.username }}</p>
+      <h2>{{friend.name }} {{friend.surname}}</h2>
+      <div class="item">
+          <ion-icon class="fa fa-map-marker"><span>Las Palmas</span></ion-icon>
+      </div>
+    </div>
 
-    <ion-card-header>
-      {{ friend.username }}
-    </ion-card-header>
+    <div class="social-container">
+     <ion-grid>
+       <ion-row>
+         <ion-col class="center">
+           <h2>{{friendCount}}</h2>
+           <p>Friends</p>
+         </ion-col>
 
-    <ion-card-content>
-      <img src="{{ friend.image }}">
-      <p> {{ friend.name }} {{ friend.surname }} </p>
-      <ion-item>
-        <ion-icon name="people" item-left></ion-icon> Friends
-        <ion-badge item-right>{{ friendCount }}</ion-badge>
-      </ion-item>
-    </ion-card-content>
+         <ion-col class="center">
+           <h2>20</h2>
+           <p>Trainings</p>
+         </ion-col>
 
-  </ion-card>
+         <ion-col class="center">
+           <h2>109</h2>
+           <p>Likes</p>
+         </ion-col>
 
+       </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="affiliated-container">
+      <p>Affiliated in</p>
+      <img src="assets/images/logo-affiliated.png"/>
+    </div>
+  </div>
 </ion-content>
