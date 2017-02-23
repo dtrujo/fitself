@@ -108,6 +108,15 @@ $neo-font-path: $font-path !default;
   margin: $margin;
 }
 
+@mixin dateFormat ( $font-family, $font-size, $font-weight, $color, $letter-spacing, $text-transform ) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  letter-spacing: $letter-spacing;
+  text-transform: $text-transform;
+}
+
 
 /*
   Title

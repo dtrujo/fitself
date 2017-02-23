@@ -5,6 +5,7 @@ import { AddexercisePage } from '../addexercise/addexercise';
 import { ExerciseData } from '../../providers/exercise-data';
 
 @Component({
+  selector: 'page-exercises',
   templateUrl: 'exercises.html'
 })
 export class ExercisesPage implements OnInit, OnDestroy {

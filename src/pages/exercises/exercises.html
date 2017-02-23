@@ -1,29 +1,29 @@
-
 <ion-header>
 
   <ion-navbar>
-
-    <ion-title>exercises</ion-title>
-
+    <ion-title>Exercises</ion-title>
+    <button ion-button menuToggle class="header-button">
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-buttons end>
-     <button ion-button (click)="goToAddExercise()" class="addexercise">
-       <ion-icon ios="ios-add" md="md-add"></ion-icon>
-     </button>
-   </ion-buttons>
+      <button ion-button class="header-button">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
 
   </ion-navbar>
 
-  <div>
+    <div>
 
-    <ion-segment [(ngModel)]="type">
+      <ion-segment [(ngModel)]="type">
 
-      <ion-segment-button value="Weight"> Weight </ion-segment-button>
-      <ion-segment-button value="Aerobic"> Aerobics </ion-segment-button>
-      <ion-segment-button value="Gymnastic"> Gymnastic </ion-segment-button>
+        <ion-segment-button value="Weight"> Weight </ion-segment-button>
+        <ion-segment-button value="Aerobic"> Aerobics </ion-segment-button>
+        <ion-segment-button value="Gymnastic"> Gymnastic </ion-segment-button>
 
-    </ion-segment>
+      </ion-segment>
 
-  </div>
+    </div>
 
 </ion-header>
 
@@ -32,26 +32,72 @@
   <div [ngSwitch]="type">
 
     <ion-list *ngSwitchCase="'Weight'">
-
+      <!--<ion-grid>-->
       <ion-item-sliding *ngFor="let exercise of exercises_weight">
 
         <ion-item (click)="exerciseTapped($event, exercise)">
-          {{exercise.Name}} <br/> <span class='exerciseDate'>{{exercise.Date}}</span>
-          <div class="item-note" item-right>
-            {{exercise.Pr}}
-            <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
-            <span *ngIf="exercise.Unit === 'Time'">Min</span>
-            <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
-          </div>
+
+          <!--<ion-row>
+              <ion-col width-20>
+                <div class="exerciseDate">
+                  <span class='dateMonth left'>{{exercise.Date | date: 'MMM'}}</span>
+                  <span class='dateDay left'>{{exercise.Date | date: 'dd'}}</span>
+                  <span class='dateYear left'>{{exercise.Date | date: 'yyyy'}}</span>
+                </div>
+              </ion-col>
+
+              <ion-col width-80>
+                <div class="exercise-container">
+                  <div class="exerciseInfo">
+                    <h2>{{exercise.Name}}</h2>
+                    <i class="fa fa-clock-o"></i>
+                  </div>
+                </div>
+                  <!--<div class="item-note" item-right>
+                    {{exercise.Pr}}
+                    <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
+                    <span *ngIf="exercise.Unit === 'Time'">Min</span>
+                    <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
+                  </div>
+              </ion-col>
+            </ion-row>-->
+
+          <ion-avatar item-left>
+            <div class="exerciseDate">
+              <span class='dateMonth left'>{{exercise.Date | date: 'MMM'}}</span>
+              <span class='dateDay left'>{{exercise.Date | date: 'dd'}}</span>
+              <span class='dateYear left'>{{exercise.Date | date: 'yyyy'}}</span>
+            </div>
+          </ion-avatar>
+
+
+          <ion-label>
+            <hr>
+            <h2>Cher</h2>
+            <i class="fa fa-clock-o"><span class="exerciseTime">08:13</span></i>
+
+          </ion-label>
+
+          <ion-note item-right>
+            9:38 pm
+          </ion-note>
+
+
+          <div class="button-effect"></div>
+
+
+
         </ion-item>
 
         <ion-item-options side="right">
-          <button ion-button color="danger" (click)="removeExercise(exercise)"><ion-icon name="md-trash"></ion-icon></button>
-          <button ion-button color="primary"><ion-icon name="md-ribbon"></ion-icon></button>
+          <button ion-button color="light" (click)="removeExercise(exercise)">
+            <i class="fa fa-trash-o"></i>
+            <!--<ion-icon name="md-trash"></ion-icon>-->
+          </button>
         </ion-item-options>
 
       </ion-item-sliding>
-
+      <!--  </ion-grid>-->
     </ion-list>
 
     <ion-list *ngSwitchCase="'Aerobic'">
