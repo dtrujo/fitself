@@ -11,7 +11,7 @@ page-exercises {
     border-bottom: 1px solid $white-smoke;
     padding: 10px;
     margin: 0;
-    height: 8.4rem;
+    height: 9.4rem;
     h2 {
       @include h2( 16px, 400, $custom-principal-font, 5px 0 0 0 );
     }
@@ -42,7 +42,7 @@ page-exercises {
   ion-list {
     margin: 0px 0 16px 0 !important;
 
-    .item::last-child {
+    .item:last-child { 
       border-bottom: none !important;
     }
   }

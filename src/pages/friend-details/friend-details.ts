@@ -8,7 +8,9 @@ import { NavController, NavParams } from 'ionic-angular';
 export class FriendDetails {
 
   friend : any;
-  friendCount : number;
+  friendsCount : number;
+  exercisesCount : number;
+
 
   /**
     Constructor
@@ -20,6 +22,7 @@ export class FriendDetails {
      this.friend = this.params.get("friend");
 
      // friend count using keys to length
-     this.friendCount = Object.keys(this.friend.friends).length;
+     this.friendsCount = Object.keys(this.friend.friends).length;
+     this.exercisesCount = Object.keys(this.friend.exercises).length;
   }
 }
