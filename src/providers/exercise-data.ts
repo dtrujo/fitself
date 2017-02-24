@@ -102,7 +102,8 @@ export class ExerciseData {
     return this.userProfile.child(userId + '/exercises/' + exerciseId).update({
       Pr : newPr,
       Type: type,
-      Unit: unit
+      Unit: unit,
+      Date: new Date().toDateString()
     })
   }
 
@@ -129,7 +130,7 @@ export class ExerciseData {
   /**
     [removeExercise description]
     delete exercise of the list
-    @param {string} id  [exercise's id] 
+    @param {string} id  [exercise's id]
   */
   removeExercise( id: string ){
     var userId = this.fireAuth.currentUser.uid;

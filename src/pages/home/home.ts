@@ -19,6 +19,9 @@ export class HomePage implements OnInit, OnDestroy {
   fireAuth : any;
   currentUser : any;
 
+  friendsCount : number;
+  exercisesCount: number;
+
   /**
     Constructor
   */
@@ -52,12 +55,13 @@ export class HomePage implements OnInit, OnDestroy {
 
         if (user) {
           this.authData.user(user.uid).subscribe(data => {
-
             this.ngZone.run(() => {
               this.currentUser = data;
-            });
-
+              this.friendsCount = Object.keys(this.currentUser.friends).length;
+              this.exercisesCount = Object.keys(this.currentUser.exercises).length;
+              });
           });
+          
         } else {
           this.currentUser = '';
         }
@@ -82,4 +86,26 @@ export class HomePage implements OnInit, OnDestroy {
       this.navCtrl.setRoot(LoginPage);
     });
   }
+
+  /**
+    [goToFriends description]
+  */
+  goToFriends(){
+    this.navCtrl.parent.select(1);
+  }
+
+  /**
+    [goToExercises description]
+  */
+  goToExercises(){
+    this.navCtrl.parent.select(2);
+  }
+
+  /**
+    [goToNotebook description]
+  */
+  goToNotebook(){
+    this.navCtrl.parent.select(3);
+  }
+
 }

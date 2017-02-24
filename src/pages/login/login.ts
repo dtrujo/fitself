@@ -54,10 +54,15 @@ export class LoginPage {
     if (!this.loginForm.valid){
       console.log(this.loginForm.value);
     } else {
+
+      // login function to check authdata
       this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then( auth => {
-        this.navCtrl.setRoot(TabsPage);
+
+        // pass loading param to dismiss loading manually
+        this.navCtrl.setRoot(TabsPage, { loading: loading });
       }, error => {
 
+        // present alert to show message error
         let alert = this.alertCtrl.create({
           message: error.message,
           buttons: [{
@@ -69,10 +74,14 @@ export class LoginPage {
         alert.present();
       });
 
+      // loading view dont disable when the new page
+      // is loading. I will dismiss manually loading when the
+      // tabs view has been loaded
       let loading = this.loadingCtrl.create({
-        dismissOnPageChange: true,
+        dismissOnPageChange: false,
       });
 
+      // present loading
       loading.present();
     }
   }

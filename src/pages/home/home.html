@@ -29,18 +29,24 @@
      <ion-grid>
        <ion-row>
          <ion-col class="center">
-           <h2>201</h2>
-           <p>Friends</p>
+           <button type="button" name="button" (click)="goToFriends()">
+             <h2>{{friendsCount}}</h2>
+             <p>Friends</p>
+           </button>
          </ion-col>
 
          <ion-col class="center">
-           <h2>20</h2>
-           <p>Trainings</p>
+           <button type="button" name="button" (click)="goToNotebook()">
+             <h2>20</h2>
+             <p>Trainings</p>
+           </button>
          </ion-col>
 
          <ion-col class="center">
-           <h2>109</h2>
-           <p>Likes</p>
+           <button type="button" name="button" (click)="goToExercises()">
+             <h2>{{exercisesCount}}</h2>
+             <p>Prs</p>
+           </button>
          </ion-col>
 
        </ion-row>

@@ -107,6 +107,14 @@ $neo-font-path: $font-path !default;
   font-family: $font-family;
   margin: $margin;
 }
+@mixin dateFormat ( $font-family, $font-size, $font-weight, $color, $letter-spacing, $text-transform ) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  letter-spacing: $letter-spacing;
+  text-transform: $text-transform;
+}
 
 
 /*
@@ -176,13 +184,13 @@ ion-title {
 */
 
 
-.center{
+.center {
   text-align: center;
 }
 .left {
   float: left;
 }
-.right{
+.right {
   float: right;
 }
 
@@ -199,7 +207,7 @@ ion-title {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   height: 45px;
 }
-.item-inner{
+.item-inner {
   border:none !important;
 }
 
@@ -214,4 +222,18 @@ ion-title {
 }
 .header-ios .toolbar-ios:last-child .toolbar-background-ios{
   border: none;
+}
+
+
+/*
+  Spinner
+*/
+
+
+.loading-md .loading-wrapper {
+  background: none;
+  box-shadow: none;
+}
+ion-backdrop {
+    opacity: 0.7 !important;
 }
