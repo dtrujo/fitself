@@ -1,0 +1,24 @@
+<ion-menu type="push" [content]="content">
+  <ion-content>
+  <div class="down-footer">
+    <ul>
+      <li>
+        <button ion-button>
+          <ion-icon name="settings"></ion-icon>Settings
+        </button>
+      </li>
+      <li>
+        <button ion-button (click)="logOut()">
+          <ion-icon name="log-out"></ion-icon>Logout
+        </button>
+      </li>
+    </ul>
+  </div>
+  </ion-content> 
+  <ion-footer no-border>
+    <ion-toolbar>
+      <ion-title>Design by <img src="assets/images/codexulogo.png"></ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-menu>
+<ion-nav [root]="dashBoardPage" #content swipeBackEnabled="false"></ion-nav>

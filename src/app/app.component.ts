@@ -2,6 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { TabsPage } from '../pages/tabs/tabs';
+import { DashBoardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 
 import firebase from 'firebase';
@@ -12,7 +13,10 @@ import firebase from 'firebase';
 export class MyApp {
   rootPage: any;
 
-  constructor(platform: Platform, public ngZone: NgZone,) {
+  /**
+    Constructor
+  */
+  constructor( platform: Platform, public ngZone: NgZone) {
 
     // firebase object
     var config = {
@@ -35,7 +39,7 @@ export class MyApp {
       // create component to detect is user is loggin or not
       firebase.auth().onAuthStateChanged((user) => {
         this.ngZone.run(() => {
-          user ? this.rootPage = TabsPage : this.rootPage = LoginPage;
+          user ? this.rootPage = DashBoardPage : this.rootPage = LoginPage;
         });
       });
 
