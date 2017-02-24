@@ -22,35 +22,8 @@
 <ion-content padding>
   <div [ngSwitch]="type">
     <ion-list *ngSwitchCase="'Weight'">
-      <!--<ion-grid>-->
       <ion-item-sliding *ngFor="let exercise of exercises_weight">
         <ion-item (click)="exerciseTapped($event, exercise)">
-
-          <!--<ion-row>
-              <ion-col width-20>
-                <div class="exerciseDate">
-                  <span class='dateMonth left'>{{exercise.Date | date: 'MMM'}}</span>
-                  <span class='dateDay left'>{{exercise.Date | date: 'dd'}}</span>
-                  <span class='dateYear left'>{{exercise.Date | date: 'yyyy'}}</span>
-                </div>
-              </ion-col>
-
-              <ion-col width-80>
-                <div class="exercise-container">
-                  <div class="exerciseInfo">
-                    <h2>{{exercise.Name}}</h2>
-                    <i class="fa fa-clock-o"></i>
-                  </div>
-                </div>
-                  <!--<div class="item-note" item-right>
-                    {{exercise.Pr}}
-                    <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
-                    <span *ngIf="exercise.Unit === 'Time'">Min</span>
-                    <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
-                  </div>
-              </ion-col>
-            </ion-row>-->
-
           <ion-avatar item-left>
             <div class="exerciseDate">
               <span class='dateMonth left'>{{exercise.Date | date: 'MMM'}}</span>
@@ -60,11 +33,14 @@
           </ion-avatar>
           <ion-label>
             <hr>
-            <h2>Cher</h2>
+            <h2>{{exercise.Name}}</h2>
             <ion-icon name="ios-time-outline"><span class="exerciseTime">08:13</span></ion-icon>
           </ion-label>
           <ion-note item-right>
-            9:38 pm
+            {{exercise.Pr}}
+            <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
+            <span *ngIf="exercise.Unit === 'Time'">Min</span>
+            <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
           </ion-note>
           <div class="button-effect"></div>
         </ion-item>
@@ -72,48 +48,69 @@
         <ion-item-options side="right">
           <button ion-button color="light" (click)="removeExercise(exercise)">
             <i class="fa fa-trash-o"></i>
-            <!--<ion-icon name="md-trash"></ion-icon>-->
           </button>
         </ion-item-options>
-
       </ion-item-sliding>
-      <!--  </ion-grid>-->
     </ion-list>
 
     <ion-list *ngSwitchCase="'Aerobic'">
       <ion-item-sliding *ngFor="let exercise of exercises_aerobic">
         <ion-item (click)="exerciseTapped($event, exercise)">
-          {{exercise.Name}} <br/> <span class='exerciseDate'>{{exercise.Date}}</span>
-          <div class="item-note" item-right>
+          <ion-avatar item-left>
+            <div class="exerciseDate">
+              <span class='dateMonth left'>{{exercise.Date | date: 'MMM'}}</span>
+              <span class='dateDay left'>{{exercise.Date | date: 'dd'}}</span>
+              <span class='dateYear left'>{{exercise.Date | date: 'yyyy'}}</span>
+            </div>
+          </ion-avatar>
+          <ion-label>
+            <hr>
+            <h2>{{exercise.Name}}</h2>
+            <ion-icon name="ios-time-outline"><span class="exerciseTime">08:13</span></ion-icon>
+          </ion-label>
+          <ion-note item-right>
             {{exercise.Pr}}
             <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
             <span *ngIf="exercise.Unit === 'Time'">Min</span>
             <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
-          </div>
+          </ion-note>
+          <div class="button-effect"></div>
         </ion-item>
-
         <ion-item-options side="right">
-          <button ion-button color="danger" (click)="removeExercise(exercise)"><ion-icon name="md-trash"></ion-icon></button>
-          <button ion-button color="primary"><ion-icon name="md-ribbon"></ion-icon></button>
+          <button ion-button color="light" (click)="removeExercise(exercise)">
+            <i class="fa fa-trash-o"></i>
+          </button>
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
-
+    
     <ion-list *ngSwitchCase="'Gymnastic'">
       <ion-item-sliding *ngFor="let exercise of exercises_gymnastic">
         <ion-item (click)="exerciseTapped($event, exercise)">
-          {{exercise.Name}} <br/> <span class='exerciseDate'>{{exercise.Date}}</span>
-          <div class="item-note" item-right>
+          <ion-avatar item-left>
+            <div class="exerciseDate">
+              <span class='dateMonth left'>{{exercise.Date | date: 'MMM'}}</span>
+              <span class='dateDay left'>{{exercise.Date | date: 'dd'}}</span>
+              <span class='dateYear left'>{{exercise.Date | date: 'yyyy'}}</span>
+            </div>
+          </ion-avatar>
+          <ion-label>
+            <hr>
+            <h2>{{exercise.Name}}</h2>
+            <ion-icon name="ios-time-outline"><span class="exerciseTime">08:13</span></ion-icon>
+          </ion-label>
+          <ion-note item-right>
             {{exercise.Pr}}
             <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
             <span *ngIf="exercise.Unit === 'Time'">Min</span>
             <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
-          </div>
+          </ion-note>
+          <div class="button-effect"></div>
         </ion-item>
-
         <ion-item-options side="right">
-          <button ion-button color="danger" (click)="removeExercise(exercise)"><ion-icon name="md-trash"></ion-icon></button>
-          <button ion-button color="primary"><ion-icon name="md-ribbon"></ion-icon></button>
+          <button ion-button color="light" (click)="removeExercise(exercise)">
+            <i class="fa fa-trash-o"></i>
+          </button>
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>

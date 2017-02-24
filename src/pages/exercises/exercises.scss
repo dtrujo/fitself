@@ -13,7 +13,7 @@ page-exercises {
     margin: 0;
     height: 8.4rem;
     h2 {
-      @include h2( 18px, 400, $custom-principal-font, 5px 0 0 0 );
+      @include h2( 16px, 400, $custom-principal-font, 5px 0 0 0 );
     }
     ion-icon {
       display: inline-block;
@@ -40,13 +40,17 @@ page-exercises {
     margin:8px 10px 8px 0 !important;
   }
   ion-list {
-    margin: 5px 0 16px 0 !important;
+    margin: 0px 0 16px 0 !important;
+
+    .item::last-child {
+      border-bottom: none !important;
+    }
   }
   ion-note {
     margin-left: 5px;
     @include dateFormat(
       $custom-secondary-font, 17px, 100,
-      $dark-gray !important, 0em, uppercase
+      $dark-gray !important, 0em, none
     );
   }
 
@@ -117,8 +121,8 @@ page-exercises {
     height: 52px;
     background: $white;
     ion-segment-button {
-      padding: 10px 6px;
-      height: 52px;
+      padding: 5px !important;
+      height: 51px !important;
       border-bottom-width: 1px !important;
       @include dateFormat(
         $custom-principal-font,

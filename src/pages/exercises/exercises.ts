@@ -45,6 +45,7 @@ export class ExercisesPage implements OnInit, OnDestroy {
                 exercise.Name = data.Name;
                 exercise.Type = data.Type;
                 exercise.Unit = data.Unit;
+                exercise.Date = data.Date;
               }
             });
             break;
@@ -55,6 +56,7 @@ export class ExercisesPage implements OnInit, OnDestroy {
                 exercise.Name = data.Name;
                 exercise.Type = data.Type;
                 exercise.Unit = data.Unit;
+                exercise.Date = data.Date;
               }
             });
             break;
@@ -65,6 +67,7 @@ export class ExercisesPage implements OnInit, OnDestroy {
                 exercise.Name = data.Name;
                 exercise.Type = data.Type;
                 exercise.Unit = data.Unit;
+                exercise.Date = data.Date;
               }
             });
             break;
