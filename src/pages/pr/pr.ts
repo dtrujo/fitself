@@ -7,6 +7,7 @@ import { ExerciseData } from '../../providers/exercise-data';
   Class for the PrPage page.
 */
 @Component({
+  selector: 'page-pr',
   templateUrl: 'pr.html'
 })
 export class PrPage {
