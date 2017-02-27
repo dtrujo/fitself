@@ -16,6 +16,7 @@ export class TabsPage {
   tab3Root: any;
   tab4Root: any;
   loading: any;
+  currentUser : any;
 
   constructor( public params: NavParams ) {
 
@@ -26,11 +27,12 @@ export class TabsPage {
     this.tab3Root = ExercisesPage;
     this.tab4Root = NotebookPage;
 
+    /*this.currentUser = currentUser;*/
     this.loading = this.params.get("loading");
   }
 
   /**
-    [ionViewDidEnter description]    
+    [ionViewDidEnter description]
   */
   ionViewDidEnter(){
     if(this.loading)
