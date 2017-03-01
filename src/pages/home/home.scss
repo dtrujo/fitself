@@ -79,7 +79,7 @@ page-home{
 
 	.home-container {
 		position: fixed;
-		top: 55%;
+		top: 56%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 100%;
@@ -143,7 +143,7 @@ page-home{
 
 	.social-container{
 		width: 85%;
-		margin: 20px auto 25px auto;
+		margin: 20px auto 35px auto;
 
 		h2 { @include h2( 22px, 400, $custom-secondary-font, 10px 0 0 0 ); }
 	}

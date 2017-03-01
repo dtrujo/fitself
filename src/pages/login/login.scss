@@ -45,7 +45,6 @@ page-login {
   .login {
     background: url('#{$image-path}/noa.png') top center no-repeat;
     background-size: contain;
-
     form button {
       text-transform: none;
       font-family: $custom-principal-font;
@@ -91,7 +90,6 @@ page-login {
 
 	.toolbar {
     padding: 55px;
-
 		.toolbar-background{
 			@include bar( $transparent );
 		}
