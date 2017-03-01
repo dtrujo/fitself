@@ -19,8 +19,8 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item-sliding *ngFor="let training of trainings" (click)="trainingDetails(training)">
-      <ion-item >
+    <ion-item-sliding *ngFor="let training of trainings" >
+      <ion-item (click)="trainingDetails(training)">
         <ion-avatar item-left>
           <div class="trainingDate">
             <span class='dateMonth left'>{{training.Date | date: 'MMM'}}</span>
