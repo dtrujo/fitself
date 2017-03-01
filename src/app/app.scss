@@ -234,9 +234,6 @@ ion-title {
   background: none;
   box-shadow: none;
 }
-ion-backdrop {
-    opacity: 0.7 !important;
-}
 
 
 /*
@@ -251,5 +248,27 @@ ion-header{
   }
   .toolbar-title-md{
     margin-top: 23px !important;
+  }
+}
+
+
+
+/*
+  Action sheet
+*/
+
+
+ion-action-sheet{
+  .action-sheet-title{
+    font-family: $custom-principal-font !important;
+    padding: 20px 30px !important;
+    font-weight: 200;
+  }
+  .action-sheet-cancel{
+    color:red !important;
+  }
+  button {
+    font-family: $custom-principal-font !important;
+    padding: 20px 30px !important;
   }
 }

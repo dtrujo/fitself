@@ -1,2 +1,170 @@
-.addtraning { font-size: 2rem; }
-page-notebook {}
+page-notebook {
+
+
+  /*
+    Action sheet
+  */
+
+
+  .action-sheet-md .action-sheet-button {
+    font-family: $custom-principal-font !important;
+  }
+
+
+  /*
+    Item
+  */
+
+
+  .item {
+    background: $white;
+    border-bottom: 1px solid $white-smoke;
+    padding: 10px;
+    margin: 0;
+    height: 9.4rem;
+    h2 {
+      @include h2( 16px, 400, $custom-principal-font, 5px 0 0 0 );
+    }
+    ion-icon {
+      display: inline-block;
+      font-size: .85em;
+    }
+  }
+
+
+  /*
+    overwrite styles
+  */
+
+
+  hr{
+    width: 1px;
+    float: left;
+    height: 34px !important;
+    margin-right: 22px;
+    border: none;
+  }
+  ion-avatar{
+    width: 18%;
+    max-width: 90px;
+    margin:8px 8px 8px 0 !important;
+  }
+  ion-list {
+    margin: 0px 0 16px 0 !important;
+
+    .item:last-child {
+      border-bottom: none !important;
+    }
+  }
+  ion-note {
+    margin-left: 5px;
+    @include dateFormat(
+      $custom-secondary-font, 17px, 100,
+      $dark-gray !important, 0em, none
+    );
+  }
+
+
+  /*
+		Content
+	*/
+
+
+  .trainingDate {
+    span{
+      width: 100%;
+      text-align: center;
+    }
+    .dateMonth{
+      padding-left: 4px;
+      margin-bottom: 5px;
+      @include dateFormat(
+        $custom-secondary-font,
+        12px, 400, $aqua-button, 0.3em, uppercase
+      );
+    }
+    .dateDay{
+      line-height: 25px;
+      @include dateFormat(
+        $custom-principal-font,
+        30px, 500, black, 0em, uppercase
+      );
+    }
+    .dateYear{
+      padding: 0px 0 0 3px;
+      @include dateFormat(
+        $custom-secondary-font, 10px, 200,
+        $dark-gray, 0.25em, uppercase
+      );
+    }
+  }
+  .trainingAuthor {
+    margin-left: 5px;
+    margin-top: 2px;
+    @include dateFormat(
+      $custom-secondary-font, 14px, 100,
+      $dark-gray !important, 0em, lowercase
+    );
+  }
+  .scroll-content {
+    padding: 0 !important;
+  }
+
+
+  /*
+    Toolbar
+  */
+
+
+  .toolbar {
+    .toolbar-background {
+      @include bar( $purple-gradient );
+    }
+  }
+
+
+  /*
+    Segments
+  */
+
+
+  ion-segment {
+    height: 52px;
+    background: $white;
+    ion-segment-button {
+      padding: 5px !important;
+      height: 51px !important;
+      border-bottom-width: 1px !important;
+      @include dateFormat(
+        $custom-principal-font,
+        13px !important,
+        200 !important,
+        #a5a5a5 !important,
+        0.04em, initial !important
+      );
+    }
+  }
+  .segment-button.segment-activated {
+    border-color: #0ACCD8;
+    opacity: 1;
+    border-bottom-width: 2px !important;
+  }
+
+
+  /*
+    Sliding menu
+  */
+
+
+  ion-item-options{
+    button{
+      margin: 0px !important;
+      height: 100% !important;
+      padding: 0 35px !important;
+      i{
+        font-size: 25px !important;
+        opacity: 0.7;
+      }
+    }
+  }
+}
