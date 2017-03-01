@@ -1,39 +1,47 @@
 <ion-header>
-
   <ion-navbar>
-
     <ion-title>Notebook</ion-title>
-
+    <button ion-button menuToggle class="header-button">
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-buttons end>
+      <button ion-button class="header-button" (click)="presentActionSheet()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!--<ion-buttons end>
      <button ion-button (click)="goToAddTraning()" class="addtraning">
        <ion-icon ios="ios-add" md="md-add"></ion-icon>
      </button>
-   </ion-buttons>
-
+   </ion-buttons>-->
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
-
   <ion-list>
-
     <ion-item-sliding *ngFor="let training of trainings" (click)="trainingDetails(training)">
-
       <ion-item >
-        {{training.Title}} <br/> {{training.Date}}
+        <ion-avatar item-left>
+          <div class="trainingDate">
+            <span class='dateMonth left'>{{training.Date | date: 'MMM'}}</span>
+            <span class='dateDay left'>{{training.Date | date: 'dd'}}</span>
+            <span class='dateYear left'>{{training.Date | date: 'yyyy'}}</span>
+          </div>
+        </ion-avatar>
+        <ion-label>
+          <hr>
+          <h2>{{training.Title}}</h2>
+          <p class="trainingAuthor">By Diego Trujillo</p>
+        </ion-label>
+        <ion-note item-right>
+        </ion-note>
+        <div class="button-effect"></div>
       </ion-item>
-
       <ion-item-options side="right">
-
-        <button ion-button color="danger" (click)="deleteTraining(training)">
-          Delete
+        <button ion-button color="light" (click)="deleteTraining(training)">
+          <i class="fa fa-trash-o"></i>
         </button>
-
       </ion-item-options>
-
     </ion-item-sliding>
-
   </ion-list>
-
 </ion-content>

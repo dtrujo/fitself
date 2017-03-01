@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController , ActionSheetController, AlertController} from 'ionic-angular';
 import { TrainingDetailsPage } from '../training-details/training-details';
 import { AddTrainingPage } from '../add-training/add-training';
 import { TrainingData } from '../../providers/training-data';
@@ -20,6 +20,8 @@ export class NotebookPage implements OnInit, OnDestroy {
   */
   constructor ( public navCtrl: NavController,
                 public trainingData: TrainingData,
+                public alertCtrl: AlertController,
+                public actionSheetCtrl: ActionSheetController,
                 public ngZone: NgZone ) {
 
     // remove the training of the list the value
@@ -81,12 +83,40 @@ export class NotebookPage implements OnInit, OnDestroy {
   }
 
   /**
-    [goToAddTraining description]
-    go to add traning page
+    [presentActionSheet description]
+    Create and show secondary actions
   */
-  goToAddTraning(){
-      this.navCtrl.push(AddTrainingPage);
-  }
+  presentActionSheet() {
+      let actionSheet = this.actionSheetCtrl.create({
+        title: 'Notebook Actions',
+        buttons: [
+          {
+            text: 'Add',
+            handler: () => {
+              this.navCtrl.push( AddTrainingPage );
+            }
+          },{
+            text: 'Search',
+            handler: () => {
+              console.log('Search clicked');
+            }
+          },{
+            text: 'Delete',
+            role: 'destructive',
+            handler: () => {
+              console.log('Delete clicked');
+            }
+          },{
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          }
+        ]
+      });
+      actionSheet.present();
+    }
 
   /**
     [trainingDetails description]
@@ -102,7 +132,30 @@ export class NotebookPage implements OnInit, OnDestroy {
     delete specific training
     @param {training} training [training to delete]
   */
-  deleteTraining( training) {
-    this.trainingData.remove( training );
+  deleteTraining(training) {
+
+    // create alert to confirm delete
+    // the selected training
+    let alert = this.alertCtrl.create({
+      title: 'Confirm delete',
+      message: 'Do you want to delete the training?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+            this.trainingData.remove( training );
+          }
+        }
+      ]
+    });
+
+    alert.present();
   }
 }
