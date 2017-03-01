@@ -29,6 +29,7 @@ import { AddTrainingPage } from '../pages/add-training/add-training';
 import { AddSessionPage } from '../pages/add-session/add-session';
 import { AddBlockPage } from '../pages/add-block/add-block';
 import { AddPartPage } from '../pages/add-part/add-part';
+import { DashBoardPage } from '../pages/dashboard/dashboard';
 
 /*
 * Providers
@@ -76,6 +77,7 @@ import { ObjectToArray } from '../pipes/objectToArray';
     AddBlockPage,
     AddSessionPage,
     AddPartPage,
+    DashBoardPage,
     ObjectToArray
   ],
   imports: [
@@ -108,6 +110,7 @@ import { ObjectToArray } from '../pipes/objectToArray';
     AddTrainingPage,
     AddSessionPage,
     AddPartPage,
+    DashBoardPage,
     AddBlockPage
   ],
   providers: [
