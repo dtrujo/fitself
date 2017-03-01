@@ -14,11 +14,9 @@ import firebase from 'firebase';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit, OnDestroy {
-
   image : any;
   fireAuth : any;
   currentUser : any;
-
   friendsCount : number;
   exercisesCount: number;
 
@@ -37,11 +35,7 @@ export class HomePage implements OnInit, OnDestroy {
     [ionViewDidEnter description]
     Change statusbar when enter into view
   */
-  ionViewDidLoad() {
-    StatusBar.styleDefault();
-    StatusBar.styleLightContent();
-    StatusBar.backgroundColorByHexString('#350653');
-  }
+  ionViewDidLoad() {}
 
   /**
     [ngOnInit description]
@@ -61,7 +55,7 @@ export class HomePage implements OnInit, OnDestroy {
               this.exercisesCount = Object.keys(this.currentUser.exercises).length;
               });
           });
-          
+
         } else {
           this.currentUser = '';
         }

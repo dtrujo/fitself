@@ -44,7 +44,7 @@
   <form [formGroup]="newPrForm" (submit)="updatePr(exercise.id)" novalidate padding>
 
     <ion-item>
-      <ion-label stacked>New PR {{exercise.name}}</ion-label>
+      <ion-label stacked>New PR</ion-label>
       <ion-input formControlName="pr" type="pr" placeholder="Enter new PR"></ion-input>
     </ion-item>
 
@@ -61,10 +61,6 @@
          <ion-option *ngFor="let unit of units">{{unit}}</ion-option>
        </ion-select>
     </ion-item>
-
-    <button ion-button block type="submit">
-      Update Pr value
-    </button>
 
   </form>
 
