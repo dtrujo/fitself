@@ -1,42 +1,51 @@
 <ion-header>
-
-  <ion-navbar >
-    <button ion-button class='backButton' dark clear (click)="dismiss()">
-      <ion-icon name="md-arrow-back" ></ion-icon>
-    </button>
-    <ion-title class='title'>PR - {{exercise.Name}}</ion-title>
+  <ion-navbar>
+    <ion-title class='title'>{{exercise.Name}}</ion-title>
+      <button ion-button icon-only clear (click)="dismiss()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    <ion-buttons end>
+      <button ion-button icon-only class="header-button">
+        <ion-icon class="ok-button" name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
+
 
 <ion-content padding>
 
-  <ion-card>
+<div class="actual-title-container">
+  <h2>Actual PR</h2>
+</div>
 
-    <ion-card-header>
-      Actual PR
-    </ion-card-header>
+  <ion-item class="pr-container">
+    <ion-avatar item-left>
+      <div class="exerciseDate">
+        <span class='dateMonth left'>{{exercise.Date | date: 'MMM'}}</span>
+        <span class='dateDay left'>{{exercise.Date | date: 'dd'}}</span>
+        <span class='dateYear left'>{{exercise.Date | date: 'yyyy'}}</span>
+      </div>
+    </ion-avatar>
+    <ion-label>
+      <hr>
+      <h2>{{exercise.Name}}</h2>
+      <ion-icon name="ios-time-outline"><span class="exerciseTime">08:13</span></ion-icon>
+    </ion-label>
+    <ion-note item-right>
+      {{exercise.Pr}}
+      <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
+      <span *ngIf="exercise.Unit === 'Time'">Min</span>
+      <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
+    </ion-note>
+    <div class="button-effect"></div>
+  </ion-item>
 
-    <ion-card-content>
-      You have
-      <strong>{{exercise.Pr}}
-        <span *ngIf="exercise.Unit === 'Kg'">Kg</span>
-        <span *ngIf="exercise.Unit === 'Time'">Min</span>
-        <span *ngIf="exercise.Unit === 'Reps'">Reps</span>
-      </strong>
-      in
-      <strong>{{exercise.name}}</strong>
-      and you did this score at
-      <i>{{exercise.Date}}</i>
-    </ion-card-content>
-
-  </ion-card>
-
-  <form [formGroup]="newPrForm" (submit)="updatePr(exercise.id)" novalidate>
+  <form [formGroup]="newPrForm" (submit)="updatePr(exercise.id)" novalidate padding>
 
     <ion-item>
-      <ion-label stacked>Nuevo Pr - {{exercise.name}}</ion-label>
-      <ion-input formControlName="pr" type="pr" placeholder="Enter new value"></ion-input>
+      <ion-label stacked>New PR {{exercise.name}}</ion-label>
+      <ion-input formControlName="pr" type="pr" placeholder="Enter new PR"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -58,5 +67,5 @@
     </button>
 
   </form>
-  
+
 </ion-content>
