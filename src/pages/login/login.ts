@@ -39,11 +39,7 @@ export class LoginPage {
     [ionViewDidEnter description]
     Change statusbar when enter into view
   */
-  ionViewDidLoad() {
-    StatusBar.styleDefault();
-    StatusBar.styleLightContent();
-    StatusBar.backgroundColorByHexString('#1B5A68');
-  }
+  ionViewDidLoad() {}
 
   /**
     [loginUser description]

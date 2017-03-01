@@ -1,0 +1,90 @@
+page-dashboard {
+
+
+  /*
+    Menu
+  */
+
+
+  ion-menu{
+    ion-content{
+      background-color: #1B1B1B !important;
+      /*background-image: linear-gradient(180deg,$blue-gradient,$purple-gradient);*/
+    }
+    .down-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      margin-left: 20px;
+      ul {
+        padding:0;
+        list-style: none;
+      }
+      .toolbar-background{
+        background-color: transparent
+      }
+      button {
+        opacity: 0.9;
+        box-shadow: none;
+        float: none !important;
+        text-transform: none;
+        font-family: $custom-principal-font;
+        background: none !important;
+        font-weight: 400 !important;
+        ion-icon{
+          margin-right: 15px;
+        }
+      }
+    }
+
+
+    /*
+      User container
+    */
+
+
+    .user-info-container{
+      font-family: $custom-principal-font;
+      text-align: center;
+      color: $dark-gray;
+      margin-top:20%;
+
+      img {
+        width: 25%;
+        border-radius: 100px;
+      }
+      p {
+        color: $light-gray;
+      }
+    }
+
+
+    /*
+      toolbar
+    */
+
+
+    .toolbar {
+      padding: 55px;
+      ion-title {
+        padding: 0 70px 1px !important;
+      }
+      img {
+        margin-left: 5px;
+        width: 50%;
+      }
+      .toolbar-background{
+        @include bar( $transparent );
+      }
+      .toolbar-title{
+        font-family: $custom-secondary-font;
+        font-size: 12px;
+        font-weight: 100;
+        text-align: center;
+        color: white;
+        pointer-events: auto;
+        opacity: .8;
+      }
+    }
+  }
+}

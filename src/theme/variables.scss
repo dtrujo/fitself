@@ -24,6 +24,7 @@ $image-path: "../assets/images";
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+
 $colors: (
   primary:      #0ACCD8,
   secondary:    #32db64,
@@ -53,6 +54,7 @@ $transparent:       rgba(255,255,255,0);
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
+
 $button-ios-border-radius: 27px;
 $button-ios-padding: 27px;
 
@@ -60,6 +62,7 @@ $button-ios-padding: 27px;
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
+
 
 
 
@@ -77,6 +80,7 @@ $button-ios-padding: 27px;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
+
 @import "ionic.theme.default";
 
 $custom-principal-font: "Neo";
@@ -88,11 +92,13 @@ $custom-secondary-font: "Avenir";
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
 
+
 @import "ionic.ionicons";
 
 
 // Fonts
 // --------------------------------------------------
+
 
 $font-family-md-base: "Avenir";
 $font-family-ios-base: "Avenir";
