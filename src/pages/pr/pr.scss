@@ -64,43 +64,6 @@ page-pr {
     overwrite styles
   */
 
-  form {
-    button {
-      text-transform: none !important;
-      font-family: $custom-principal-font;
-      font-weight: 500;
-      font-size: 16px !important;
-      color: $dark-gray;
-      margin: 3rem 0.2rem 0.4rem 0.2rem !important;
-      padding: 27px !important;
-      height: 2.8em !important;
-    }
-
-    .saveButton {
-      width: 80%;
-      margin: 0 auto;
-    }
-
-
-  }
-
-
-  ion-input{
-    input{
-      margin-bottom: 0px !important;
-    }
-  }
-
-
-  ion-select, ion-input input{
-    padding-bottom: 0px !important;
-    color: $light-gray;
-    font-weight: 100;
-    font-family: "Neo";
-    font-size: 16px;
-    letter-spacing: 0.06em;
-  }
-
   ion-label{
     @include h2( 16px !important, 100 !important, $custom-principal-font !important, 5px 0 0 0 );
     color: #000 !important;
