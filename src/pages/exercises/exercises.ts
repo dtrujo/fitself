@@ -187,7 +187,30 @@ export class ExercisesPage implements OnInit, OnDestroy {
     @param {exercise} exercise [exercise pressed]
   */
   removeExercise(exercise) {
-    this.exerciseData.removeExercise(exercise.id);
+
+    // create alert to confirm delete
+    // the selected training
+    let alert = this.alertCtrl.create({
+      title: 'Confirm delete',
+      message: 'Do you want to delete the exercise?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+            this.exerciseData.removeExercise(exercise.id);
+          }
+        }
+      ]
+    });
+
+    alert.present();
   }
 
   /**

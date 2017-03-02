@@ -8,8 +8,8 @@ import { NavController, NavParams } from 'ionic-angular';
 export class FriendDetails {
 
   friend : any;
-  friendsCount : number;
-  exercisesCount : number;
+  friendsCount : number = 0;
+  exercisesCount : number = 0;
 
 
   /**
@@ -22,7 +22,7 @@ export class FriendDetails {
      this.friend = this.params.get("friend");
 
      // friend count using keys to length
-     this.friendsCount = Object.keys(this.friend.friends).length;
+     this.friendsCount = (Object.keys(this.friend.friends).length);
      this.exercisesCount = Object.keys(this.friend.exercises).length;
   }
 }

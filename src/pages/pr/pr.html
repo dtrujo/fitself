@@ -5,20 +5,17 @@
         <ion-icon name="md-arrow-back"></ion-icon>
       </button>
     <ion-buttons end>
-      <button ion-button icon-only class="header-button">
+      <button ion-button icon-only class="header-button" (click)="updatePr(exercise.id)">
         <ion-icon class="ok-button" name="checkmark"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-
-<div class="actual-title-container">
-  <h2>Actual PR</h2>
-</div>
-
+  <div class="actual-title-container">
+    <h2>Actual PR</h2>
+  </div>
   <ion-item class="pr-container">
     <ion-avatar item-left>
       <div class="exerciseDate">
@@ -42,32 +39,21 @@
   </ion-item>
 
   <form [formGroup]="newPrForm" (submit)="updatePr(exercise.id)" novalidate padding>
-
     <ion-item>
       <ion-label stacked>New PR {{exercise.name}}</ion-label>
       <ion-input formControlName="pr" type="pr" placeholder="Enter new PR"></ion-input>
     </ion-item>
-
     <ion-item>
       <ion-label stacked>Type of execerise</ion-label>
        <ion-select [(ngModel)]="selected.type" formControlName="type" placeholder="Select exercise type">
          <ion-option *ngFor="let type of types">{{type}}</ion-option>
        </ion-select>
     </ion-item>
-
     <ion-item>
       <ion-label stacked>Unit of execerise</ion-label>
        <ion-select [(ngModel)]="selected.unit" formControlName="unit" placeholder="Select exercise unit">
          <ion-option *ngFor="let unit of units">{{unit}}</ion-option>
        </ion-select>
     </ion-item>
-
-    <!--<div class="saveButton">
-      <button color="white" ion-button block type="submit" round='true'>
-        Save
-      </button>
-    </div>-->
-
   </form>
-
 </ion-content>
