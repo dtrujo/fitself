@@ -1,1 +1,176 @@
-button { float: right }
+page-training-details {
+
+
+  /*
+    overwrite styles
+  */
+
+
+  h2 { @include h2( 16px, 400, $custom-principal-font, 5px 0 0 0 ); }
+
+  hr{
+    width: 1px;
+    float: left;
+    height: 34px !important;
+    margin-right: 22px;
+    border: none;
+  }
+  ion-avatar{
+    width: 13%;
+    max-width: 90px;
+    margin: 8px 15px 8px 0 !important;
+  }
+  p{
+    font-weight: 200;
+    font-size: 14px;
+    margin: 2rem 0 ;
+  }
+  ion-list{
+    .item-inner{
+      padding-right: 0px !important;
+    }
+    .item [item-right]{
+      margin:0 !important;
+    }
+    ion-item{
+      margin-bottom: 0 !important;
+      height: 4em !important;
+      background: $white !important;
+    }
+    ion-item-options{
+      border: none !important;
+    }
+    ion-icon {
+      display: inline-block;
+      font-size: .85em;
+    }
+    button{
+      font-size: 1.8rem !important;
+      color: $dark-gray !important;
+      ion-icon { font-size: 1.9rem !important; }
+    }
+  }
+
+
+  /*
+    Item
+  */
+
+
+  .item:first-child{
+    border-bottom: none !important;
+  }
+  .item-header {
+    background: $white;
+    border-bottom: 1px solid $white-smoke;
+    padding: 0;
+    margin-bottom: 20px;
+    height: 7rem;
+    ion-icon {
+      display: inline-block;
+      font-size: .85em;
+    }
+  }
+
+
+  /*
+		Content
+	*/
+
+
+  .training-container{
+    margin:0 10px;
+    .trainingAuthor {
+      margin-left: 5px;
+      margin-top: 2px;
+      @include dateFormat(
+        $custom-secondary-font, 14px, 100,
+        $dark-gray !important, 0em, lowercase
+      );
+    }
+    .trainingDate {
+      span{
+        width: 100%;
+        text-align: center;
+      }
+      .dateMonth{
+        padding-left: 4px;
+        margin-bottom: 5px;
+        @include dateFormat(
+          $custom-secondary-font,
+          12px, 400, $aqua-button, 0.3em, uppercase
+        );
+      }
+      .dateDay{
+        line-height: 25px;
+        @include dateFormat(
+          $custom-principal-font,
+          30px, 500, black, 0em, uppercase
+        );
+      }
+      .dateYear{
+        padding: 0px 0 0 3px;
+        @include dateFormat(
+          $custom-secondary-font, 10px, 200,
+          $dark-gray, 0.25em, uppercase
+        );
+      }
+    }
+    .trainingTime {
+      margin-left: 5px;
+      @include dateFormat(
+        $custom-secondary-font, 13px, 100,
+        $dark-gray !important, 0em, uppercase
+      );
+    }
+    .scroll-content {
+      padding: 0 !important;
+    }
+  }
+
+  .sessions-container{
+    padding: 0px 0px 20px 0px;
+    border-bottom: 1px solid $white-smoke;
+    margin-bottom: 10px;
+
+    h2{ float: left; }
+    button{
+      float: right;
+      background: none;
+      border:1px solid gray;
+      border-radius: 5px;
+      padding: 0px 5px;
+      ion-icon{
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .empty-container{
+    margin: 27% auto;
+    text-align: center;
+    opacity: 0.2;
+    ion-icon{
+      font-size: 4rem ;
+    }
+    p{
+      font-weight: 400;
+      font-size: 12px;
+      margin: 1rem 0;
+    }
+  }
+
+
+
+  /*
+    Toolbar
+  */
+
+
+  .toolbar {
+    .toolbar-background {
+      @include bar( $purple-gradient );
+    }
+  }
+
+}

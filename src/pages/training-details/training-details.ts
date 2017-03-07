@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ActionSheetController } from 'ionic-angular';
 import { SessionDetailsPage } from '../session-details/session-details';
 import { AddSessionPage } from '../add-session/add-session';
 import { TrainingData } from '../../providers/training-data';
@@ -20,6 +20,8 @@ export class TrainingDetailsPage implements OnInit, OnDestroy {
   */
   constructor( public navCtrl: NavController,
                public trainingData: TrainingData,
+               public alertCtrl: AlertController,
+               public actionSheetCtrl: ActionSheetController,
                public sessionData: SessionData,
                public ngZone: NgZone,
                public params: NavParams ) {
@@ -66,6 +68,39 @@ export class TrainingDetailsPage implements OnInit, OnDestroy {
     this.sessionDeleteSubs.unsubscribe();
   }
 
+
+  /**
+    [presentActionSheet description]
+    Create and show secondary actions
+  */
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Training Actions',
+      buttons: [
+        {
+          text: 'Edit',
+          handler: () => {
+            console.log('Edit clicked');
+          }
+        },{
+          text: 'Delete',
+          role: 'destructive',
+          handler: () => {
+            console.log('Delete clicked');
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+
   /**
     [goToAddSession description]
     go to add session page
@@ -89,6 +124,28 @@ export class TrainingDetailsPage implements OnInit, OnDestroy {
     @param {session} session delete
   */
   deleteSession ( session ){
-    this.sessionData.remove( session );
+    // create alert to confirm delete
+    // the selected training
+    let alert = this.alertCtrl.create({
+      title: 'Confirm delete',
+      message: 'Do you want to delete the session?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+            this.sessionData.remove( session );
+          }
+        }
+      ]
+    });
+
+    alert.present();
   }
 }
