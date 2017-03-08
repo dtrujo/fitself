@@ -1,39 +1,80 @@
 <ion-header>
-
   <ion-navbar>
-
     <ion-title>Training Details</ion-title>
-
     <ion-buttons end>
-     <button ion-button (click)="goToAddSession()">
-       <ion-icon ios="ios-add" md="md-add"></ion-icon>
-     </button>
-   </ion-buttons>
-
+      <button ion-button class="header-button" (click)="presentActionSheet()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
+  <div class="training-container">
+    <ion-item class="item-header">
+      <ion-avatar item-left>
+        <div class="trainingDate">
+          <span class='dateMonth left'>{{training.Date | date: 'MMM'}}</span>
+          <span class='dateDay left'>{{training.Date | date: 'dd'}}</span>
+          <span class='dateYear left'>{{training.Date | date: 'yyyy'}}</span>
+        </div>
+      </ion-avatar>
+      <ion-label>
+        <hr>
+        <h2>{{training.Title}}</h2>
+        <p class="trainingAuthor">By Diego Trujillo</p>
+      </ion-label>
+      <div class="button-effect"></div>
+    </ion-item>
+    <div class="description-container">
+      <h2>Description</h2>
+      <p>{{training.Description}}</p>
+    </div>
+    <div class="sessions-container">
+      <h2>Sessions</h2>
+      <button type="button" name="button" (click)="goToAddSession()">
+        <ion-icon name="ios-add-outline"></ion-icon>
+      </button>
+      <div class="clear"></div>
+    </div>
+    <ion-list>
 
-  <h6>{{training.Title}} <br/> {{training.Date}}</h6>
+      <!--
+        Items if you want sliding options options
+        <ion-item-sliding *ngFor="let session of sessions" >
+          <ion-item (click)="sessionDetails(session)">
+            <h2>{{session.Title}}</h2>
+            <ion-icon name="ios-time-outline">
+              <span class="trainingTime">08:13</span>
+            </ion-icon>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="light" (click)="deleteSession(session)">
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      -->
 
-  <ion-card *ngFor="let session of sessions">
+      <!-- Items if you want dotted options -->
+      <ion-item *ngFor="let session of sessions" (click)="sessionDetails(session)">
+        <h2>{{session.Title}}</h2>
+        <ion-icon name="ios-time-outline">
+          <span class="trainingTime">08:13</span>
+        </ion-icon>
+        <div item-right>
+          <button ion-button clear>
+            <ion-icon name="more"></ion-icon>
+          </button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
 
-    <ion-card-header>
-      {{session.Title}}
-    </ion-card-header>
-
-    <ion-card-content>
-      {{session.Description}}
-      <button right ion-button clear small (click)="deleteSession( session )"> Delete </button>
-      <button right ion-button clear small (click)="sessionDetails( session )"> View </button>
-    </ion-card-content>
-
-  </ion-card>
-
-  <!--<template [ngIf]="!training?.Sessions || training.Sessions.length == 0">
-    No hay sesiones de entrenamiento
-  </template>-->
-
+  <template [ngIf]="!training?.Sessions || training.Sessions.length == 0">
+    <div class="empty-container">
+        <ion-icon name="outlet"></ion-icon>
+        <p>There aren't sessions</p>
+    </div>
+  </template>
 </ion-content>
