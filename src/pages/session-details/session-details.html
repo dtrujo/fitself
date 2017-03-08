@@ -15,13 +15,44 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-item class="pr-container">
+    <ion-avatar item-left>
+      <div class="exerciseDate">
+        <span class='dateMonth left'>April</span>
+        <span class='dateDay left'>13</span>
+        <span class='dateYear left'>08:00</span>
+      </div>
+    </ion-avatar>
+    <ion-label>
+      <hr>
+      <h2>{{session.Title}}</h2>
+    </ion-label>
+    <div class="button-effect"></div>
+  </ion-item>
 
-  <h6>{{session.Title}} <br/> {{session.Date}}</h6>
+  <div class="description-container">
+    <h2>Description</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+  </div>
+
+  <!--<ion-list *ngFor="let block of blocks">
+    <ion-item>
+      {{block.Title}}
+      <button item-right clear (click)='presentPopover($event)' class="block-button">
+        <ion-icon name="more" item-right></ion-icon>
+      </button>
+      <!--<ion-icon name="more" item-right></ion-icon>-->
+      <!--<h3>Prueba</h3>
+    </ion-item>
+  </ion-list>-->
 
   <ion-card *ngFor="let block of blocks">
 
     <ion-card-header>
       {{block.Title}}
+        <button item-right clear (click)='presentPopover($event)' class="block-button">
+          <ion-icon name="more" item-right></ion-icon>
+        </button>
     </ion-card-header>
 
     <ion-card-content>

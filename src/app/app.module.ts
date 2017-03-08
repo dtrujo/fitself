@@ -30,6 +30,7 @@ import { AddSessionPage } from '../pages/add-session/add-session';
 import { AddBlockPage } from '../pages/add-block/add-block';
 import { AddPartPage } from '../pages/add-part/add-part';
 import { DashBoardPage } from '../pages/dashboard/dashboard';
+import { PopoverPage } from '../pages/popover-page/popover-page';
 
 /*
 * Providers
@@ -78,7 +79,8 @@ import { ObjectToArray } from '../pipes/objectToArray';
     AddSessionPage,
     AddPartPage,
     DashBoardPage,
-    ObjectToArray
+    ObjectToArray,
+    PopoverPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -111,7 +113,8 @@ import { ObjectToArray } from '../pipes/objectToArray';
     AddSessionPage,
     AddPartPage,
     DashBoardPage,
-    AddBlockPage
+    AddBlockPage,
+    PopoverPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

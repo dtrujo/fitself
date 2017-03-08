@@ -1,25 +1,43 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Add Part</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="header-button" (click)='addPart();'>
+        <ion-icon class="ok-button" name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="newPartForm" (submit)="addPart()" novalidate>
-
+  <form [formGroup]="newPartForm">
     <ion-item>
-      <ion-label stacked>Part Description </ion-label>
-      <!--<ion-input formControlName="description" type="description" placeholder="Enter part description"></ion-input>-->
-
-      <ion-textarea formControlName="description" type="description" rows="6" placeholder="enter long description here..."></ion-textarea>
-
+      <ion-label stacked>
+        <h2 class="title">Part description</h2>
+        <hr>
+      </ion-label>
+      <ion-textarea formControlName="description" type="description" rows="4" placeholder="enter long description here..."></ion-textarea>
     </ion-item>
 
-    <button ion-button block type="submit">
-      Create Part
-    </button>
+    <ion-item>
+      <ion-label stacked>
+        <h2 class="title">Part name</h2>
+        <hr>
+      </ion-label>
+      <ion-textarea formControlName="description" type="description" rows="2" placeholder="enter the name of the part..."></ion-textarea>
+    </ion-item>
 
+    <ion-item>
+      <ion-label stacked>
+        <h2 class="title">Part unit</h2>
+        <hr>
+      </ion-label>
+      <ion-select placeholder="Select unit">
+        <ion-option>None</ion-option>
+        <ion-option>Weight</ion-option>
+        <ion-option>Time</ion-option>
+        <ion-option>Reps</ion-option>
+      </ion-select>
+    </ion-item>
   </form>
 </ion-content>
