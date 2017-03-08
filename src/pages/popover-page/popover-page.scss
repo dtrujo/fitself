@@ -1,0 +1,57 @@
+page-popover {
+
+
+  /*
+    Item
+  */
+
+
+  .item {
+    background: $white;
+    border-bottom: 1px solid $white-smoke;
+    padding: 10px;
+    margin: 0;
+    height: 5.4rem;
+    ion-label {
+      @include h2( 18px, 100, $custom-secondary-font, 0 0 0 0 );
+    }
+    ion-icon {
+      display: inline-block;
+      font-size: .85em;
+    }
+  }
+
+
+  /*
+    overwrite styles
+  */
+
+  p {
+    @include h2( 13px, 100, $custom-secondary-font, 12px 0 0 0 );
+    text-align: justify;
+    color: $dark-gray !important;
+  }
+
+  h2 {
+    @include h2(18px, 400, $custom-principal-font, 12px 0 0 0 );
+  }
+
+  ion-list {
+    .item:last-child {
+      border-bottom: none !important;
+    }
+  }
+
+  /*
+    Content
+  */
+
+  .scroll-content {
+    padding: 0px 0px !important;
+  }
+
+  .list-md {
+    margin-bottom: 0px !important;
+  }
+
+}

@@ -1,3 +1,147 @@
-page-session-details {
+page-session-details{
+
+  /*
+    Toolbar
+  */
+
+
+  .toolbar {
+    .toolbar-background {
+      @include bar( $purple-gradient );
+    }
+  }
+
+  ion-buttons {
+    button{
+      color: $aqua-button !important;
+      font-size: 20px !important;
+      margin-right: 10px !important;
+    }
+  }
+
+
+
+  /*
+    Item
+  */
+
+
+  .item {
+    background: $white;
+    //border-bottom: 1px solid $white-smoke;
+    padding: 10px;
+    margin: 0;
+    height: 9.4rem;
+    h2 {
+      @include h2( 20px, 400, $custom-principal-font, 12px 0 0 0 );
+    }
+    ion-icon {
+      display: inline-block;
+      font-size: .85em;
+    }
+  }
+
+
+  /*
+    overwrite styles
+  */
+
+  p {
+    @include h2( 13px, 100, $custom-secondary-font, 12px 0 0 0 );
+    text-align: justify;
+    color: $dark-gray !important;
+  }
+
+  h2 {
+    @include h2(18px, 400, $custom-principal-font, 12px 0 0 0 );
+  }
+
+  hr{
+    width: 1px;
+    float: left;
+    height: 30px !important;
+    margin-right: 22px;
+    border: none;
+  }
+  ion-avatar{
+    width: 20%;
+    max-width: 90px;
+    margin:8px 10px 8px 0 !important;
+  }
+  ion-list {
+    margin: 0px 0 16px 0 !important;
+
+    .item:last-child {
+      border-bottom: none !important;
+    }
+  }
+  ion-note {
+    margin-left: 5px;
+    @include dateFormat(
+      $custom-secondary-font, 17px, 100,
+      $dark-gray !important, 0em, none
+    );
+  }
+
+
+  ion-card {
+
+    margin: 10px 0px !important;
+    box-shadow: none !important;
+    width: 100% !important;
+
+    ion-card-header {
+      padding: 16px 0px 0px 0px !important;
+    }
+
+    ion-card-content {
+      padding: 0px 12px !important;
+      font-weight: 100;
+    }
+
+  }
+
+
+  /*
+    Content
+  */
+
+
+  .exerciseDate {
+    span{
+      width: 100%;
+      text-align: center;
+    }
+    .dateMonth{
+      padding-left: 4px;
+      margin-bottom: 5px;
+      @include dateFormat(
+        $custom-secondary-font,
+        12px, 400, $aqua-button, 0.3em, uppercase
+      );
+    }
+    .dateDay{
+      line-height: 25px;
+      @include dateFormat(
+        $custom-principal-font,
+        30px, 500, black, 0em, uppercase
+      );
+    }
+    .dateYear{
+      padding: 0px 0 0 3px;
+      @include dateFormat(
+        $custom-secondary-font, 10px, 200,
+        $dark-gray, 0.25em, uppercase
+      );
+    }
+  }
+
+
+  .block-button {
+    background-color: transparent;
+    font-size: 20px;
+    margin: 0px !important;
+    float: right;
+  }
 
 }

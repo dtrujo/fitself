@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, Popover, ViewController } from 'ionic-angular';
 import { AddBlockPage } from '../add-block/add-block';
 import { AddPartPage } from '../add-part/add-part';
 import { SessionData } from '../../providers/session-data';
 import { BlockData } from '../../providers/block-data';
 import { PartData } from '../../providers/part-data';
+import { PopoverPage } from '../popover-page/popover-page';
+
 
 @Component({
   selector: 'page-session-details',
@@ -27,7 +29,8 @@ export class SessionDetailsPage implements OnInit, OnDestroy {
                public blockData: BlockData,
                public partData: PartData,
                public ngZone: NgZone,
-               public params: NavParams ) {
+               public params: NavParams,
+               public popoverCtrl: PopoverController ) {
 
     // retrived friends params using NavParams
     this.session = this.params.get("session");
@@ -123,5 +126,12 @@ export class SessionDetailsPage implements OnInit, OnDestroy {
   */
   deleteBlock ( idSession, idBlock ){
     this.blockData.remove(  idSession, idBlock );
+  }
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 }
