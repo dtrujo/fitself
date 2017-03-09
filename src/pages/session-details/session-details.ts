@@ -1,12 +1,11 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
-import { NavController, NavParams, PopoverController, Popover, ViewController } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, Popover, ViewController, ActionSheetController, } from 'ionic-angular';
 import { AddBlockPage } from '../add-block/add-block';
 import { AddPartPage } from '../add-part/add-part';
 import { SessionData } from '../../providers/session-data';
 import { BlockData } from '../../providers/block-data';
 import { PartData } from '../../providers/part-data';
 import { PopoverPage } from '../popover-page/popover-page';
-
 
 @Component({
   selector: 'page-session-details',
@@ -30,6 +29,7 @@ export class SessionDetailsPage implements OnInit, OnDestroy {
                public partData: PartData,
                public ngZone: NgZone,
                public params: NavParams,
+               public actionSheetCtrl: ActionSheetController,
                public popoverCtrl: PopoverController ) {
 
     // retrived friends params using NavParams
@@ -92,11 +92,39 @@ export class SessionDetailsPage implements OnInit, OnDestroy {
   }
 
   /**
-    [goToAddBlock description]
-    go to add block page
+    [presentActionSheet description]
+    Create and show secondary actions
   */
-  goToAddBlock(){
-    this.navCtrl.push( AddBlockPage, { id : this.session.Id } );
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Session Actions',
+      buttons: [
+        {
+          text: 'Add',
+          handler: () => {
+            this.navCtrl.push( AddBlockPage, { id : this.session.Id } );
+          }
+        },{
+          text: 'Edit',
+          handler: () => {
+            console.log('Delete clicked');
+          }
+        },{
+          text: 'Delete',
+          role: 'destructive',
+          handler: () => {
+            console.log('Delete clicked');
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
   /**
@@ -121,17 +149,47 @@ export class SessionDetailsPage implements OnInit, OnDestroy {
   /**
     [deleteBlock description]
     remove block to the session list
+    @param {string} idBlock   [block's id]
+  */
+  deleteBlock ( idBlock ){
+    this.blockData.remove( this.session.Id, idBlock );
+  }
+
+  /**
+    [presentPopover description]
+    presento popover to create actions over block
     @param {string} idSession [session's id]
     @param {string} idBlock   [block's id]
   */
-  deleteBlock ( idSession, idBlock ){
-    this.blockData.remove(  idSession, idBlock );
-  }
+  presentPopover(myEvent, idBlock) {
 
-  presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create(PopoverPage);
-    popover.present({
-      ev: myEvent
+    // create popover and pass data
+    let popover = this.popoverCtrl.create(
+      PopoverPage, { idBlock : idBlock }
+    );
+
+    // present popover
+    popover.present({ ev: myEvent });
+
+    // callback actions and retrived data
+    // we passing the data into the popover controller
+    // actions and the elements necesary to complete the actions
+    popover.onDidDismiss(data => {
+
+      // call action depending click options over popover
+      if (data){
+        switch (data.action) {
+          case 'add':
+            this.goToAddPart(data.params.get('idBlock'));
+          break;
+          case 'edit':
+            console.log('edit block');
+          break;
+          case 'remove':
+            this.deleteBlock( data.params.get('idBlock') );
+          break;
+        }
+      }
     });
   }
 }

@@ -13,7 +13,7 @@ page-training-details {
     width: 1px;
     float: left;
     height: 34px !important;
-    margin-right: 22px;
+    margin-right: 20px;
     border: none;
   }
   ion-avatar{
@@ -25,6 +25,7 @@ page-training-details {
     font-weight: 200;
     font-size: 14px;
     margin: 2rem 0 ;
+    text-align: left;
   }
   ion-list{
     .item-inner{
@@ -81,6 +82,7 @@ page-training-details {
 
   .training-container{
     margin:0 10px;
+
     .trainingAuthor {
       margin-left: 5px;
       margin-top: 2px;
@@ -89,13 +91,14 @@ page-training-details {
         $dark-gray !important, 0em, lowercase
       );
     }
+
     .trainingDate {
       span{
         width: 100%;
         text-align: center;
       }
       .dateMonth{
-        padding-left: 4px;
+        padding-left: 2px;
         margin-bottom: 5px;
         @include dateFormat(
           $custom-secondary-font,
@@ -106,7 +109,7 @@ page-training-details {
         line-height: 25px;
         @include dateFormat(
           $custom-principal-font,
-          30px, 500, black, 0em, uppercase
+          30px, 500, black, 0.02em, uppercase
         );
       }
       .dateYear{

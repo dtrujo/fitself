@@ -1,5 +1,6 @@
 page-session-details{
 
+
   /*
     Toolbar
   */
@@ -20,7 +21,6 @@ page-session-details{
   }
 
 
-
   /*
     Item
   */
@@ -28,16 +28,18 @@ page-session-details{
 
   .item {
     background: $white;
-    //border-bottom: 1px solid $white-smoke;
-    padding: 10px;
+    padding: 0;
     margin: 0;
-    height: 9.4rem;
     h2 {
       @include h2( 20px, 400, $custom-principal-font, 12px 0 0 0 );
     }
     ion-icon {
       display: inline-block;
       font-size: .85em;
+    }
+    ion-label pre{
+      @include h2( 14px, 200, $custom-secondary-font, 0 0 0 0 );
+      line-height: 20px;
     }
   }
 
@@ -46,27 +48,26 @@ page-session-details{
     overwrite styles
   */
 
+
   p {
-    @include h2( 13px, 100, $custom-secondary-font, 12px 0 0 0 );
-    text-align: justify;
+    @include h2( 14px, 200, $custom-secondary-font, 2rem 0 0 0 );
+    text-align: left;
     color: $dark-gray !important;
   }
-
   h2 {
-    @include h2(18px, 400, $custom-principal-font, 12px 0 0 0 );
+    @include h2(16px, 400, $custom-principal-font, 12px 0 0 0 );
   }
-
   hr{
     width: 1px;
     float: left;
     height: 30px !important;
-    margin-right: 22px;
+    margin-right: 15px;
     border: none;
   }
   ion-avatar{
-    width: 20%;
+    width: 13%;
     max-width: 90px;
-    margin:8px 10px 8px 0 !important;
+    margin: 8px 15px 8px 0 !important;
   }
   ion-list {
     margin: 0px 0 16px 0 !important;
@@ -82,23 +83,32 @@ page-session-details{
       $dark-gray !important, 0em, none
     );
   }
-
-
   ion-card {
-
     margin: 10px 0px !important;
     box-shadow: none !important;
     width: 100% !important;
 
     ion-card-header {
       padding: 16px 0px 0px 0px !important;
-    }
 
+      h2{
+        font-size: 16px !important;
+        float: left;
+       }
+      button{
+        float: right;
+        background: none;
+        border-radius: 5px;
+        padding: 0px 5px;
+        ion-icon{
+          font-size: 2rem;
+        }
+      }
+    }
     ion-card-content {
       padding: 0px 12px !important;
       font-weight: 100;
     }
-
   }
 
 
@@ -107,41 +117,47 @@ page-session-details{
   */
 
 
-  .exerciseDate {
-    span{
-      width: 100%;
-      text-align: center;
+  .training-container{
+    margin:0 10px;
+
+    .exerciseDate {
+      span{
+        width: 100%;
+        text-align: center;
+      }
+      .dateMonth{
+        padding-left: 2px;
+        margin-bottom: 5px;
+        @include dateFormat(
+          $custom-secondary-font,
+          12px, 400, $aqua-button, 0.3em, uppercase
+        );
+      }
+      .dateDay{
+        line-height: 25px;
+        @include dateFormat(
+          $custom-principal-font,
+          30px, 500, black, 0.02em, uppercase
+        );
+      }
+      .dateYear{
+        padding: 0px 0 0 3px;
+        @include dateFormat(
+          $custom-secondary-font, 10px, 200,
+          $dark-gray, 0.2em, uppercase
+        );
+      }
     }
-    .dateMonth{
-      padding-left: 4px;
-      margin-bottom: 5px;
-      @include dateFormat(
-        $custom-secondary-font,
-        12px, 400, $aqua-button, 0.3em, uppercase
-      );
-    }
-    .dateDay{
-      line-height: 25px;
-      @include dateFormat(
-        $custom-principal-font,
-        30px, 500, black, 0em, uppercase
-      );
-    }
-    .dateYear{
-      padding: 0px 0 0 3px;
-      @include dateFormat(
-        $custom-secondary-font, 10px, 200,
-        $dark-gray, 0.25em, uppercase
-      );
+    .block-button {
+      background-color: transparent;
+      font-size: 20px;
+      margin: 0px !important;
+      float: right;
     }
   }
 
-
-  .block-button {
-    background-color: transparent;
-    font-size: 20px;
-    margin: 0px !important;
-    float: right;
+  .clear{
+    float:none;
+    clear: both;
   }
-
 }

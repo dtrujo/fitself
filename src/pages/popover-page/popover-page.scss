@@ -9,11 +9,11 @@ page-popover {
   .item {
     background: $white;
     border-bottom: 1px solid $white-smoke;
-    padding: 10px;
+    padding-left: 10px;
     margin: 0;
     height: 5.4rem;
     ion-label {
-      @include h2( 18px, 100, $custom-secondary-font, 0 0 0 0 );
+      @include h2( 13px, 400, $custom-principal-font, 0 0 0 0 );
     }
     ion-icon {
       display: inline-block;
@@ -26,15 +26,6 @@ page-popover {
     overwrite styles
   */
 
-  p {
-    @include h2( 13px, 100, $custom-secondary-font, 12px 0 0 0 );
-    text-align: justify;
-    color: $dark-gray !important;
-  }
-
-  h2 {
-    @include h2(18px, 400, $custom-principal-font, 12px 0 0 0 );
-  }
 
   ion-list {
     .item:last-child {
@@ -42,16 +33,16 @@ page-popover {
     }
   }
 
+
   /*
     Content
   */
 
-  .scroll-content {
-    padding: 0px 0px !important;
-  }
 
+  .scroll-content {
+    padding: 0px 10px !important;
+  }
   .list-md {
     margin-bottom: 0px !important;
   }
-
 }
