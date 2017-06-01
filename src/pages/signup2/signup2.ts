@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, NavParams } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { AuthData } from '../../providers/auth-data';
@@ -13,7 +13,6 @@ import { AuthData } from '../../providers/auth-data';
   templateUrl: 'signup2.html'
 })
 export class Signup2Page {
-
   signup2Form: any;
 
   /**
@@ -22,8 +21,12 @@ export class Signup2Page {
   constructor( public navCtrl: NavController,
                public formBuilder: FormBuilder,
                public authData: AuthData,
+               public navParams: NavParams,
                public loadingCtrl: LoadingController,
                public alertCtrl: AlertController ) {
+
+
+    console.log(navParams.get('signupForm').value);
 
     // validate form
     this.signup2Form = formBuilder.group({

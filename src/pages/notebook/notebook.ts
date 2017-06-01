@@ -87,36 +87,36 @@ export class NotebookPage implements OnInit, OnDestroy {
     Create and show secondary actions
   */
   presentActionSheet() {
-      let actionSheet = this.actionSheetCtrl.create({
-        title: 'Notebook Actions',
-        buttons: [
-          {
-            text: 'Add',
-            handler: () => {
-              this.navCtrl.push( AddTrainingPage );
-            }
-          },{
-            text: 'Search',
-            handler: () => {
-              console.log('Search clicked');
-            }
-          },{
-            text: 'Delete',
-            role: 'destructive',
-            handler: () => {
-              console.log('Delete clicked');
-            }
-          },{
-            text: 'Cancel',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
-            }
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Notebook Actions',
+      buttons: [
+        {
+          text: 'Add',
+          handler: () => {
+            this.navCtrl.push( AddTrainingPage );
           }
-        ]
-      });
-      actionSheet.present();
-    }
+        },{
+          text: 'Search',
+          handler: () => {
+            console.log('Search clicked');
+          }
+        },{
+          text: 'Delete',
+          role: 'destructive',
+          handler: () => {
+            console.log('Delete clicked');
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 
   /**
     [trainingDetails description]
@@ -155,7 +155,6 @@ export class NotebookPage implements OnInit, OnDestroy {
         }
       ]
     });
-
     alert.present();
   }
 }

@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, ActionSheetController } from 'ionic-angular';
+import { Camera, Crop } from '@ionic-native';
 
 import { HomePage } from '../home/home';
+import { PicturePage } from '../picture/picture';
 import { Signup2Page } from '../signup2/signup2';
 import { AuthData } from '../../providers/auth-data';
+import { MediaData } from '../../providers/media-data';
 
 /**
   Generated class for the SignupPage page.
@@ -14,15 +17,18 @@ import { AuthData } from '../../providers/auth-data';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-
   signupForm: any;
+  imageSource: any;
 
   /**
     Constructor
   */
   constructor( public navCtrl: NavController,
                public formBuilder: FormBuilder,
+               public ngZone: NgZone,
                public authData: AuthData,
+               public mediaData: MediaData,
+               public actionSheetCtrl: ActionSheetController,
                public loadingCtrl: LoadingController,
                public alertCtrl: AlertController ) {
 
@@ -36,22 +42,61 @@ export class SignupPage {
     })
   }
 
-
   /**
     [goToNextStep description]
     Go to the second part of the user details
   */
   goToNextStep() {
-    this.navCtrl.push( Signup2Page );
+    this.navCtrl.push( Signup2Page, { signupForm : this.signupForm } );
   }
 
-  
+  /**
+    [presentActionSheet description]
+    Show options to select between take picture
+    in the camera or select gallery pictures
+  */
+  presentActionSheet() {
+
+    // constructor actionSheet
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Select Picture',
+      buttons: [
+        {
+          text: 'Take picture',
+          handler: () => {
+            this.mediaData.getMedia(1).then((picture) => {
+               this.ngZone.run(()=>{
+                 console.log(picture);
+                 this.imageSource = picture;
+               })
+            });
+          }
+        },{
+          text: 'Open Gallery',
+          handler: () => {
+            this.mediaData.getMedia(2).then((picture) => {
+               this.ngZone.run(()=>{
+                 console.log(picture);
+                 this.imageSource = picture;
+               })
+            });
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
   /**
     [signupUser description]
   */
   signupUser(){
-
-
     this.navCtrl.push(Signup2Page);
 
     if (!this.signupForm.valid){

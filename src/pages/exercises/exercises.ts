@@ -3,6 +3,7 @@ import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { PrPage } from '../pr/pr';
 import { AddexercisePage } from '../addexercise/addexercise';
 import { ExerciseData } from '../../providers/exercise-data';
+import { ConnectionData } from '../../providers/connection-data';
 
 @Component({
   selector: 'page-exercises',
@@ -25,6 +26,7 @@ export class ExercisesPage implements OnInit, OnDestroy {
   constructor( public navCtrl: NavController,
                public modalCtrl: ModalController,
                public ngZone: NgZone,
+               public connectionData: ConnectionData,
                public exerciseData: ExerciseData,
                public alertCtrl: AlertController ) {
 
@@ -225,5 +227,7 @@ export class ExercisesPage implements OnInit, OnDestroy {
     [ionViewWillEnter description]
     enter in this view every time when the view is loaded
   */
-  ionViewWillEnter() { }
+  ionViewWillEnter() {
+    console.log(this.connectionData.isOnline());
+  }
 }

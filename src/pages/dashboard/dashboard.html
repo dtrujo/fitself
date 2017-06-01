@@ -2,7 +2,10 @@
   <ion-content>
     <div class="user-info-container">
       <img src="{{currentUser.image}}"/>
-      <p>@{{currentUser.username}}</p>
+      <div class="text-center">
+        <div class="circle" [ngClass]="{'limegreen': isClassVisible }"></div>
+        <p> @{{currentUser.username}}</p>
+      </div>
     </div>
     <div class="down-footer">
       <ul>

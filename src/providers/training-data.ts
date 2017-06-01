@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import firebase from 'firebase';
 import { SessionData } from '../providers/session-data';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 /**
   Class for the TrainingData provider.
@@ -19,7 +20,8 @@ export class TrainingData {
   /**
     [constructor description]
   */
-  constructor( public sessionData: SessionData , public http: Http) {
+  constructor( public sessionData: SessionData,
+               public http: Http) {
 
     this.fireAuth = firebase.auth();
     this.trainingsRef = firebase.database().ref('/trainings');

@@ -24,6 +24,15 @@ page-signup {
     position: fixed;
     left: 37%;
     top: 15%;
+    span{
+      width: 100px;
+      height: 100px;
+      top: -5px;
+      left: -5px;
+      position: absolute;
+      padding: 0px !important;
+      margin: 0px  !important;
+    }
   }
 
 

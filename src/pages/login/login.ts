@@ -52,7 +52,11 @@ export class LoginPage {
     } else {
 
       // login function to check authdata
-      this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then( auth => {
+      this.authData.loginUser(
+        this.loginForm.value.email,
+        this.loginForm.value.password)
+
+      .then( auth => {
 
         // pass loading param to dismiss loading manually
         this.navCtrl.setRoot(TabsPage, { loading: loading });

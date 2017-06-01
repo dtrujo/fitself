@@ -41,14 +41,32 @@ page-dashboard {
     /*
       User container
     */
-
+    
+    .limegreen{
+      background-color: limegreen !important;
+    }
 
     .user-info-container{
       font-family: $custom-principal-font;
       text-align: center;
       color: $dark-gray;
       margin-top:20%;
+      .text-center{
+        margin: 10px 34%;
+        p{
+          margin: 0px;
+          float: left;
+        }
+      }
 
+      .circle{
+        width: 7px;
+        background-color: red;
+        float: left;
+        height: 7px;
+        margin: 5px 10px 6px 10px;
+        border-radius: 50px;
+      }
       img {
         width: 25%;
         border-radius: 100px;

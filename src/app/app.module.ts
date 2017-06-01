@@ -1,5 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 
 /*
@@ -36,6 +39,7 @@ import { PopoverPage } from '../pages/popover-page/popover-page';
 * Providers
 */
 
+import { ConnectionData } from '../providers/connection-data';
 import { AuthData } from '../providers/auth-data';
 import { ExerciseData } from '../providers/exercise-data';
 import { StorageData } from '../providers/storage-data';
@@ -44,12 +48,26 @@ import { TrainingData } from '../providers/training-data';
 import { SessionData } from '../providers/session-data';
 import { BlockData } from '../providers/block-data';
 import { PartData } from '../providers/part-data';
+import { MediaData } from '../providers/media-data';
 
 /*
 * Pipes
 */
 
 import { ObjectToArray } from '../pipes/objectToArray';
+
+/*
+* Plugins
+*/
+
+import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
+import { Camera } from '@ionic-native/camera';
+import { Crop } from 'ionic-native';
+import { File } from '@ionic-native/file';
+
+/*
+* Modules
+*/
 
 @NgModule({
   declarations: [
@@ -83,9 +101,12 @@ import { ObjectToArray } from '../pipes/objectToArray';
     PopoverPage
   ],
   imports: [
+    BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: ''
-    })
+    }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -117,7 +138,11 @@ import { ObjectToArray } from '../pipes/objectToArray';
     PopoverPage
   ],
   providers: [
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    {
+      provide: ErrorHandler,
+      useClass: IonicErrorHandler
+    },
+    ConnectionData,
     AuthData,
     TrainingData,
     SessionData,
@@ -125,7 +150,13 @@ import { ObjectToArray } from '../pipes/objectToArray';
     PartData,
     ExerciseData,
     StorageData,
-    FriendsData
+    FriendsData,
+    Transfer,
+    File,
+    TransferObject,
+    Camera,
+    Crop,
+    MediaData
   ]
 })
 export class AppModule {}

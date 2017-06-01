@@ -1,6 +1,5 @@
 {
   "name": "fitself",
   "app_id": "cf18c62a",
-  "v2": true,
-  "typescript": true
+  "type": "ionic-angular"
 }
