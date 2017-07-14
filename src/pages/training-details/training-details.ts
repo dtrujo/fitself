@@ -68,7 +68,6 @@ export class TrainingDetailsPage implements OnInit, OnDestroy {
     this.sessionDeleteSubs.unsubscribe();
   }
 
-
   /**
     [presentActionSheet description]
     Create and show secondary actions
@@ -78,6 +77,11 @@ export class TrainingDetailsPage implements OnInit, OnDestroy {
       title: 'Training Actions',
       buttons: [
         {
+          text: 'Add',
+          handler: () => {
+            this.goToAddSession();
+          }
+        },{
           text: 'Edit',
           handler: () => {
             console.log('Edit clicked');
@@ -99,7 +103,6 @@ export class TrainingDetailsPage implements OnInit, OnDestroy {
     });
     actionSheet.present();
   }
-
 
   /**
     [goToAddSession description]

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
@@ -27,7 +28,7 @@ export class LoginPage {
                public loadingCtrl: LoadingController,
                public authData: AuthData,
                public alertCtrl: AlertController ) {
-
+                 
     this.loginForm = formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]

@@ -2,7 +2,7 @@
   <ion-navbar color="transparent">
     <ion-title>Sign up</ion-title>
     <ion-buttons end>
-      <button (click)="goToNextStep()" class="header-button">
+      <button (click)="goToNextStep()" class="header-button" type="submit" [disabled]="!signupForm.valid">
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-buttons>
@@ -11,31 +11,38 @@
 
 <ion-content padding class="signup">
   <button ion-button round='true' class="image-button" (click)="presentActionSheet()">
-    <!--<ion-icon name="camera"></ion-icon>-->
+    <ion-icon name="camera"></ion-icon>
     <img src="{{imageSource}}"/>
   </button>
 
   <div class="signup-container">
-    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
-      <ion-item>
-        <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input formControlName="surname" type="text" placeholder="Surname"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input formControlName="username" type="text" placeholder="Username"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
-      </ion-item>
+    <form [formGroup]="signupForm" novalidate>
+      
+      <div 
+        class="item" 
+        [class.invalid]="!signupForm.controls.name.valid && signupForm.controls.name.dirty">
+         <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
+      </div>
+      <div 
+        class="item" 
+        [class.invalid]="!signupForm.controls.surname.valid && signupForm.controls.surname.dirty">
+         <ion-input formControlName="surname" type="text" placeholder="Surname"></ion-input>
+      </div>
+      <div 
+        class="item" 
+        [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty">
+         <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+      </div>
+      <div 
+        class="item" 
+        [class.invalid]="!signupForm.controls.username.valid && signupForm.controls.username.dirty">
+         <ion-input formControlName="username" type="text" placeholder="Username"></ion-input>
+      </div>
+      <div 
+        class="item" 
+        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty">
+         <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+      </div>
     </form>
   </div>
 </ion-content>

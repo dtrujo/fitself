@@ -44,6 +44,24 @@ page-session-details{
       @include h2( 14px, 200, $custom-secondary-font, 0 0 0 0 );
       line-height: 20px;
     }
+    .arrow-left {
+      width: 0;
+      height: 0;
+      border-top: 11px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right:10px solid $white-smoke;
+    }
+    .mark{
+      font-size: 12px;
+      background-color: $white-smoke;
+      border-radius: 0px 4px 4px 0px;
+      padding: 5px 5px 2px 5px;
+      font-weight: 100;
+
+      ion-icon{
+        margin-right: 5px;
+      }
+    }
   }
 
 
@@ -124,7 +142,7 @@ page-session-details{
 
 
   .training-container{
-    margin:0 10px;
+    margin:0 0px 0 10px;
 
     .exerciseDate {
       span{

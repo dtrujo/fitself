@@ -1,3 +1,5 @@
+import { TrainingDetailsPage } from './../training-details/training-details';
+import { User } from './../../models/user';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NavController, LoadingController, AlertController, NavParams } from 'ionic-angular';
@@ -14,6 +16,9 @@ import { AuthData } from '../../providers/auth-data';
 })
 export class Signup2Page {
   signup2Form: any;
+  user: User;
+  unistValue: number;
+  unitsType: string; 
 
   /**
     Constructor
@@ -25,27 +30,67 @@ export class Signup2Page {
                public loadingCtrl: LoadingController,
                public alertCtrl: AlertController ) {
 
+    // get user
+    this.user = navParams.get('user');
 
-    console.log(navParams.get('signupForm').value);
+    // set default unit to weight
+    this.unitsType = "Kg";
 
     // validate form
     this.signup2Form = formBuilder.group({
-      password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
-      username: ['', Validators.required],
-      name: ['', Validators.required],
-      surname: ['', Validators.required]
+      city: ['', Validators.required],
+      birthday: ['', Validators.required],
+      tall: ['', Validators.required],
+      weight: ['', Validators.required]
     })
+  }
+
+  /**
+   [updateUnits description]
+   Change units depending if the international
+   value is checked or not. Change Kg or Lb
+   */
+  updateUnits(){
+    var weight;
+
+    // Kg units
+    if(this.user.international == false){
+      this.unitsType = "Lb";
+      if (this.signup2Form.value.weight){
+        weight = (this.signup2Form.value.weight * 2.20).toFixed(2);
+        this.signup2Form.controls[ 'weight' ].setValue(weight);
+        console.log(weight);
+      }
+    
+    // Lb units
+  } else {
+    this.unitsType = "Kg";
+      if (this.signup2Form.value.weight){
+        weight = (this.signup2Form.value.weight / 2.20).toFixed(2);
+        this.signup2Form.controls[ 'weight' ].setValue(weight);
+        console.log(weight);
+      }
+    }
   }
 
   /**
     [signupUser description]
   */
-  signupUser(){
+  signup2User(){
 
     if (!this.signup2Form.valid){
       console.log(this.signup2Form.value);
     } else {
-      this.authData.signupUser(
+
+      // complete user model
+      this.user.city =  this.signup2Form.value.city;
+      this.user.birthday =  this.signup2Form.value.birthday;
+      this.user.tall =  this.signup2Form.value.tall;
+      this.user.weight =  this.signup2Form.value.weight;
+
+      console.log(this.user);
+
+      /*this.authData.signupUser(
         '',
         this.signup2Form.value.password,
         this.signup2Form.value.username,
@@ -71,6 +116,7 @@ export class Signup2Page {
       });
 
       loading.present();
+      }*/
     }
   }
 }

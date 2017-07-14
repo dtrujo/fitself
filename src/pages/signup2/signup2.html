@@ -2,7 +2,7 @@
   <ion-navbar color="transparent">
     <ion-title>Sign up</ion-title>
     <ion-buttons end>
-      <button class="header-button">
+      <button class="header-button" [disabled]="!signup2Form.valid" (click)="signup2User()">
         <ion-icon name="checkmark"></ion-icon>
       </button>
     </ion-buttons>
@@ -11,7 +11,8 @@
 
 <ion-content padding class="signup2">
   <div class="signup2-container">
-    <form [formGroup]="signup2Form" (submit)="signup2User()" novalidate>
+    <form [formGroup]="signup2Form" novalidate>
+
       <ion-item>
         <ion-label class="light-label">Box</ion-label>
         <ion-select>
@@ -25,26 +26,40 @@
         <ion-img width="120" src="assets/images/logokz.png"></ion-img>
       </div>
 
-      <ion-item>
-        <ion-input formControlName="name" type="text" placeholder="City"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input formControlName="surname" type="text" placeholder="Birthday"></ion-input>
-      </ion-item>
+      <div 
+        class="item" 
+        [class.invalid]="!signup2Form.controls.city.valid && signup2Form.controls.city.dirty">
+         <ion-input formControlName="city" type="text" placeholder="City"></ion-input>
+      </div>
+      <div 
+        class="item" 
+        [class.invalid]="!signup2Form.controls.birthday.valid && signup2Form.controls.birthday.dirty">
+         <ion-input formControlName="birthday" type="text" placeholder="Birthday"></ion-input>
+      </div>
 
       <ion-item>
         <ion-label class="small-label">International System of Units</ion-label>
-        <ion-toggle checked="true" color='pink'></ion-toggle>
+        <ion-toggle 
+          checked="true" color='pink' 
+          (ionChange)="updateUnits()"
+          [(ngModel)]="user.international" 
+          [ngModelOptions]="{standalone: true}"></ion-toggle>    
       </ion-item>
 
-      <ion-item>
-        <ion-input formControlName="username" type="text" placeholder="Tall"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input formControlName="password" type="password" placeholder="Weight"></ion-input>
-      </ion-item>
+      <div 
+        class="item" 
+        [class.invalid]="!signup2Form.controls.tall.valid && signup2Form.controls.tall.dirty">
+        <ion-input formControlName="tall" type="text" placeholder="Tall"></ion-input>
+      </div>
+      <div 
+        class="item" 
+        [class.invalid]="!signup2Form.controls.weight.valid && signup2Form.controls.weight.dirty">
+        <ion-input formControlName="weight" type="text" placeholder="Weight" class="left"></ion-input>
+        <ion-label class="right light-label">{{unitsType}}</ion-label>  
+      </div>
+ 
+      <p>test: {{unitsValue}}{{unitsType}}</p>
+  
     </form>
   </div>
 </ion-content>

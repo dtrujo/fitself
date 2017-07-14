@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { Component, NgZone } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NavController, LoadingController, AlertController, ActionSheetController } from 'ionic-angular';
@@ -47,7 +48,26 @@ export class SignupPage {
     Go to the second part of the user details
   */
   goToNextStep() {
-    this.navCtrl.push( Signup2Page, { signupForm : this.signupForm } );
+
+    // if the form is validated
+    if (!this.signupForm.valid){
+      console.log("empty fields" + this.signupForm.value.name);
+    } else {
+
+      // create new user
+      var user = new User(
+        'id', 
+        this.signupForm.value.name,
+        this.signupForm.value.email,
+        this.signupForm.value.password,
+        this.signupForm.value.username,
+        this.signupForm.value.surname,
+        null,null,true,null,null
+      );
+
+      // pass user to second step 
+      this.navCtrl.push(Signup2Page, {user: user});
+    }
   }
 
   /**
@@ -97,14 +117,14 @@ export class SignupPage {
     [signupUser description]
   */
   signupUser(){
-    this.navCtrl.push(Signup2Page);
 
+    // if the form is validated
     if (!this.signupForm.valid){
-      console.log("no validdo");
       console.log(this.signupForm.value);
     } else {
 
-      this.navCtrl.push(Signup2Page);
+      // pass user to second step 
+      //this.navCtrl.push(Signup2Page, {user: user});
 
       /*this.authData.signupUser(
         this.signupForm.value.email,
