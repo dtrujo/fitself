@@ -49,17 +49,15 @@
       <div 
         class="item" 
         [class.invalid]="!signup2Form.controls.tall.valid && signup2Form.controls.tall.dirty">
-        <ion-input formControlName="tall" type="text" placeholder="Tall"></ion-input>
+        <ion-input formControlName="tall" type="text" placeholder="Tall" class="left"></ion-input>
+        <ion-label class="right light-label">{{unitsTallType}}</ion-label>  
       </div>
       <div 
         class="item" 
         [class.invalid]="!signup2Form.controls.weight.valid && signup2Form.controls.weight.dirty">
         <ion-input formControlName="weight" type="text" placeholder="Weight" class="left"></ion-input>
-        <ion-label class="right light-label">{{unitsType}}</ion-label>  
+        <ion-label class="right light-label">{{unitsWeightType}}</ion-label>  
       </div>
- 
-      <p>test: {{unitsValue}}{{unitsType}}</p>
-  
     </form>
   </div>
 </ion-content>

@@ -17,8 +17,10 @@ import { AuthData } from '../../providers/auth-data';
 export class Signup2Page {
   signup2Form: any;
   user: User;
-  unistValue: number;
-  unitsType: string; 
+  unistWeightValue: number;
+  unitsWeightType: string; 
+  translateUnitsWeightValue: number;
+  translateUnitsWeightType: string; 
 
   /**
     Constructor
@@ -33,8 +35,10 @@ export class Signup2Page {
     // get user
     this.user = navParams.get('user');
 
-    // set default unit to weight
-    this.unitsType = "Kg";
+    // set default unit to weight and translate value
+    this.unitsWeightType = "Kg";
+    this.translateUnitsWeightType = "Lb";
+    this.translateUnitsWeightValue = 0;
 
     // validate form
     this.signup2Form = formBuilder.group({
@@ -55,22 +59,23 @@ export class Signup2Page {
 
     // Kg units
     if(this.user.international == false){
-      this.unitsType = "Lb";
+      this.unitsWeightType = "Lb";
+      this.translateUnitsWeightType = "Kg";
       if (this.signup2Form.value.weight){
+        this.translateUnitsWeightValue = this.signup2Form.value.weight;
         weight = (this.signup2Form.value.weight * 2.20).toFixed(2);
-        this.signup2Form.controls[ 'weight' ].setValue(weight);
-        console.log(weight);
       }
     
     // Lb units
   } else {
-    this.unitsType = "Kg";
+      this.unitsWeightType = "Kg";
+      this.translateUnitsWeightType = "Lb";
       if (this.signup2Form.value.weight){
+        this.translateUnitsWeightValue = this.signup2Form.value.weight;
         weight = (this.signup2Form.value.weight / 2.20).toFixed(2);
-        this.signup2Form.controls[ 'weight' ].setValue(weight);
-        console.log(weight);
       }
     }
+    this.signup2Form.controls[ 'weight' ].setValue(weight);
   }
 
   /**
