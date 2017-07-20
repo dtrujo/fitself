@@ -34,6 +34,7 @@ import { AddBlockPage } from '../pages/add-block/add-block';
 import { AddPartPage } from '../pages/add-part/add-part';
 import { DashBoardPage } from '../pages/dashboard/dashboard';
 import { PopoverPage } from '../pages/popover-page/popover-page';
+import { BoxesPage } from '../pages/boxes/boxes';
 
 /*
 * Providers
@@ -49,6 +50,7 @@ import { SessionData } from '../providers/session-data';
 import { BlockData } from '../providers/block-data';
 import { PartData } from '../providers/part-data';
 import { MediaData } from '../providers/media-data';
+import { BoxesData } from '../providers/boxes-data';
 
 /*
 * Pipes
@@ -64,6 +66,7 @@ import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/trans
 import { Camera } from '@ionic-native/camera';
 import { Crop } from 'ionic-native';
 import { File } from '@ionic-native/file';
+
 
 /*
 * Modules
@@ -98,7 +101,8 @@ import { File } from '@ionic-native/file';
     AddPartPage,
     DashBoardPage,
     ObjectToArray,
-    PopoverPage
+    PopoverPage,
+    BoxesPage
   ],
   imports: [
     BrowserModule,
@@ -135,7 +139,8 @@ import { File } from '@ionic-native/file';
     AddPartPage,
     DashBoardPage,
     AddBlockPage,
-    PopoverPage
+    PopoverPage,
+    BoxesPage
   ],
   providers: [
     {
@@ -156,7 +161,8 @@ import { File } from '@ionic-native/file';
     TransferObject,
     Camera,
     Crop,
-    MediaData
+    MediaData,
+    BoxesData
   ]
 })
 export class AppModule {}

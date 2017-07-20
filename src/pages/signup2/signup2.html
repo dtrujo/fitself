@@ -13,17 +13,13 @@
   <div class="signup2-container">
     <form [formGroup]="signup2Form" novalidate>
 
-      <ion-item>
-        <ion-label class="light-label">Box</ion-label>
-        <ion-select>
-          <ion-option value="Independient" selected="true">Independient</ion-option>
-          <ion-option value="Crossfit-kz">Crossfit Kz</ion-option>
-          <ion-option value="Crossfit-canarias">Crossfit Canarias</ion-option>
-        </ion-select>
-      </ion-item>
+      <div class="item"> 
+        <ion-label class="light-label left">Box</ion-label>
+        <button class="right light-button" ion-button small clear (click)="showBoxes()">{{box_name}}</button>
+      </div> 
 
       <div class="center">
-        <ion-img width="120" src="assets/images/logokz.png"></ion-img>
+        <ion-img width="120" src="{{box_image}}"></ion-img>
       </div>
 
       <div 
@@ -31,10 +27,17 @@
         [class.invalid]="!signup2Form.controls.city.valid && signup2Form.controls.city.dirty">
          <ion-input formControlName="city" type="text" placeholder="City"></ion-input>
       </div>
+
       <div 
-        class="item" 
-        [class.invalid]="!signup2Form.controls.birthday.valid && signup2Form.controls.birthday.dirty">
-         <ion-input formControlName="birthday" type="text" placeholder="Birthday"></ion-input>
+        class="item">  
+        <ion-datetime 
+          class="left"
+          displayFormat="DD/MM/YYYY"  
+          pickerFormat="DD MM YYYY"     
+          [(ngModel)]="user.birthday"
+          [ngModelOptions]="{standalone: true}">
+        </ion-datetime> 
+        <ion-label class="light-label right">Age</ion-label>          
       </div>
 
       <ion-item>
@@ -43,7 +46,8 @@
           checked="true" color='pink' 
           (ionChange)="updateUnits()"
           [(ngModel)]="user.international" 
-          [ngModelOptions]="{standalone: true}"></ion-toggle>    
+          [ngModelOptions]="{standalone: true}">
+        </ion-toggle>    
       </ion-item>
 
       <div 

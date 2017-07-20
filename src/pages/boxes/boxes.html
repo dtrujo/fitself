@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="transparent">
+    <ion-title>Boxes</ion-title>
+    <ion-buttons end>
+      <button class="header-button" (click)=dismiss()>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>  
+
+    <!--<ion-item *ngFor="let box of boxes" (click)="boxSelected(box)">
+      <ion-label>{{box.box}}</ion-label>
+      <ion-checkbox color="dark" [checked]="box.checked" (ionChange)="updateCheckBox(box)"></ion-checkbox>
+    </ion-item>-->
+
+    <ion-item *ngFor="let box of boxes; let i=index">
+      <ion-label>{{box.box}}</ion-label>
+      <ion-checkbox 
+        color="dark"
+        [ngModel]="checkedIdx == i" 
+        (ngModelChange)="$event ? checkedIdx = i : checkedIdx = -1" 
+        [disabled]="checkedIdx >= 0 && checkedIdx != i">
+      </ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+
+
+
+

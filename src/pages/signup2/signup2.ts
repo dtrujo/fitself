@@ -2,9 +2,9 @@ import { TrainingDetailsPage } from './../training-details/training-details';
 import { User } from './../../models/user';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { NavController, LoadingController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, NavParams, ModalController } from 'ionic-angular';
 
-import { HomePage } from '../home/home';
+import { BoxesPage } from '../boxes/boxes';
 import { AuthData } from '../../providers/auth-data';
 
 /**
@@ -17,9 +17,15 @@ import { AuthData } from '../../providers/auth-data';
 export class Signup2Page {
   signup2Form: any;
   user: User;
+  box_image: any;
+  box_name: any;
+
   unistWeightValue: number;
-  unitsWeightType: string; 
+  unistTallValue: number;
   translateUnitsWeightValue: number;
+  
+  unitsWeightType: string;
+  unitsTallType: string; 
   translateUnitsWeightType: string; 
 
   /**
@@ -29,6 +35,7 @@ export class Signup2Page {
                public formBuilder: FormBuilder,
                public authData: AuthData,
                public navParams: NavParams,
+               public modalCtrl: ModalController,
                public loadingCtrl: LoadingController,
                public alertCtrl: AlertController ) {
 
@@ -37,13 +44,13 @@ export class Signup2Page {
 
     // set default unit to weight and translate value
     this.unitsWeightType = "Kg";
+    this.unitsTallType = "Cm";
     this.translateUnitsWeightType = "Lb";
     this.translateUnitsWeightValue = 0;
 
     // validate form
     this.signup2Form = formBuilder.group({
       city: ['', Validators.required],
-      birthday: ['', Validators.required],
       tall: ['', Validators.required],
       weight: ['', Validators.required]
     })
@@ -75,8 +82,28 @@ export class Signup2Page {
         weight = (this.signup2Form.value.weight / 2.20).toFixed(2);
       }
     }
+
     this.signup2Form.controls[ 'weight' ].setValue(weight);
   }
+
+  /**
+    [showBoxes description]
+    show all boxes to select the official box
+   */
+   showBoxes(){
+    
+    // create modal
+    let boxesModal = this.modalCtrl.create(BoxesPage);
+    
+    // callback when user close modal
+    boxesModal.onDidDismiss(data => {
+      this.box_image = data.box.image_w;
+      this.box_name = data.box.box;
+    });
+    
+    // present modal boxes
+    boxesModal.present();
+   }
 
   /**
     [signupUser description]
@@ -89,7 +116,6 @@ export class Signup2Page {
 
       // complete user model
       this.user.city =  this.signup2Form.value.city;
-      this.user.birthday =  this.signup2Form.value.birthday;
       this.user.tall =  this.signup2Form.value.tall;
       this.user.weight =  this.signup2Form.value.weight;
 

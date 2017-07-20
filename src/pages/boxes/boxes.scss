@@ -1,0 +1,45 @@
+page-boxes {
+
+
+    /*
+        Overright
+    */
+
+
+    .toolbar-title {
+        color: #424242;
+    }
+    .header-button {
+        color: #424242 !important; 
+    }
+
+
+    /*
+        Buttons
+    */
+
+
+    ion-list .item{
+        margin-bottom: 0px !important;
+        padding: 0px 15px !important;
+        
+        .checkbox-md {
+            margin: 9px 0px 9px 4px !important;
+        }
+
+        @include dateFormat(
+            $custom-principal-font,
+            16px !important,
+            400 !important,
+            #424242 !important,
+            0em, initial !important
+        );
+
+        .item-inner {
+            padding-left:20px;
+        }
+    }
+    ion-list .item:hover{
+        background: #efefef;
+    }
+}

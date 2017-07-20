@@ -16,6 +16,15 @@ page-signup-2 {
 
 
   ion-input { @include input( $white ); }
+
+  ion-datetime {
+    text-align: right;
+    color: $white;
+    padding-left:0px !important;
+    font-weight: 400 !important;
+    font-family: $custom-principal-font;
+    font-weight: 100;
+  }
   ion-label {
     color: $white;
     font-family: $custom-principal-font;
@@ -36,7 +45,8 @@ page-signup-2 {
   }
   ion-img{
     background: none;
-    min-height: 35px;
+    min-height: 60px;
+    width: 55%;
   }
 
 
@@ -55,6 +65,17 @@ page-signup-2 {
 
 
   /*
+    Title
+  */
+
+
+  .toolbar-title{
+    color:white !important;
+    font-weight: 500;
+  }
+
+
+  /*
     signup
   */
 
@@ -66,15 +87,15 @@ page-signup-2 {
     transform: translate(-50%, -50%);
     width: 235px;
   }
-  .signup2-container form button {
-    text-transform: none;
+  .light-button{
+    background: none;
+    box-shadow: none;
     font-family: $custom-principal-font;
-    font-weight: 500;
-    font-size: 16px;
-    color: $dark-gray;
-    margin: 3rem 0.2rem 0.4rem 0.2rem;
-    padding: 27px;
-    height: 2.8em;
+    font-weight: 100;
+    color: $white;
+    text-transform: inherit;
+    margin: 7px 0px 0px 0px;
+    font-size: 15px;
   }
   .signup2 {
     background: url('#{$image-path}/vera2.png') top center no-repeat;
