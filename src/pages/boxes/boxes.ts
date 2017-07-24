@@ -17,7 +17,7 @@ export class BoxesPage implements OnInit {
     public boxesData: BoxesData,
     public navParams: NavParams) {
 
-      this.boxes = [ {box: 'Independent', checked: true} ];
+      this.boxes = [ {box: 'Independent', checked: true, id: null} ];
   }
 
   /**

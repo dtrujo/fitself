@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { StorageData } from './storage-data';
+import { User } from './../models/user';
 import firebase from 'firebase';
 
 @Injectable()
@@ -19,8 +20,8 @@ export class AuthData {
                public ngZone: NgZone,
                public storageData: StorageData ) {
 
-      this.fireAuth = firebase.auth();
-      this.userProfile = firebase.database().ref('/users');
+    this.fireAuth = firebase.auth();
+    this.userProfile = firebase.database().ref('/users');
   }
 
   /**
@@ -39,22 +40,40 @@ export class AuthData {
     the Firebase app, once it does it's going to log the user in and create a node on
     userProfile/uid with the user's email address, you can use
     that node to store the profile information.
-    @param {string} email    [User's email address]
-    @param {string} password [User's password]
-    @param {string} username [User's username]
-    @param {string} name     [User's name]
-    @param {string} surname  [User's surname]
+    @param {User} user              [The user]
+    @param {string} email           [User's email address]
+    @param {string} password        [User's password]
+    @param {string} username        [User's username]
+    @param {string} name            [User's name]
+    @param {string} surname         [User's surname]
+    @param {string} city            [User's city]
+    @param {string} bithday         [User's birtday]
+    @param {boolean} international  [If USer use internation unit system]
+    @param {number} tall            [User's tall]
+    @param {number} weight          [User's weight] 
+    @param {string} box             [The box] 
+    @param {string} imageSource     [Image profile]
   */
-  signupUser( email: string, password: string, username: string, name: string, surname: string): any {
-    return this.fireAuth.createUserWithEmailAndPassword(email, password).then((newUser) => {
-      this.fireAuth.signInWithEmailAndPassword(email, password).then((authenticatedUser) => {
+  signupUser( user : User ) : any {
+
+    return this.fireAuth.createUserWithEmailAndPassword(user.email, user.password).then((newUser) => {
+      this.fireAuth.signInWithEmailAndPassword(user.email, user.password).then((authenticatedUser) => {
+
+        // upload image picture
+        this.storageData.upload(user.imageSource, user.username)
 
         // add element information to user profile
         this.userProfile.child(authenticatedUser.uid).set({
-          email: email,
-          username: username,
-          name: name,
-          surname: surname
+          email: user.email,
+          username: user.username,
+          name: user.name,
+          surname: user.surname,
+          city: user.city,
+          birthday: user.birthday,
+          international: user.international,
+          tall: user.tall,
+          weight: user.weight,
+          box: user.box
         });
 
         // actual date

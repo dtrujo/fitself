@@ -33,6 +33,9 @@ export class SignupPage {
                public loadingCtrl: LoadingController,
                public alertCtrl: AlertController ) {
 
+    // inizialization
+    this.imageSource = '';
+
     // validate form
     this.signupForm = formBuilder.group({
       email: ['', Validators.required],
@@ -46,23 +49,23 @@ export class SignupPage {
   /**
     [goToNextStep description]
     Go to the second part of the user details
+    if all fields are completed
   */
   goToNextStep() {
 
     // if the form is validated
-    if (!this.signupForm.valid){
-      console.log("empty fields" + this.signupForm.value.name);
-    } else {
+    if (this.signupForm.valid){
 
       // create new user
       var user = new User(
-        'id', 
+        null, 
         this.signupForm.value.name,
         this.signupForm.value.email,
         this.signupForm.value.password,
         this.signupForm.value.username,
         this.signupForm.value.surname,
-        null,null,true,null,null
+        null,null,true,null,null, null, 
+        this.imageSource
       );
 
       // pass user to second step 
@@ -111,47 +114,5 @@ export class SignupPage {
       ]
     });
     actionSheet.present();
-  }
-
-  /**
-    [signupUser description]
-  */
-  signupUser(){
-
-    // if the form is validated
-    if (!this.signupForm.valid){
-      console.log(this.signupForm.value);
-    } else {
-
-      // pass user to second step 
-      //this.navCtrl.push(Signup2Page, {user: user});
-
-      /*this.authData.signupUser(
-        this.signupForm.value.email,
-        this.signupForm.value.password,
-        this.signupForm.value.username,
-        this.signupForm.value.name,
-        this.signupForm.value.surname).then(() => {
-          this.navCtrl.setRoot(HomePage);
-      }, (error) => {
-
-        var errorMessage: string = error.message;
-        let alert = this.alertCtrl.create({
-          message: errorMessage,
-          buttons: [{
-            text: "Ok",
-            role: 'cancel'
-          }]
-        });
-
-        alert.present();
-      });
-
-      let loading = this.loadingCtrl.create({
-        dismissOnPageChange: true,
-      });
-
-      loading.present();*/
-    }
   }
 }

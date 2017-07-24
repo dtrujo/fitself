@@ -1,9 +1,10 @@
 import { TrainingDetailsPage } from './../training-details/training-details';
 import { User } from './../../models/user';
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NavController, LoadingController, AlertController, NavParams, ModalController } from 'ionic-angular';
 
+import { HomePage } from '../home/home';
 import { BoxesPage } from '../boxes/boxes';
 import { AuthData } from '../../providers/auth-data';
 
@@ -34,6 +35,7 @@ export class Signup2Page {
   constructor( public navCtrl: NavController,
                public formBuilder: FormBuilder,
                public authData: AuthData,
+               public ngZone: NgZone,
                public navParams: NavParams,
                public modalCtrl: ModalController,
                public loadingCtrl: LoadingController,
@@ -48,6 +50,11 @@ export class Signup2Page {
     this.translateUnitsWeightType = "Lb";
     this.translateUnitsWeightValue = 0;
 
+    // set default independent box
+    this.box_image = 'assets/images/crossfitindependent.png';
+    this.box_name = 'Independent';
+    this.user.box = null;
+
     // validate form
     this.signup2Form = formBuilder.group({
       city: ['', Validators.required],
@@ -58,7 +65,7 @@ export class Signup2Page {
 
   /**
    [updateUnits description]
-   Change units depending if the international
+   Change units depending if the internationalc
    value is checked or not. Change Kg or Lb
    */
   updateUnits(){
@@ -77,7 +84,7 @@ export class Signup2Page {
   } else {
       this.unitsWeightType = "Kg";
       this.translateUnitsWeightType = "Lb";
-      if (this.signup2Form.value.weight){
+      if (this.signup2Form.value.weight) {
         this.translateUnitsWeightValue = this.signup2Form.value.weight;
         weight = (this.signup2Form.value.weight / 2.20).toFixed(2);
       }
@@ -97,13 +104,14 @@ export class Signup2Page {
     
     // callback when user close modal
     boxesModal.onDidDismiss(data => {
-      this.box_image = data.box.image_w;
+      this.box_image = data.box.id != null ? data.box.image_w : "assets/images/crossfitindependent.png";
       this.box_name = data.box.box;
+      this.user.box = data.box.id;
     });
     
     // present modal boxes
     boxesModal.present();
-   }
+  }
 
   /**
     [signupUser description]
@@ -119,15 +127,9 @@ export class Signup2Page {
       this.user.tall =  this.signup2Form.value.tall;
       this.user.weight =  this.signup2Form.value.weight;
 
-      console.log(this.user);
-
-      /*this.authData.signupUser(
-        '',
-        this.signup2Form.value.password,
-        this.signup2Form.value.username,
-        this.signup2Form.value.name,
-        this.signup2Form.value.surname).then(() => {
-          this.navCtrl.setRoot(HomePage);
+      // call service to signup the new user
+      this.authData.signupUser( this.user).then(() => {
+        this.navCtrl.setRoot(HomePage);
       }, (error) => {
 
         var errorMessage: string = error.message;
@@ -147,7 +149,6 @@ export class Signup2Page {
       });
 
       loading.present();
-      }*/
     }
   }
 }

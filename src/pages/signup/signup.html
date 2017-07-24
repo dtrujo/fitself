@@ -12,7 +12,9 @@
 <ion-content padding class="signup">
   <button ion-button round='true' class="image-button" (click)="presentActionSheet()">
     <ion-icon name="camera"></ion-icon>
-    <img src="{{imageSource}}"/>
+    <!--<img src="{{imageSource}}"/>-->
+    <img [src]="imageSource"/>
+
   </button>
 
   <div class="signup-container">

@@ -20,6 +20,25 @@ export class MediaData {
     public crop: Crop) { }
 
   /**
+   [toDataUrlBase64 description]
+   convert image using uri to image using
+   base64 format
+   */
+  toDataUrlBase64(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+            callback(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+  }
+
+  /**
     [getMedia description]
     Return a promise to catch errors while loading image
   */

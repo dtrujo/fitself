@@ -14,6 +14,8 @@ export class User{
     international: boolean;
     tall: number;
     weight: number;
+    box: string;
+    imageSource: string;
 
     /**
      * 
@@ -24,7 +26,8 @@ export class User{
         _username: string, _surname: string,
         _city: string, _birthday: string,
         _international: boolean, _tall: number,
-        _weight: number
+        _weight: number, _box: string, _imageSource: string
+
     ){
         this.id = _id;
         this.name = _name;
@@ -37,5 +40,7 @@ export class User{
         this.international = _international;
         this.tall = _tall;
         this.weight = _weight;
+        this.box = _box;
+        this.imageSource = _imageSource;
     }
 }
