@@ -12,6 +12,7 @@ export class AuthData {
   fireAuth : any;
   userProfile : any;
   authRef: any;
+  boxRef : any;
 
   /**
     Constructor
@@ -22,6 +23,7 @@ export class AuthData {
 
     this.fireAuth = firebase.auth();
     this.userProfile = firebase.database().ref('/users');
+    this.boxRef = firebase.database().ref('/boxes');
   }
 
   /**
@@ -77,6 +79,9 @@ export class AuthData {
           box: user.box,
           imageSource: user.imageSource
         });
+
+        // add user in the correct box
+        this.boxRef.child('/users/' + authenticatedUser.uid).set(true);
 
         // actual date
         let date = new Date();
