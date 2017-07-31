@@ -3,8 +3,8 @@ import { Http } from '@angular/http';
 import { Platform } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
-import { Camera } from '@ionic-native/camera';
-import { Crop } from 'ionic-native'
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Crop } from '@ionic-native/crop'
 
 /*
   Class for the Media provider.
@@ -12,12 +12,15 @@ import { Crop } from 'ionic-native'
 @Injectable()
 export class MediaData {
 
-  /**/
+  /*
+  *
+  */
   constructor(
     public http: Http,
     public platform: Platform,
-    public camera: Camera,
-    public crop: Crop) { }
+    private camera: Camera,
+    private crop: Crop) {
+    }
 
   /**
    [toDataUrlBase64 description]
@@ -42,36 +45,19 @@ export class MediaData {
     [getMedia description]
     Return a promise to catch errors while loading image
   */
-  getMedia(source: number): Promise<any> {
-
-    let options: any = {
-      allowEdit: true,
+  getMedia(source: number) : Promise<any> {
+    
+    let options = {
       encodingType: this.camera.EncodingType.JPEG,
       sourceType: source,
-      correctOrientation: true,
-      mediaType: this.camera.MediaType.ALLMEDIA,
-      destinationType: this.camera.DestinationType.FILE_URI
+      mediaType: this.camera.MediaType.PICTURE,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      quality: 100      
     }
 
     // Get Image from ionic-native's built in camera plugin
     return this.camera.getPicture(options).then((fileUri) => {
-
-      // Crop Image, on android this returns something like,
-      // '/storage/emulated/0/Android/...' Only giving an android
-      // example as ionic-native camera has built in cropping ability
-      if (this.platform.is('ios')) {
-        return fileUri
-      } else if (this.platform.is('android')) {
-
-        // Modify fileUri format, may not always be necessary
-        fileUri = 'file://' + fileUri;
-
-        // Crop image using cordova crop plugin
-        return Crop.crop(fileUri, { quality: 100 });
-      }
-    })
-    .then((path) => {
-      return path;
-    })
+      return this.crop.crop(fileUri, { quality: 100 });
+    });
   }
 }

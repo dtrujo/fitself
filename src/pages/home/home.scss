@@ -12,6 +12,7 @@ page-home{
 		font-size: 12px;
 		color: $light-gray;
 		margin:0;
+		min-height: 12px;
 	}
 
 
@@ -37,32 +38,43 @@ page-home{
 		}
 	}
 
+	
+	/*
+    	Title
+  	*/
+
+
+	.toolbar-title{
+		color:white !important;
+		font-weight: 500;
+	}
+
 
 	/*
 		Gradient
 	*/
 
 
-  .top-container {
-    background: url(../assets/images/home-bg.png) top center no-repeat;
-    background-size: cover;
-    height: 35%;
+  	.top-container {
+    	background: url(../assets/images/home-bg.png) top center no-repeat;
+    	background-size: cover;
+    	height: 35%;
 
-    &:before {
-      content: '';
-  	  position: fixed;
-  	  top: 0;
-  	  right: 0;
-  	  bottom: 0;
-  	  left: 0;
-  	  background-image: linear-gradient(180deg,$purple-gradient, $blue-gradient);
-  	  opacity: .95;
-  	  height:32.5%;
-    }
-  }
+		&:before {
+		content: '';
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: linear-gradient(180deg,$purple-gradient, $blue-gradient);
+		opacity: .95;
+		height:33%;
+		}
+	}
 
 
-  /*
+	/*
 		Content
 	*/
 
@@ -97,22 +109,34 @@ page-home{
 		color: $dark-gray;
 
 		h2 { @include h2( 17px, 400, $custom-principal-font, 8px 0 0 0 ); }
+		h2 { min-height: 20px; }
 
-		img {
+		.user-profile{
+			height: 110px;
+			background: $light-bg;
 			width: 110px;
-			margin-bottom: 20px;
+			margin: 0px 35% 20px 35%;
 			border-radius: 100px;
-			border: 3px solid lightgray;
-			background: lightgray;
+			border: 3px solid $light-bg;
 			height: 110px;
 			overflow: hidden;
+			img {
+				border-radius: 100px;
+				overflow: hidden;
+			}
+			ion-icon {
+				color: $custom-red;
+				font-size: 45px;
+    			margin-top: 30px;
+			}
 		}
-		ion-icon {
+		
+		.user-marker ion-icon {
 			color: $custom-red;
 			font-size: 18px;
 			margin-top: 5px;
 		}
-		ion-icon span {
+		.user-marker ion-icon span {
 			position: relative;
 			top: -2px;
 			font-size: 12px;
@@ -133,7 +157,7 @@ page-home{
 		color: $dark-gray;
 
 		img {
-			width: 25%;
+			width: 30%;
 			margin-top: 10px;
 		}
 	}

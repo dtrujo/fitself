@@ -12,11 +12,14 @@
   <div class="home-container">
 
     <div class="user-info-container">
-      <img src="{{imageProfile}}"/>
-      <p>@{{currentUser.username}}</p>
-      <h2>Diego Trujillo</h2>
-      <div class="item">
-          <ion-icon class="fa fa-map-marker"><span>Las Palmas</span></ion-icon>
+      <div class="user-profile">
+        <ion-icon name="happy" *ngIf="!user.imageSource"></ion-icon>
+        <img src="{{user.imageSource}}"/>
+      </div>
+      <p>@{{user.username}}</p>
+      <h2>{{user.name}} {{user.surname}}</h2>
+      <div class="item user-marker">
+        <ion-icon class="fa fa-map-marker"><span>{{user.city}}</span></ion-icon>
       </div>
     </div>
 
@@ -25,21 +28,21 @@
        <ion-row>
          <ion-col class="center">
            <button type="button" name="button" (click)="goToFriends()">
-             <h2>{{friendsCount}}</h2>
+             <h2>{{friends}}</h2>
              <p>Friends</p>
            </button>
          </ion-col>
 
          <ion-col class="center">
            <button type="button" name="button" (click)="goToNotebook()">
-             <h2>20</h2>
+             <h2>{{trainings}}</h2>
              <p>Trainings</p>
            </button>
          </ion-col>
 
          <ion-col class="center">
            <button type="button" name="button" (click)="goToExercises()">
-             <h2>{{exercisesCount}}</h2>
+             <h2>{{exercises}}</h2>
              <p>Prs</p>
            </button>
          </ion-col>
@@ -50,7 +53,7 @@
 
     <div class="affiliated-container">
       <p>Affiliated in</p>
-      <img src="assets/images/logo-affiliated.png"/>
+      <img [src]="box_image"/>
     </div>
   </div>
 </ion-content>

@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -21,10 +22,12 @@ declare var cordova: any;
 })
 export class HomePage implements OnInit, OnDestroy {
   fireAuth : any;
-  currentUser : any;
-  friendsCount : number;
-  exercisesCount: number;
+  user: User;
+  friends : number;
+  exercises: number;
+  trainings: number;
   imageProfile : string;
+  box_image: any;
 
   /**
     Constructor
@@ -36,27 +39,20 @@ export class HomePage implements OnInit, OnDestroy {
                private file: File,
                public storageData: StorageData,
                public authData: AuthData) {
+    
+    // create new user
+    this.user = new User( 
+      null, null, null, null,
+      null, null, null, null,
+      true, null, null, null, 
+      null
+    );
 
-    this.currentUser = '';
-
-    // read user store in localStorage to improve
-    // load information if user exist. If the user is
-    // not in local storage, we will look for in firebase
-    this.storage.get('user').then((val) => {
-
-      if(val){
-        var userStorage = JSON.parse(val);
-
-        // update user information using
-        // local storage data
-        this.updateCurrentUser(
-          userStorage.user,
-          userStorage.img,
-          userStorage.friends,
-          userStorage.pr
-        );
-      }
-    })
+    // init values
+    this.friends = 0;
+    this.exercises = 0;
+    this.trainings = 0;
+    this.box_image = '';
   }
 
   /**
@@ -70,10 +66,36 @@ export class HomePage implements OnInit, OnDestroy {
     This event fire any time when user access to the view
   */
   ngOnInit() {
+    this.ngZone.run(() => {
+      
+      // read user store in localStorage to improve
+      // load information if user exist. If the user is
+      // not in local storage, we will look for in firebase
+      this.storage.get('user').then((dataUser) => {
+        if(dataUser) this.user = JSON.parse(dataUser);
+      });
+      this.storage.get('friends').then((dataFriends) => {
+        if(dataFriends) this.friends = dataFriends;
+      });
+      this.storage.get('exercises').then((dataExercises) => {
+        if(dataExercises) this.exercises = dataExercises;
+      });
+      this.storage.get('trainings').then((dataTrainings) => {
+        if(dataTrainings) this.trainings = dataTrainings;
+      });
+      this.storage.get('box').then((dataBox) => {
+        if(dataBox) this.box_image = dataBox;
+      });
 
+    });
+
+    /*
     // create component to detect is user is loggin or not
     firebase.auth().onAuthStateChanged((user) => {
       this.ngZone.run(() => {
+
+        console.log("init");
+        console.log(user);
 
         // current user
         if (user) {
@@ -127,6 +149,8 @@ export class HomePage implements OnInit, OnDestroy {
         }
       });
     });
+
+    */
   }
 
   /**
@@ -156,10 +180,10 @@ export class HomePage implements OnInit, OnDestroy {
   updateCurrentUser(user: any, url: string, friends: number, exercises: number){
 
     // update user information in the ui
-    this.currentUser = user;
-    this.imageProfile = url;
-    this.friendsCount = friends;
-    this.exercisesCount = exercises;
+    //this.currentUser = user;
+    //this.imageProfile = url;
+    //this.friendsCount = friends;
+    //this.exercisesCount = exercises;
   }
 
   /**
@@ -167,7 +191,6 @@ export class HomePage implements OnInit, OnDestroy {
     This event fire any time when user turn down the view
   */
   ngOnDestroy(){
-    this.currentUser = '';
   }
 
   /**

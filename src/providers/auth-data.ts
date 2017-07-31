@@ -59,8 +59,9 @@ export class AuthData {
     return this.fireAuth.createUserWithEmailAndPassword(user.email, user.password).then((newUser) => {
       this.fireAuth.signInWithEmailAndPassword(user.email, user.password).then((authenticatedUser) => {
 
-        // upload image picture
-        this.storageData.upload(user.imageSource, user.username)
+        // upload image picture if exist image
+        if (user.imageSource != "")
+          this.storageData.upload(user.imageSource, user.username);    
 
         // add element information to user profile
         this.userProfile.child(authenticatedUser.uid).set({
@@ -73,7 +74,8 @@ export class AuthData {
           international: user.international,
           tall: user.tall,
           weight: user.weight,
-          box: user.box
+          box: user.box,
+          imageSource: user.imageSource
         });
 
         // actual date

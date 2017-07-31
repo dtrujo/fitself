@@ -94,12 +94,12 @@ $neo-font-path: $font-path !default;
 @mixin bar ( $background ) {
   background: $background;
 }
-@mixin input ( $color ) {
+@mixin input ( $color , $width ) {
   color: $color;
   font-family: $custom-principal-font;
   font-weight: 500;
   font-size: 15px;
-  width: 80%;
+  width: $width;
 }
 @mixin h2 ( $font-size, $font-weight, $font-family, $margin ) {
   font-size: $font-size;

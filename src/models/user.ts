@@ -27,7 +27,6 @@ export class User{
         _city: string, _birthday: string,
         _international: boolean, _tall: number,
         _weight: number, _box: string, _imageSource: string
-
     ){
         this.id = _id;
         this.name = _name;

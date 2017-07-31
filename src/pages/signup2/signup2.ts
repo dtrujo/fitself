@@ -2,6 +2,7 @@ import { TrainingDetailsPage } from './../training-details/training-details';
 import { User } from './../../models/user';
 import { Component, NgZone } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 import { NavController, LoadingController, AlertController, NavParams, ModalController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
@@ -18,7 +19,8 @@ import { AuthData } from '../../providers/auth-data';
 export class Signup2Page {
   signup2Form: any;
   user: User;
-  box_image: any;
+  box_image_w: any;
+  box_image_b: any;
   box_name: any;
 
   unistWeightValue: number;
@@ -36,6 +38,7 @@ export class Signup2Page {
                public formBuilder: FormBuilder,
                public authData: AuthData,
                public ngZone: NgZone,
+               public storage: Storage,
                public navParams: NavParams,
                public modalCtrl: ModalController,
                public loadingCtrl: LoadingController,
@@ -51,7 +54,7 @@ export class Signup2Page {
     this.translateUnitsWeightValue = 0;
 
     // set default independent box
-    this.box_image = 'assets/images/crossfitindependent.png';
+    this.box_image_w = 'assets/images/crossfitindependent.png';
     this.box_name = 'Independent';
     this.user.box = null;
 
@@ -104,7 +107,8 @@ export class Signup2Page {
     
     // callback when user close modal
     boxesModal.onDidDismiss(data => {
-      this.box_image = data.box.id != null ? data.box.image_w : "assets/images/crossfitindependent.png";
+      this.box_image_w = data.box.id != null ? data.box.image_w : "assets/images/crossfitindependent.png";
+      this.box_image_b = data.box.id != null ? data.box.image_b : "";
       this.box_name = data.box.box;
       this.user.box = data.box.id;
     });
@@ -115,6 +119,9 @@ export class Signup2Page {
 
   /**
     [signupUser description]
+    this is the last step to signup user
+    we check if the form is valid, update user model
+    and signup user using provider.
   */
   signup2User(){
 
@@ -128,7 +135,15 @@ export class Signup2Page {
       this.user.weight =  this.signup2Form.value.weight;
 
       // call service to signup the new user
-      this.authData.signupUser( this.user).then(() => {
+      this.authData.signupUser( this.user ).then(() => {
+
+        // save new user to local sotrage and some variables
+        this.storage.set('user', JSON.stringify(this.user));     
+        this.storage.set('friends', 0);     
+        this.storage.set('exercises', 0); 
+        this.storage.set('trainings', 0); 
+        this.storage.set('box', this.box_image_b);     
+
         this.navCtrl.setRoot(HomePage);
       }, (error) => {
 
@@ -140,7 +155,6 @@ export class Signup2Page {
             role: 'cancel'
           }]
         });
-
         alert.present();
       });
 

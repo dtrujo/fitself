@@ -64,7 +64,7 @@ import { ObjectToArray } from '../pipes/objectToArray';
 
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 import { Camera } from '@ionic-native/camera';
-import { Crop } from 'ionic-native';
+import { Crop } from '@ionic-native/crop';
 import { File } from '@ionic-native/file';
 
 

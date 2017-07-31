@@ -88,20 +88,14 @@ export class SignupPage {
           text: 'Take picture',
           handler: () => {
             this.mediaData.getMedia(1).then((picture) => {
-               this.ngZone.run(()=>{
-                 console.log(picture);
-                 this.imageSource = picture;
-               })
+              this.imageSource = picture;
             });
           }
         },{
           text: 'Open Gallery',
           handler: () => {
-            this.mediaData.getMedia(2).then((picture) => {
-               this.ngZone.run(()=>{
-                 console.log(picture);
-                 this.imageSource = picture;
-               })
+            this.mediaData.getMedia(0).then((picture) => {
+              this.imageSource = picture;
             });
           }
         },{

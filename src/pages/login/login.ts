@@ -56,8 +56,9 @@ export class LoginPage {
       this.authData.loginUser(
         this.loginForm.value.email,
         this.loginForm.value.password)
-
       .then( auth => {
+
+        console.log(auth.uid);
 
         // pass loading param to dismiss loading manually
         this.navCtrl.setRoot(TabsPage, { loading: loading });

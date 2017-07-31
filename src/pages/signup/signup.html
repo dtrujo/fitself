@@ -9,17 +9,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="signup">
-  <button ion-button round='true' class="image-button" (click)="presentActionSheet()">
-    <ion-icon name="camera"></ion-icon>
-    <!--<img src="{{imageSource}}"/>-->
-    <img [src]="imageSource"/>
-
-  </button>
-
+<ion-content padding class="signup hide-on-keyboard-open">
   <div class="signup-container">
     <form [formGroup]="signupForm" novalidate>
       
+      <button ion-button round='true' class="image-button" (click)="presentActionSheet()">
+        <ion-icon name="camera" *ngIf="!imageSource"></ion-icon>
+        <img [src]="imageSource" />
+      </button>
+
       <div 
         class="item" 
         [class.invalid]="!signupForm.controls.name.valid && signupForm.controls.name.dirty">

@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { LoginPage } from '../login/login';
 import { AuthData } from '../../providers/auth-data';
+import { Storage } from '@ionic/storage';
 import { ConnectionData } from '../../providers/connection-data';
 import firebase from 'firebase';
 
@@ -17,12 +18,12 @@ export class DashBoardPage implements OnInit, OnDestroy {
   isClassVisible: boolean;
   subscription: any;
 
-
   /**
     Constructor
   */
   constructor( public navCtrl: NavController,
                public ngZone: NgZone,
+               public storage: Storage,
                public authData: AuthData,
                public connectionData: ConnectionData,
                public loadingCtrl: LoadingController,
@@ -39,7 +40,6 @@ export class DashBoardPage implements OnInit, OnDestroy {
       });
     });
   }
-
 
   /**
     [ngOnInit description]
@@ -61,7 +61,6 @@ export class DashBoardPage implements OnInit, OnDestroy {
     });
   }
 
-
   /**
     [ngOnDestroy description]
     This event fire any time when user turn down the view
@@ -70,7 +69,6 @@ export class DashBoardPage implements OnInit, OnDestroy {
     this.currentUser = '';
     this.subscription.unsubscribe();
   }
-
 
   /**
     [logOut description]
@@ -88,6 +86,7 @@ export class DashBoardPage implements OnInit, OnDestroy {
     // stop 2 sec showing load before to logout
     setTimeout(() => {
       this.authData.logoutUser().then(() => {
+        this.storage.clear();
         this.navCtrl.setRoot(LoginPage);
       });
     }, 2000);
