@@ -27,6 +27,17 @@ page-pr {
 
 
   /*
+    Title
+  */
+
+
+	.toolbar-title{
+		color:white !important;
+		font-weight: 500;
+	}
+
+
+  /*
     Actual title PR
   */
 
@@ -39,6 +50,7 @@ page-pr {
   /*
     Item
   */
+  
 
   h2 {
     @include h2( 16px, 400, $custom-principal-font, 5px 0 0 0 );

@@ -52,7 +52,7 @@ page-dashboard {
       color: $dark-gray;
       margin-top:20%;
       .text-center{
-        margin: 10px 34%;
+        margin: 10px 30%;
         p{
           margin: 0px;
           float: left;
@@ -62,9 +62,9 @@ page-dashboard {
       .circle{
         width: 7px;
         background-color: red;
-        float: left;
         height: 7px;
-        margin: 5px 10px 6px 10px;
+        display: inline-flex;
+        margin: 5px 5px 6px 0px;
         border-radius: 50px;
       }
       img {

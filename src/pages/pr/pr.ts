@@ -69,7 +69,7 @@ export class PrPage {
         this.newPrForm.value.type,
         this.newPrForm.value.unit
       ).then(() => {
-          this.viewCtrl.dismiss();
+          this.dismiss();
       }, (error) => {
 
         var errorMessage: string = error.message;

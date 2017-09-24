@@ -22,6 +22,11 @@ export class SignupPage {
   imageSource: any;
 
   /**
+   * Patterns to validator
+   */
+  emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  /**
     Constructor
   */
   constructor( public navCtrl: NavController,
@@ -38,7 +43,7 @@ export class SignupPage {
 
     // validate form
     this.signupForm = formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', Validators.compose([Validators.pattern(this.emailPattern), Validators.required])],
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
       username: ['', Validators.required],
       name: ['', Validators.required],

@@ -85,7 +85,7 @@ page-signup-2 {
     top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 235px;
+    width: 270px;
   }
   .light-button{
     background: none;
@@ -99,7 +99,7 @@ page-signup-2 {
   }
   .signup2 {
     background: url('#{$image-path}/vera2.png') top center no-repeat;
-    background-size: contain;
+    background-size: 100%;
 
     &:before {
       content: '';

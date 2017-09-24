@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
@@ -13,14 +14,21 @@ import firebase from 'firebase';
 })
 export class DashBoardPage implements OnInit, OnDestroy {
   dashBoardPage: any;
-  currentUser: any = "";
-  color: any;
+  user: User;
   isClassVisible: boolean;
   subscription: any;
+  imageFlag: boolean;
 
   /**
-    Constructor
-  */
+   * 
+   * @param navCtrl 
+   * @param ngZone 
+   * @param storage 
+   * @param authData 
+   * @param connectionData 
+   * @param loadingCtrl 
+   * @param navParams 
+   */
   constructor( public navCtrl: NavController,
                public ngZone: NgZone,
                public storage: Storage,
@@ -28,6 +36,16 @@ export class DashBoardPage implements OnInit, OnDestroy {
                public connectionData: ConnectionData,
                public loadingCtrl: LoadingController,
                public navParams: NavParams) {
+
+    this.imageFlag = false;
+
+    // create new user
+    this.user = new User( 
+      null, null, null, null,
+      null, null, null, null,
+      true, null, null, null, 
+      null
+    );
 
     // load tabs page by default in this sections
     this.dashBoardPage = TabsPage;
@@ -46,18 +64,21 @@ export class DashBoardPage implements OnInit, OnDestroy {
     This event fire any time when user access to the view
   */
   ngOnInit() {
+    this.ngZone.run(() => {
+      
+      // read user store in localStorage to improve
+      // load information if user exist. If the user is
+      // not in local storage, we will look for in firebase
+      this.storage.get('user').then((dataUser) => {
+        if(dataUser) {        
+          this.user = JSON.parse(dataUser);         
 
-    // create component to detect is user is loggin or not
-    firebase.auth().onAuthStateChanged((user) => {
-      this.ngZone.run(() => {
-        if (user) {
-          this.authData.user(user.uid).subscribe(data => {
-            this.ngZone.run(() => {
-              this.currentUser = data;
-            });
-          });
+          // control if the user has image 
+          if (!this.user.imageSource)
+            this.imageFlag = true;
         }
       });
+            
     });
   }
 
@@ -66,7 +87,6 @@ export class DashBoardPage implements OnInit, OnDestroy {
     This event fire any time when user turn down the view
   */
   ngOnDestroy(){
-    this.currentUser = '';
     this.subscription.unsubscribe();
   }
 

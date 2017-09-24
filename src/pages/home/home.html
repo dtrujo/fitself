@@ -13,7 +13,7 @@
 
     <div class="user-info-container">
       <div class="user-profile">
-        <ion-icon name="happy" *ngIf="!user.imageSource"></ion-icon>
+        <ion-icon name="happy" *ngIf="imageFlag"></ion-icon>
         <img src="{{user.imageSource}}"/>
       </div>
       <p>@{{user.username}}</p>
@@ -28,21 +28,21 @@
        <ion-row>
          <ion-col class="center">
            <button type="button" name="button" (click)="goToFriends()">
-             <h2>{{friends}}</h2>
+             <h2>{{config.friends}}</h2>
              <p>Friends</p>
            </button>
          </ion-col>
 
          <ion-col class="center">
            <button type="button" name="button" (click)="goToNotebook()">
-             <h2>{{trainings}}</h2>
+             <h2>{{config.trainings}}</h2>
              <p>Trainings</p>
            </button>
          </ion-col>
 
          <ion-col class="center">
            <button type="button" name="button" (click)="goToExercises()">
-             <h2>{{exercises}}</h2>
+             <h2>{{config.exercises}}</h2>
              <p>Prs</p>
            </button>
          </ion-col>
@@ -53,7 +53,7 @@
 
     <div class="affiliated-container">
       <p>Affiliated in</p>
-      <img [src]="box_image"/>
+      <img [src]="config.imageBoxB"/>
     </div>
   </div>
 </ion-content>

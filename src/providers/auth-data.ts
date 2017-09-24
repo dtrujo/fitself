@@ -76,12 +76,11 @@ export class AuthData {
           international: user.international,
           tall: user.tall,
           weight: user.weight,
-          box: user.box,
-          imageSource: user.imageSource
+          box: user.box
         });
 
         // add user in the correct box
-        this.boxRef.child('/users/' + authenticatedUser.uid).set(true);
+        this.boxRef.child(user.box + '/users/' + authenticatedUser.uid).set(true);
 
         // actual date
         let date = new Date();
@@ -149,15 +148,19 @@ export class AuthData {
         let userData = snapshot.val();
 
         // get url download image using observable element
-        this.storageData.image(userData.image).subscribe(url => {
-            userData.image = url;
+        this.storageData.image(userData.username.toLowerCase()).subscribe(url => {
+          this.storageData.download(url, userData.username).then(image =>{
+            userData.imageSource = image;
             observer.next(userData);
+          });
         });
+
       }, observer.error);
 
       return () => {
         this.authRef.off('value', listener);
       };
+      
     });
   }
 }

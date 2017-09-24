@@ -2,6 +2,17 @@ page-session-details{
 
 
   /*
+  	Title
+  */
+
+
+	.toolbar-title{
+		color:white !important;
+		font-weight: 500;
+  }
+  
+
+  /*
     Toolbar
   */
 
@@ -11,7 +22,6 @@ page-session-details{
       @include bar( $purple-gradient );
     }
   }
-
   ion-buttons {
     button{
       color: $aqua-button !important;

@@ -10,14 +10,14 @@ import { NavParams } from 'ionic-angular';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
   tab1Root: any;
   tab2Root: any;
   tab3Root: any;
   tab4Root: any;
-  loading: any;
-  currentUser : any;
 
+  /**
+   * 
+   */
   constructor( public params: NavParams ) {
 
     // this tells the tabs component which Pages
@@ -26,16 +26,5 @@ export class TabsPage {
     this.tab2Root = FriendsPage;
     this.tab3Root = ExercisesPage;
     this.tab4Root = NotebookPage;
-
-    /*this.currentUser = currentUser;*/
-    this.loading = this.params.get("loading");
-  }
-
-  /**
-    [ionViewDidEnter description]
-  */
-  ionViewDidEnter(){
-    if(this.loading)
-        this.loading.dismiss();
   }
 }

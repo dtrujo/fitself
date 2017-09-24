@@ -15,6 +15,10 @@ page-home{
 		min-height: 12px;
 	}
 
+	.item{ 
+		margin-bottom: 10px !important
+	}
+
 
 	/*
 		Button
@@ -115,7 +119,7 @@ page-home{
 			height: 110px;
 			background: $light-bg;
 			width: 110px;
-			margin: 0px 35% 20px 35%;
+			margin: 0px 35% 10px 35%;
 			border-radius: 100px;
 			border: 3px solid $light-bg;
 			height: 110px;
@@ -157,8 +161,12 @@ page-home{
 		color: $dark-gray;
 
 		img {
-			width: 30%;
 			margin-top: 10px;
+			width: 35%;
+			margin-top: 10px;
+			min-height: 30px;
+			max-height: 60px;
+			border: none;
 		}
 	}
 
@@ -170,7 +178,7 @@ page-home{
 
 	.social-container{
 		width: 85%;
-		margin: 20px auto 35px auto;
+		margin: 10px auto 40px auto;
 
 		h2 { @include h2( 22px, 400, $custom-secondary-font, 10px 0 0 0 ); }
 	}

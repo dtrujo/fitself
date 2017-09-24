@@ -48,7 +48,7 @@ export class MediaData {
   getMedia(source: number) : Promise<any> {
     
     let options = {
-      encodingType: this.camera.EncodingType.JPEG,
+      encodingType: this.camera.EncodingType.PNG,
       sourceType: source,
       mediaType: this.camera.MediaType.PICTURE,
       destinationType: this.camera.DestinationType.FILE_URI,

@@ -1,3 +1,5 @@
+import { TabsPage } from './../tabs/tabs';
+import { Config } from './../../models/config';
 import { TrainingDetailsPage } from './../training-details/training-details';
 import { User } from './../../models/user';
 import { Component, NgZone } from '@angular/core';
@@ -6,6 +8,7 @@ import { Storage } from '@ionic/storage';
 import { NavController, LoadingController, AlertController, NavParams, ModalController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
+import { DashBoardPage } from '../dashboard/dashboard';
 import { BoxesPage } from '../boxes/boxes';
 import { AuthData } from '../../providers/auth-data';
 
@@ -19,9 +22,8 @@ import { AuthData } from '../../providers/auth-data';
 export class Signup2Page {
   signup2Form: any;
   user: User;
-  box_image_w: any;
-  box_image_b: any;
   box_name: any;
+  config: Config;
 
   unistWeightValue: number;
   unistTallValue: number;
@@ -47,16 +49,18 @@ export class Signup2Page {
     // get user
     this.user = navParams.get('user');
 
+    // create config model to save data in local storage
+    this.config = new Config(0,0,0, 'assets/images/crossfitindependent_w.png','');
+
+    // set default independent box
+    this.box_name = 'Independent';
+    this.user.box = null;
+
     // set default unit to weight and translate value
     this.unitsWeightType = "Kg";
     this.unitsTallType = "Cm";
     this.translateUnitsWeightType = "Lb";
     this.translateUnitsWeightValue = 0;
-
-    // set default independent box
-    this.box_image_w = 'assets/images/crossfitindependent.png';
-    this.box_name = 'Independent';
-    this.user.box = null;
 
     // validate form
     this.signup2Form = formBuilder.group({
@@ -92,7 +96,6 @@ export class Signup2Page {
         weight = (this.signup2Form.value.weight / 2.20).toFixed(2);
       }
     }
-
     this.signup2Form.controls[ 'weight' ].setValue(weight);
   }
 
@@ -107,8 +110,9 @@ export class Signup2Page {
     
     // callback when user close modal
     boxesModal.onDidDismiss(data => {
-      this.box_image_w = data.box.id != null ? data.box.image_w : "assets/images/crossfitindependent.png";
-      this.box_image_b = data.box.id != null ? data.box.image_b : "";
+      this.config.imageBoxW = data.box.id != null ? data.box.image_w : "assets/images/crossfitindependent_w.png";
+      this.config.imageBoxB = data.box.id != null ? data.box.image_b : "assets/images/crossfitindependent_b.png";
+
       this.box_name = data.box.box;
       this.user.box = data.box.id;
     });
@@ -137,16 +141,17 @@ export class Signup2Page {
       // call service to signup the new user
       this.authData.signupUser( this.user ).then(() => {
 
-        // save new user to local sotrage and some variables
+        // clear all storage
+        this.storage.clear();
+        
+        // save new user and new config to 
+        // local storage and some variables
         this.storage.set('user', JSON.stringify(this.user));     
-        this.storage.set('friends', 0);     
-        this.storage.set('exercises', 0); 
-        this.storage.set('trainings', 0); 
-        this.storage.set('box', this.box_image_b);     
+        this.storage.set('config', JSON.stringify(this.config));        
 
-        this.navCtrl.setRoot(HomePage);
-      }, (error) => {
-
+        this.navCtrl.setRoot(DashBoardPage);
+      }, (error) => { 
+        
         var errorMessage: string = error.message;
         let alert = this.alertCtrl.create({
           message: errorMessage,

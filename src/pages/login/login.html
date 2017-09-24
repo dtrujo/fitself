@@ -1,14 +1,19 @@
 <ion-content class="login">
   <div class="login-container">
     <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
-      <div class="item">
-        <ion-icon class="left user"></ion-icon>
+      
+      <div 
+        class="item" 
+        [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.dirty">
+        <ion-icon class="left user"></ion-icon>      
         <ion-input class="left" formControlName="email" type="email" placeholder="Email address"></ion-input>
       </div>
 
-      <div class="item">
-        <ion-icon class="left lock"></ion-icon>
-        <ion-input class="left" formControlName="password" type="password" placeholder="Password"></ion-input>
+      <div 
+        class="item" 
+        [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty">
+         <ion-icon class="left lock"></ion-icon>        
+         <ion-input class="left" formControlName="password" type="password" placeholder="Password"></ion-input>
       </div>
 
       <button color="white" ion-button block type="submit" round='true'>

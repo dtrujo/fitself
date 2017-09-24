@@ -4,6 +4,7 @@ import { StatusBar, Splashscreen, Network } from 'ionic-native';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DashBoardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
+import { Storage } from '@ionic/storage';
 import { ConnectionData } from '../providers/connection-data';
 
 import firebase from 'firebase';
@@ -20,6 +21,7 @@ export class MyApp {
   */
   constructor(
     platform: Platform,
+    public storage : Storage,
     public connectionData: ConnectionData,
     public toastCtrl: ToastController,
     public ngZone: NgZone) {
@@ -42,7 +44,7 @@ export class MyApp {
 
     // watch network for a connection
     Network.onConnect().subscribe(() => {
-      console.log('network connected!'); 
+      console.log('network connected!');
     });
 
     // the platform is completely ready
@@ -51,15 +53,22 @@ export class MyApp {
       // hide manually the splash screen
       Splashscreen.hide();
 
+      // if user is in local storage we dont need
+      // to retrived firebase data, we can take data 
+      // storage in local
+      this.storage.get('user').then((user) => {
+        user ? this.rootPage = DashBoardPage : this.rootPage = LoginPage;
+      });
+
       // create component to detect is user is loggin or not
-      firebase.auth().onAuthStateChanged((user) => {
+      /*firebase.auth().onAuthStateChanged((user) => {
         this.ngZone.run(() => {
           user ? this.rootPage = DashBoardPage : this.rootPage = LoginPage;
         });
-      });
+      });*/
+      
     });
   }
-
 
   /**
     [presentToast description]

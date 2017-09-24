@@ -1,5 +1,8 @@
 {
   "name": "fitself",
   "app_id": "cf18c62a",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

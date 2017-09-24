@@ -15,8 +15,10 @@ export class StorageData {
   storageRef: any;
 
   /**
-  *
-  */
+   * 
+   * @param http 
+   * @param mediaData 
+   */
   constructor(public http: Http, public mediaData: MediaData) {
     this.storageRef = firebase.storage().ref();
   }
@@ -30,13 +32,29 @@ export class StorageData {
   upload(imageSource: string, username: string){
 
     // create a reference to 'profile/username.jpg'
-    const imageRef = this.storageRef.child('profile/' + username.toLocaleLowerCase() + '.jpg');
+    const imageRef = this.storageRef.child('profile/' + username.toLocaleLowerCase() + '.png');
 
     // convert image uri to base 64
     this.mediaData.toDataUrlBase64(imageSource, function (imageBase64) {
       imageRef.putString(imageBase64, firebase.storage.StringFormat.DATA_URL).then( (snapshot) => {
         console.log('the picture has been uploaded');
       });
+    });
+  }
+
+  /**
+   * download image and save in local storage
+   * return the entry url
+   * @param imageFirebaseUrl 
+   */
+  download(imageFirebaseUrl: string, id: string){
+    const fileTransfer = new Transfer();
+    
+    return fileTransfer.download(imageFirebaseUrl, cordova.file.dataDirectory + id + '.png').then((entry) => {
+      console.log('download complete: ' + entry.toURL());
+      return entry.toURL();
+    }, (error) => {
+      console.log(error);
     });
   }
 
@@ -71,29 +89,10 @@ export class StorageData {
       // Get the download URL for 'profiles folder'
       // This can be inserted into an <img> tag
       // This can also be downloaded directly
-      this.storageRef.child( 'profile/' + src ).getDownloadURL().then(function(url) {
-
-
-
-        // Create instance:
-        /*const fileTransfer = new Transfer();
-        let urluri = url;
-        fileTransfer.download(urluri, cordova.file.dataDirectory + 'pepe.jpg').then((entry) => {
-          console.log('download complete: ' + entry.toURL());
-        }, (error) => {
-          console.log(error);
-        });*/
-
-
-
-
-
-
+      this.storageRef.child( 'profile/' + src + '.png' ).getDownloadURL().then(function(url) {
         observer.next(url);
-
       }).catch(function(error) {
         observer.next(error);
-
       });
 
       // Any cleanup logic might go here

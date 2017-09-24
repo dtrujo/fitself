@@ -108,7 +108,10 @@ import { File } from '@ionic-native/file';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp, {
-      backButtonText: ''
+      backButtonText: '',
+      scrollPadding: false,
+      scrollAssist: false,
+      autoFocusAssist: false
     }),
     IonicStorageModule.forRoot()
   ],
